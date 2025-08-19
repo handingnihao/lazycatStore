@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}{{ app[1] }} - 应用详情{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center mb-4">
+    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-3">
+        <i class="fas fa-arrow-left"></i> 返回列表
+    </a>
+    <h2><i class="fas fa-info-circle text-primary"></i> 应用详情</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-start mb-3">
+                    {% if app[5] %}
+                    <img src="{{ app[5] }}" alt="应用图标" class="me-3" 
+                         style="width: 64px; height: 64px; border-radius: 12px;" 
+                         onerror="this.style.display='none'">
+                    {% endif %}
+                    <div class="flex-grow-1">
+                        <h3 class="mb-1">
+                            {{ app[1] }}
+                            {% if app[0] >= 1000000 %}
+                            <span class="badge bg-warning text-dark ms-2">
+                                <i class="fas fa-plus-circle"></i> 自定义添加
+                            </span>
+                            {% endif %}
+                        </h3>
+                        <p class="text-muted mb-2">
+                            ID: {{ app[0] }}
+                            {% if app[0] >= 1000000 %}
+                            <small class="text-warning">(自定义ID)</small>
+                            {% endif %}
+                        </p>
+                        {% if app[4] %}
+                        <a href="{{ app[4] }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-external-link-alt"></i> 访问详情页
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <strong><i class="fas fa-download text-primary"></i> 下载量</strong>
+                    </div>
+                    <div class="col-md-9">
+                        {% if app[3] > 0 %}
+                        <span class="badge bg-primary fs-6">{{ "{:,}".format(app[3]) }}</span>
+                        {% else %}
+                        <span class="badge bg-secondary">0</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <strong><i class="fas fa-info-circle text-primary"></i> 应用简介</strong>
+                    </div>
+                    <div class="col-md-9">
+                        {% if app[2] %}
+                        <p class="mb-0">{{ app[2] }}</p>
+                        {% else %}
+                        <span class="text-muted">暂无描述</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if app[5] %}
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <strong><i class="fas fa-image text-primary"></i> 图标链接</strong>
+                    </div>
+                    <div class="col-md-9">
+                        <a href="{{ app[5] }}" target="_blank" class="text-decoration-none">
+                            {{ app[5] }}
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <strong><i class="fas fa-calendar text-primary"></i> 创建时间</strong>
+                    </div>
+                    <div class="col-md-9">
+                        {{ app[6] if app[6] else '未知' }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <strong><i class="fas fa-clock text-primary"></i> 更新时间</strong>
+                    </div>
+                    <div class="col-md-9">
+                        {{ app[7] if app[7] else '未更新' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <!-- 操作面板 -->
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="fas fa-cogs"></i> 操作
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('edit_app', app_id=app[0]) }}" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> 编辑应用
+                    </a>
+                    <button type="button" class="btn btn-danger" onclick="deleteApp({{ app[0] }}, '{{ app[1] }}')">
+                        <i class="fas fa-trash"></i> 删除应用
+                    </button>
+                    <hr>
+                    <a href="{{ url_for('index', search=app[1]) }}" class="btn btn-outline-primary">
+                        <i class="fas fa-search"></i> 搜索相似应用
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="fas fa-chart-bar"></i> 统计信息
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h4 class="text-primary">{{ app[3] }}</h4>
+                        <small class="text-muted">下载次数</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-info">{{ app[0] }}</h4>
+                        <small class="text-muted">应用ID</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快速链接 -->
+        {% if app[4] or app[5] %}
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="fas fa-link"></i> 快速链接
+                </h6>
+            </div>
+            <div class="card-body">
+                {% if app[4] %}
+                <div class="mb-2">
+                    <a href="{{ app[4] }}" target="_blank" class="btn btn-outline-primary btn-sm w-100">
+                        <i class="fas fa-external-link-alt"></i> 应用详情页
+                    </a>
+                </div>
+                {% endif %}
+                {% if app[5] %}
+                <div class="mb-2">
+                    <a href="{{ app[5] }}" target="_blank" class="btn btn-outline-secondary btn-sm w-100">
+                        <i class="fas fa-image"></i> 查看图标
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- 删除确认模态框 -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">确认删除</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>确定要删除应用 "<span id="deleteAppName"></span>" 吗？</p>
+                <p class="text-danger"><small>此操作不可撤销！</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <form id="deleteForm" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">确认删除</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function deleteApp(appId, appName) {
+    document.getElementById('deleteAppName').textContent = appName;
+    document.getElementById('deleteForm').action = `/delete/${appId}`;
+    new bootstrap.Modal(document.getElementById('deleteModal')).show();
+}
+</script>
+{% endblock %}

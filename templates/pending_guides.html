@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+
+{% block title %}待写攻略列表 - 懒猫应用商店管理系统{% endblock %}
+
+{% block extra_css %}
+<style>
+.hover-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.hover-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.hover-card .display-6 {
+  transition: color 0.3s ease;
+}
+.hover-card:hover .display-6 {
+  color: #007bff !important;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-10 mx-auto">
+    <div class="d-flex align-items-center mb-4">
+      <a href="{{ url_for('guide_stats') }}" class="btn btn-outline-secondary me-3">
+        <i class="fas fa-arrow-left"></i> 返回攻略统计
+      </a>
+      <h2><i class="fas fa-list-alt text-info"></i> 待写攻略列表</h2>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-2">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <div class="display-6 text-info">{{ stats.apps_pending_guides or 0 }}</div>
+            <div class="text-muted">待写攻略总数</div>
+            <small class="text-muted">当前页面</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <a href="{{ url_for('with_guides') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div class="display-6 text-success">{{ stats.apps_with_guides }}</div>
+              <div class="text-muted">已有攻略</div>
+              <small class="text-muted"><i class="fas fa-arrow-right"></i> 查看列表</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="{{ url_for('guide_stats') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div class="display-6 text-danger">{{ stats.apps_without_guides }}</div>
+              <div class="text-muted">需要攻略</div>
+              <small class="text-muted"><i class="fas fa-arrow-right"></i> 查看列表</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-2">
+        <a href="{{ url_for('skipped_guides') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div class="display-6 text-warning">{{ stats.apps_skipped_guides or 0 }}</div>
+              <div class="text-muted">暂时不写攻略</div>
+              <small class="text-muted"><i class="fas fa-ban"></i> 查看列表</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="{{ url_for('index') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div class="display-6">{{ stats.total_apps }}</div>
+              <div class="text-muted">总应用数</div>
+              <small class="text-muted"><i class="fas fa-home"></i> 主页</small>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-list-alt text-info"></i> 待写攻略的应用
+          </h5>
+          <div class="text-muted" id="pageInfo">
+            第 {{ page }} 页，共 {{ total_pages }} 页 | 总计 {{ total_pending }} 个应用
+          </div>
+        </div>
+
+        {% if pending_apps|length > 0 %}
+        <p class="text-muted">以下应用已被加入待写攻略列表，请安排时间编写相关攻略。</p>
+        
+        <!-- 顶部分页导航 -->
+        <div id="topPagination">
+          <!-- 这里会由JavaScript动态生成分页导航 -->
+        </div>
+        
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th width="8%">ID</th>
+                <th width="30%">应用信息</th>
+                <th width="40%">简介描述</th>
+                <th width="12%">下载量</th>
+                <th width="10%">操作</th>
+              </tr>
+            </thead>
+            <tbody id="appsTableBody">
+              {% for app in pending_apps %}
+              <tr>
+                <td>{{ app[0] }}</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    {% if app[5] %}
+                    <img src="{{ app[5] }}" alt="图标" class="me-2" style="width: 32px; height: 32px; border-radius: 8px;" 
+                         onerror="this.style.display='none'">
+                    {% endif %}
+                    <div>
+                      <div class="fw-bold">
+                        <a href="{{ url_for('view_app', app_id=app[0]) }}" class="text-decoration-none">
+                          {{ app[1] }}
+                        </a>
+                      </div>
+                      {% if app[4] %}
+                      <small class="text-muted">
+                        <a href="{{ app[4] }}" target="_blank" class="text-decoration-none">
+                          <i class="fas fa-external-link-alt"></i> 官方页面
+                        </a>
+                      </small>
+                      {% endif %}
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <small class="text-muted">
+                    {{ app[2][:100] + '...' if app[2] and app[2]|length > 100 else app[2] or '暂无描述' }}
+                  </small>
+                </td>
+                <td>
+                  <span class="badge bg-secondary">{{ app[3] if app|length > 3 else 0 }}</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-outline-success" 
+                          onclick="markGuideCompleted({{ app[0] }}, '{{ app[1] }}')"
+                          title="标记为已有攻略"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top">
+                    <i class="fas fa-check"></i>
+                  </button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- 底部分页导航 -->
+        <div id="bottomPagination">
+          <!-- 这里会由JavaScript动态生成分页导航 -->
+        </div>
+        
+        {% else %}
+        <div class="text-center py-5">
+          <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+          <h4>暂无待写攻略</h4>
+          <p class="text-muted">当前没有应用在待写攻略列表中。</p>
+          <a href="{{ url_for('guide_stats') }}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> 去添加待写攻略
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 全局变量
+let currentPage = {{ page }};
+let totalPages = {{ total_pages }};
+let totalPending = {{ total_pending }};
+
+async function loadPage(page, source = 'unknown') {
+  console.log(`Loading pending guides page ${page} via Ajax (source: ${source})`);
+  
+  const tableBody = document.getElementById('appsTableBody');
+  tableBody.innerHTML = '<tr><td colspan="5" class="text-center"><i class="fas fa-spinner fa-spin"></i> 加载中...</td></tr>';
+  
+  try {
+    const res = await fetch(`/api/pending_guides?page=${page}`);
+    const data = await res.json();
+    
+    if (data.success) {
+      currentPage = data.page;
+      totalPages = data.total_pages;
+      totalPending = data.total_pending;
+      
+      renderTable(data.apps);
+      updatePagination();
+      
+      document.getElementById('pageInfo').textContent = 
+        `第 ${currentPage} 页，共 ${totalPages} 页 | 总计 ${totalPending} 个应用`;
+      
+      console.log(`Pending guides page ${currentPage} loaded successfully with ${data.apps.length} apps`);
+    }
+  } catch (e) {
+    console.error('Ajax loading error:', e);
+    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">网络错误</td></tr>';
+  }
+}
+
+function renderTable(apps) {
+  const tableBody = document.getElementById('appsTableBody');
+  
+  if (apps.length === 0) {
+    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-success"><i class="fas fa-check-circle"></i> 暂无待写攻略应用</td></tr>';
+    return;
+  }
+  
+  let html = '';
+  apps.forEach(app => {
+    const iconHtml = app.icon_src ? 
+      `<img src="${app.icon_src}" alt="图标" class="me-2" style="width: 32px; height: 32px; border-radius: 8px;" onerror="this.style.display='none'">` : '';
+    
+    const officialLink = app.href ? 
+      `<small class="text-muted"><a href="${app.href}" target="_blank" class="text-decoration-none"><i class="fas fa-external-link-alt"></i> 官方页面</a></small>` : '';
+    
+    const brief = app.brief ? 
+      (app.brief.length > 100 ? app.brief.substring(0, 100) + '...' : app.brief) : '暂无描述';
+    
+    html += `
+      <tr>
+        <td>${app.id}</td>
+        <td>
+          <div class="d-flex align-items-center">
+            ${iconHtml}
+            <div>
+              <div class="fw-bold">
+                <a href="/app/${app.id}" class="text-decoration-none">${app.name}</a>
+              </div>
+              ${officialLink}
+            </div>
+          </div>
+        </td>
+        <td>
+          <small class="text-muted">${brief}</small>
+        </td>
+        <td>
+          <span class="badge bg-secondary">${app.count}</span>
+        </td>
+        <td>
+          <button class="btn btn-sm btn-outline-success" 
+                  onclick="markGuideCompleted(${app.id}, '${app.name}')"
+                  title="标记为已有攻略">
+            <i class="fas fa-check"></i>
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+  
+  tableBody.innerHTML = html;
+}
+
+function updatePagination() {
+  const topPagination = document.getElementById('topPagination');
+  const bottomPagination = document.getElementById('bottomPagination');
+  
+  const paginationHtml = generatePaginationHtml();
+  topPagination.innerHTML = paginationHtml;
+  bottomPagination.innerHTML = paginationHtml;
+}
+
+function generatePaginationHtml() {
+  if (totalPages <= 1) return '';
+  
+  let html = '<nav><ul class="pagination justify-content-center">';
+  
+  if (currentPage > 1) {
+    html += '<li class="page-item"><button type="button" class="page-link" onclick="loadPage(1, \'js-first\')"><i class="fas fa-angle-double-left"></i> 首页</button></li>';
+    html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${currentPage-1}, 'js-prev')"><i class="fas fa-angle-left"></i> 上一页</button></li>`;
+  }
+  
+  const startPage = Math.max(1, currentPage - 2);
+  const endPage = Math.min(totalPages, currentPage + 2);
+  
+  for (let p = startPage; p <= endPage; p++) {
+    if (p === currentPage) {
+      html += `<li class="page-item active"><span class="page-link">${p}</span></li>`;
+    } else {
+      html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${p}, 'js-page')">${p}</button></li>`;
+    }
+  }
+  
+  if (currentPage < totalPages) {
+    html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${currentPage+1}, 'js-next')">下一页 <i class="fas fa-angle-right"></i></button></li>`;
+    html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${totalPages}, 'js-last')">末页 <i class="fas fa-angle-double-right"></i></button></li>`;
+  }
+  
+  html += '</ul></nav>';
+  return html;
+}
+
+async function markGuideCompleted(appId, appName) {
+  const button = event.target.closest('button');
+  const originalContent = button.innerHTML;
+  button.disabled = true;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  
+  console.log(`Marking guide completed for app ${appId} (${appName})`);
+  
+  try {
+    const res = await fetch(`/mark_guide_completed/${appId}`, { method: 'POST' });
+    const data = await res.json();
+    
+    if (data.success) {
+      console.log('Successfully marked guide as completed, reloading page');
+      await loadPage(currentPage, 'mark-completed');
+    } else {
+      console.error('Mark guide completed failed:', data.message);
+      button.disabled = false;
+      button.innerHTML = originalContent;
+    }
+  } catch (e) {
+    console.error('Network error in markGuideCompleted:', e);
+    button.disabled = false;
+    button.innerHTML = originalContent;
+  }
+}
+
+// 初始化分页导航
+document.addEventListener('DOMContentLoaded', function() {
+  updatePagination();
+});
+</script>
+{% endblock %}

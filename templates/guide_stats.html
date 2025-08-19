@@ -1,0 +1,598 @@
+{% extends "base.html" %}
+
+{% block title %}攻略统计 - 懒猫应用商店管理系统{% endblock %}
+
+{% block extra_css %}
+<style>
+.hover-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.hover-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.hover-card .display-6 {
+  transition: color 0.3s ease;
+}
+.hover-card:hover .display-6 {
+  color: #007bff !important;
+}
+</style>
+{% endblock %}
+
+<!-- 分页导航宏 -->
+{% macro pagination_nav(page, total_pages, current_route, css_class='') %}
+  {% if total_pages > 1 %}
+  <nav aria-label="无攻略应用分页导航" class="{{ css_class }}">
+    <ul class="pagination justify-content-center">
+      <!-- 首页 -->
+      {% if page > 1 %}
+      <li class="page-item">
+        <button type="button" class="page-link" onclick="loadPage(1, 'macro-first')">
+          <i class="fas fa-angle-double-left"></i> 首页
+        </button>
+      </li>
+      {% endif %}
+      
+      <!-- 上一页 -->
+      {% if page > 1 %}
+      <li class="page-item">
+        <button type="button" class="page-link" onclick="loadPage({{ page-1 }}, 'macro-prev')">
+          <i class="fas fa-angle-left"></i> 上一页
+        </button>
+      </li>
+      {% endif %}
+      
+      <!-- 页码 -->
+      {% set start_page = [1, page-2]|max %}
+      {% set end_page = [total_pages, page+2]|min %}
+      
+      {% if start_page > 1 %}
+      <li class="page-item disabled">
+        <span class="page-link">...</span>
+      </li>
+      {% endif %}
+      
+      {% for p in range(start_page, end_page + 1) %}
+      <li class="page-item {{ 'active' if p == page else '' }}">
+        {% if p == page %}
+        <span class="page-link">{{ p }}</span>
+        {% else %}
+        <button type="button" class="page-link" onclick="loadPage({{ p }}, 'macro-page')">{{ p }}</button>
+        {% endif %}
+      </li>
+      {% endfor %}
+      
+      {% if end_page < total_pages %}
+      <li class="page-item disabled">
+        <span class="page-link">...</span>
+      </li>
+      {% endif %}
+      
+      <!-- 下一页 -->
+      {% if page < total_pages %}
+      <li class="page-item">
+        <button type="button" class="page-link" onclick="loadPage({{ page+1 }}, 'macro-next')">
+          下一页 <i class="fas fa-angle-right"></i>
+        </button>
+      </li>
+      {% endif %}
+      
+      <!-- 末页 -->
+      {% if page < total_pages %}
+      <li class="page-item">
+        <button type="button" class="page-link" onclick="loadPage({{ total_pages }}, 'macro-last')">
+          末页 <i class="fas fa-angle-double-right"></i>
+        </button>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+{% endmacro %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-10 mx-auto">
+    <div class="d-flex align-items-center mb-4">
+      <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-3">
+        <i class="fas fa-arrow-left"></i> 返回
+      </a>
+      <h2><i class="fas fa-book text-primary"></i> 攻略统计</h2>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-2">
+        <a href="{{ url_for('index') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div id="totalApps" class="display-6">{{ stats.total_apps }}</div>
+              <div class="text-muted">总应用数</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-2">
+        <a href="{{ url_for('with_guides') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div id="appsWithGuides" class="display-6 text-success">{{ stats.apps_with_guides }}</div>
+              <div class="text-muted">有攻略的应用</div>
+              <small class="text-muted"><i class="fas fa-arrow-right"></i> 查看列表</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <div id="appsWithoutGuides" class="display-6 text-danger">{{ stats.apps_without_guides }}</div>
+            <div class="text-muted">需要攻略的应用</div>
+            <small class="text-muted">当前页面</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <a href="{{ url_for('pending_guides') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div id="appsPendingGuides" class="display-6 text-info">{{ stats.apps_pending_guides or 0 }}</div>
+              <div class="text-muted">待写攻略</div>
+              <small class="text-muted"><i class="fas fa-arrow-right"></i> 查看列表</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="{{ url_for('skipped_guides') }}" class="text-decoration-none">
+          <div class="card h-100 hover-card">
+            <div class="card-body text-center">
+              <div id="appsSkippedGuides" class="display-6 text-warning">{{ stats.apps_skipped_guides or 0 }}</div>
+              <div class="text-muted">暂时不写攻略</div>
+              <small class="text-muted"><i class="fas fa-arrow-right"></i> 查看列表</small>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <i class="fas fa-link text-primary"></i>
+          官方攻略地址：
+          <a href="https://lazycat.cloud/playground/" target="_blank">https://lazycat.cloud/playground/</a>
+        </div>
+        <button id="updateGuidesBtn" class="btn btn-primary">
+          <i class="fas fa-sync-alt"></i> 自动抓取并更新攻略链接
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="card-title mb-0">
+            <i class="fas fa-list text-warning"></i> 无攻略的应用
+          </h5>
+          <div class="text-muted" id="pageInfo">
+            第 {{ page }} 页，共 {{ total_pages }} 页 | 总计 {{ total_missing }} 个应用
+          </div>
+        </div>
+
+        <!-- 顶部分页导航 -->
+        <div id="topPagination">
+          {{ pagination_nav(page, total_pages, 'guide_stats', 'mb-3') }}
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th width="8%">ID</th>
+                <th width="30%">应用信息</th>
+                <th width="40%">简介描述</th>
+                <th width="12%">下载量</th>
+                <th width="10%">操作</th>
+              </tr>
+            </thead>
+            <tbody id="appsTableBody">
+              {% for app in missing %}
+              <tr>
+                <td>{{ app[0] }}</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    {% if app[5] %}
+                    <img src="{{ app[5] }}" alt="图标" class="me-2" style="width: 32px; height: 32px; border-radius: 8px;" 
+                         onerror="this.style.display='none'">
+                    {% endif %}
+                    <div>
+                      <div class="fw-bold">
+                        <a href="{{ url_for('view_app', app_id=app[0]) }}" class="text-decoration-none">
+                          {{ app[1] }}
+                        </a>
+                      </div>
+                      {% if app[4] %}
+                      <small class="text-muted">
+                        <a href="{{ app[4] }}" target="_blank" class="text-decoration-none">
+                          <i class="fas fa-external-link-alt"></i> 官方页面
+                        </a>
+                      </small>
+                      {% endif %}
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <small class="text-muted">
+                    {{ app[2][:100] + '...' if app[2] and app[2]|length > 100 else app[2] or '暂无描述' }}
+                  </small>
+                </td>
+                <td>
+                  <span class="badge bg-secondary">{{ app[3] if app|length > 3 else 0 }}</span>
+                </td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-outline-success" 
+                            onclick="markPendingGuide({{ app[0] }}, '{{ app[1] }}')"
+                            title="加入待写列表"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top">
+                      <i class="fas fa-plus-circle"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary" 
+                            onclick="markSkipGuide({{ app[0] }}, '{{ app[1] }}')"
+                            title="标记为暂时不写攻略（将从列表中移除）"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top">
+                      <i class="fas fa-minus-circle"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+              {% if missing|length == 0 %}
+              <tr>
+                <td colspan="5" class="text-center text-success">
+                  <i class="fas fa-check-circle"></i> 所有需要攻略的应用都已有相关攻略！
+                </td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <!-- 底部分页导航 -->
+        <div id="bottomPagination">
+          {{ pagination_nav(page, total_pages, 'guide_stats', 'mt-4') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 全局变量
+let currentPage = {{ page }};
+let totalPages = {{ total_pages }};
+let totalMissing = {{ total_missing }};
+
+async function loadPage(page, source = 'unknown') {
+  // 防止重复加载同一页
+  if (page === currentPage && source !== 'url-parameter' && source !== 'auto-redirect' && source !== 'mark-pending' && source !== 'guide-update') {
+    console.log(`Page ${page} already loaded, skipping`);
+    return;
+  }
+  
+  // 防止无效页码
+  if (page < 1) {
+    console.log(`Invalid page number ${page}, using page 1`);
+    page = 1;
+  }
+  
+  console.log(`Loading page ${page} via Ajax (source: ${source})`);
+  
+  const tableBody = document.getElementById('appsTableBody');
+  tableBody.innerHTML = '<tr><td colspan="5" class="text-center"><i class="fas fa-spinner fa-spin"></i> 加载中...</td></tr>';
+  
+  try {
+    const res = await fetch(`/api/guide_stats?page=${page}`);
+    const data = await res.json();
+    
+    if (data.success) {
+      currentPage = data.page;
+      totalPages = data.total_pages;
+      totalMissing = data.total_missing;
+      
+      // 如果当前页没有数据且总页数大于0，跳转到最后一页（但避免无限递归）
+      if (data.apps.length === 0 && totalPages > 0 && currentPage > totalPages && source !== 'auto-redirect') {
+        console.log(`Page ${currentPage} is beyond total pages ${totalPages}, redirecting to last page`);
+        await loadPage(totalPages, 'auto-redirect');
+        return;
+      }
+      
+      renderTable(data.apps);
+      updatePagination();
+      
+      document.getElementById('pageInfo').textContent = 
+        `第 ${currentPage} 页，共 ${totalPages} 页 | 总计 ${totalMissing} 个应用`;
+      
+      // 只有在非浏览器导航时才更新URL（避免pushState触发popstate）
+      if (source !== 'browser-navigation' && source !== 'url-parameter' && source !== 'auto-redirect') {
+        const url = new URL(window.location);
+        url.searchParams.set('page', page);
+        window.history.pushState({page: page}, '', url);
+      }
+      
+      console.log(`Page ${currentPage} loaded successfully with ${data.apps.length} apps`);
+    }
+  } catch (e) {
+    console.error('Ajax loading error:', e);
+    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">网络错误</td></tr>';
+  }
+}
+
+function renderTable(apps) {
+  const tableBody = document.getElementById('appsTableBody');
+  
+  if (apps.length === 0) {
+    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-success"><i class="fas fa-check-circle"></i> 所有需要攻略的应用都已有相关攻略！</td></tr>';
+    return;
+  }
+  
+  let html = '';
+  apps.forEach(app => {
+    html += `
+      <tr>
+        <td>${app.id}</td>
+        <td>
+          <div class="d-flex align-items-center">
+            ${app.icon_src ? `<img src="${app.icon_src}" alt="图标" class="me-2" style="width: 32px; height: 32px; border-radius: 8px;" onerror="this.style.display='none'">` : ''}
+            <div>
+              <div class="fw-bold">
+                <a href="/app/${app.id}" class="text-decoration-none">${app.name}</a>
+              </div>
+              ${app.href ? `<small class="text-muted"><a href="${app.href}" target="_blank" class="text-decoration-none"><i class="fas fa-external-link-alt"></i> 官方页面</a></small>` : ''}
+            </div>
+          </div>
+        </td>
+        <td>
+          <small class="text-muted">${app.brief ? (app.brief.length > 100 ? app.brief.substring(0, 100) + '...' : app.brief) : '暂无描述'}</small>
+        </td>
+        <td>
+          <span class="badge bg-secondary">${app.count}</span>
+        </td>
+        <td>
+          <div class="btn-group" role="group">
+            <button class="btn btn-sm btn-outline-success" 
+                    onclick="markPendingGuide(${app.id}, '${app.name}')"
+                    title="加入待写列表">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" 
+                    onclick="markSkipGuide(${app.id}, '${app.name}')"
+                    title="标记为暂时不写攻略（将从列表中移除）">
+              <i class="fas fa-minus-circle"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+  
+  tableBody.innerHTML = html;
+}
+
+function updatePagination() {
+  const topPagination = document.getElementById('topPagination');
+  const bottomPagination = document.getElementById('bottomPagination');
+  
+  const paginationHtml = generatePaginationHtml();
+  topPagination.innerHTML = paginationHtml;
+  bottomPagination.innerHTML = paginationHtml;
+}
+
+function generatePaginationHtml() {
+  if (totalPages <= 1) return '';
+  
+  let html = '<nav><ul class="pagination justify-content-center">';
+  
+  if (currentPage > 1) {
+    html += '<li class="page-item"><button type="button" class="page-link" onclick="loadPage(1, \'js-first\')"><i class="fas fa-angle-double-left"></i> 首页</button></li>';
+    html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${currentPage-1}, 'js-prev')"><i class="fas fa-angle-left"></i> 上一页</button></li>`;
+  }
+  
+  const startPage = Math.max(1, currentPage - 2);
+  const endPage = Math.min(totalPages, currentPage + 2);
+  
+  for (let p = startPage; p <= endPage; p++) {
+    if (p === currentPage) {
+      html += `<li class="page-item active"><span class="page-link">${p}</span></li>`;
+    } else {
+      html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${p}, 'js-page')">${p}</button></li>`;
+    }
+  }
+  
+  if (currentPage < totalPages) {
+    html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${currentPage+1}, 'js-next')">下一页 <i class="fas fa-angle-right"></i></button></li>`;
+    html += `<li class="page-item"><button type="button" class="page-link" onclick="loadPage(${totalPages}, 'js-last')">末页 <i class="fas fa-angle-double-right"></i></button></li>`;
+  }
+  
+  html += '</ul></nav>';
+  return html;
+}
+
+async function updateStatistics() {
+  try {
+    const res = await fetch('/api/statistics');
+    const data = await res.json();
+    
+    if (data.success) {
+      const stats = data.data;
+      document.getElementById('totalApps').textContent = stats.total_apps;
+      document.getElementById('appsWithGuides').textContent = stats.apps_with_guides;
+      document.getElementById('appsWithoutGuides').textContent = stats.apps_without_guides;
+      document.getElementById('appsPendingGuides').textContent = stats.apps_pending_guides;
+      document.getElementById('appsSkippedGuides').textContent = stats.apps_skipped_guides;
+    }
+  } catch (e) {
+    console.error('Error updating statistics:', e);
+  }
+}
+
+async function markSkipGuide(appId, appName) {
+  const button = event.target.closest('button');
+  const originalContent = button.innerHTML;
+  const row = button.closest('tr');
+  
+  button.disabled = true;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  
+  console.log(`Marking app ${appId} (${appName}) to skip guide`);
+  
+  try {
+    const res = await fetch(`/mark_skip_guide/${appId}`, { method: 'POST' });
+    const data = await res.json();
+    
+    console.log('Mark skip response:', data);
+    
+    if (data.success) {
+      console.log('Successfully marked, updating statistics');
+      
+      // 先隐藏当前行，提供即时反馈
+      row.style.opacity = '0.5';
+      row.style.pointerEvents = 'none';
+      
+      // 更新统计数据
+      await updateStatistics();
+      
+      // 重新加载页面数据
+      await loadPage(currentPage, 'mark-skip');
+      
+      console.log('Page reloaded after marking as skip');
+    } else {
+      console.error('Mark skip failed:', data.message);
+      alert(`标记失败: ${data.message}`);
+      button.disabled = false;
+      button.innerHTML = originalContent;
+    }
+  } catch (e) {
+    console.error('Network error in markSkipGuide:', e);
+    alert('网络错误，请稍后重试');
+    button.disabled = false;
+    button.innerHTML = originalContent;
+  }
+}
+
+async function markPendingGuide(appId, appName) {
+  const button = event.target.closest('button');
+  const originalContent = button.innerHTML;
+  const row = button.closest('tr');
+  
+  button.disabled = true;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  
+  console.log(`Marking app ${appId} (${appName}) as pending guide`);
+  
+  try {
+    const res = await fetch(`/mark_pending_guide/${appId}`, { method: 'POST' });
+    const data = await res.json();
+    
+    console.log('Mark pending response:', data);
+    
+    if (data.success) {
+      console.log('Successfully marked as pending, updating statistics');
+      
+      // 先隐藏当前行，提供即时反馈
+      row.style.opacity = '0.5';
+      row.style.pointerEvents = 'none';
+      
+      // 更新统计数据
+      await updateStatistics();
+      
+      // 重新加载页面数据
+      await loadPage(currentPage, 'mark-pending');
+      
+      console.log('Page reloaded after marking as pending');
+    } else {
+      console.error('Mark pending failed:', data.message);
+      alert(`标记失败: ${data.message}`);
+      button.disabled = false;
+      button.innerHTML = originalContent;
+    }
+  } catch (e) {
+    console.error('Network error in markPendingGuide:', e);
+    alert('网络错误，请稍后重试');
+    button.disabled = false;
+    button.innerHTML = originalContent;
+  }
+}
+
+// 处理浏览器前进后退按钮
+window.addEventListener('popstate', function(event) {
+  console.log('Browser navigation detected');
+  const urlParams = new URLSearchParams(window.location.search);
+  const page = parseInt(urlParams.get('page')) || 1;
+  
+  // 防止无限循环，只有当页码真的不同时才加载
+  if (page !== currentPage) {
+    loadPage(page, 'browser-navigation');
+  }
+});
+
+// 自动抓取攻略按钮处理
+async function updateGuides() {
+  const button = document.getElementById('updateGuidesBtn');
+  const originalContent = button.innerHTML;
+  button.disabled = true;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 正在抓取攻略数据...';
+  
+  console.log('Starting guide update from API');
+  
+  try {
+    const res = await fetch('/update_guides', { method: 'POST' });
+    const data = await res.json();
+    
+    console.log('Guide update response:', data);
+    
+    if (data.success) {
+      console.log('Guide update successful, updating statistics and reloading page');
+      await updateStatistics();
+      await loadPage(currentPage, 'guide-update');
+      
+      // 显示成功消息
+      if (data.data && data.data.message) {
+        alert(`✅ ${data.data.message}`);
+      }
+    } else {
+      console.error('Guide update failed:', data.message);
+      alert(`❌ 更新失败: ${data.message}`);
+    }
+  } catch (e) {
+    console.error('Network error in updateGuides:', e);
+    alert('❌ 网络错误，请检查网络连接');
+  } finally {
+    button.disabled = false;
+    button.innerHTML = originalContent;
+  }
+}
+
+// 页面加载完成后，如果URL包含页码参数，加载对应页面
+window.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlPage = parseInt(urlParams.get('page'));
+  
+  // 如果URL中有页码且与当前页不同，使用Ajax加载
+  if (urlPage && urlPage !== currentPage && urlPage >= 1) {
+    console.log(`Loading page ${urlPage} from URL parameter`);
+    loadPage(urlPage, 'url-parameter');
+  }
+  
+  // 绑定按钮事件
+  const updateBtn = document.getElementById('updateGuidesBtn');
+  if (updateBtn) {
+    updateBtn.addEventListener('click', updateGuides);
+  }
+});
+</script>
+{% endblock %}

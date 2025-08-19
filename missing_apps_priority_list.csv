@@ -1,0 +1,612 @@
+应用名称,描述,GitHub Stars,优先级,分类,开发语言,许可证,GitHub链接,官网链接
+Open WebUI,User-friendly and extensible AI interface,100k,?????? 超高优先级,Artificial Intelligence,,,https://github.com/open-webui/open-webui?ref=selfh.st,https://openwebui.com/?ref=selfh.st
+Supabase,Open-source based platform for backend development solutions,85k,?????? 超高优先级,Development,,,https://github.com/supabase/supabase?ref=selfh.st,https://supabase.com/?ref=selfh.st
+Hugo,Fast and flexible static site generator built with love,82k,?????? 超高优先级,Blog,,,https://github.com/gohugoio/hugo?ref=selfh.st,https://gohugo.io/?ref=selfh.st
+AppFlowy,AI-powered secure workspace for wikis and projects,64k,?????? 超高优先级,Note-Taking,,,https://github.com/AppFlowy-IO/AppFlowy?ref=selfh.st,https://appflowy.com/?ref=selfh.st
+LocalSend,Cross-platform local network file sharing,63k,?????? 超高优先级,Local File Sharing,,,https://github.com/localsend/localsend?ref=selfh.st,https://localsend.org/?ref=selfh.st
+Docusaurus,Easy to maintain open-source documentation websites,60k,?????? 超高优先级,Wiki,,,https://github.com/facebook/docusaurus?ref=selfh.st,https://docusaurus.io/?ref=selfh.st
+Gatsby,Framework for building blazing fast websites and apps,56k,?????? 超高优先级,Blog,,,https://github.com/gatsbyjs/gatsby?ref=selfh.st,https://www.gatsbyjs.com/?ref=selfh.st
+Traefik,Cloud native application proxy,55k,?????? 超高优先级,Reverse Proxy,,,https://github.com/traefik/traefik?ref=selfh.st,https://traefik.io/?ref=selfh.st
+Pi-hole,Black hole for internet advertisements,52k,?????? 超高优先级,Ad Block,,,https://github.com/pi-hole/pi-hole?ref=selfh.st,https://pi-hole.net/?ref=selfh.st
+Rclone,File and directory sync with various cloud storage providers,51k,?????? 超高优先级,File Transfer and Sync,,,https://github.com/rclone/rclone?ref=selfh.st,https://rclone.org/?ref=selfh.st
+Joplin,Secure note-taking and to-do app with synchronization capabilities,50k,?????? 超高优先级,Note-Taking,,,https://github.com/laurent22/joplin?ref=selfh.st,https://joplinapp.org/?ref=selfh.st
+Jekyll,"Simple, blog-aware static site generator",50k,?????? 超高优先级,Blog,,,https://github.com/jekyll/jekyll?ref=selfh.st,https://jekyllrb.com/?ref=selfh.st
+Mastodon,Social network server where users can follow friends and discover new ones,48k,???? 高优先级,ActivityPub / Fediverse,,,https://github.com/mastodon/mastodon?ref=selfh.st,https://joinmastodon.org/?ref=selfh.st
+Discourse,Online home for communities,44k,???? 高优先级,Forums,,,https://github.com/discourse/discourse?ref=selfh.st,https://www.discourse.org/?ref=selfh.st
+Coolify,Software deployment and management platform,43k,???? 高优先级,Deployment,,,https://github.com/coollabsio/coolify?ref=selfh.st,https://coolify.io/?ref=selfh.st
+Rocket.Chat,Fully customizable communications platform with high standards of data protection,43k,???? 高优先级,Messaging,,,https://github.com/RocketChat/Rocket.Chat?ref=selfh.st,https://rocket.chat/?ref=selfh.st
+Sentry,Developer-first error tracking and performance monitoring,41k,???? 高优先级,Development,,,https://github.com/getsentry/sentry?ref=selfh.st,https://sentry.io/?ref=selfh.st
+Novu,Open source notifications framework,37k,???? 高优先级,Development,,,https://github.com/novuhq/novu?ref=selfh.st,https://novu.co/?ref=selfh.st
+Appsmith,"Platform for building admin panels, internal tools, and dashboards",37k,???? 高优先级,No-Code / Low-Code,,,https://github.com/appsmithorg/appsmith?ref=selfh.st,https://www.appsmith.com/?ref=selfh.st
+Cal.com,Scheduling infrastructure for absolutely everyone,37k,???? 高优先级,Calendar,,,https://github.com/calcom/cal.com?ref=selfh.st,https://cal.com/?ref=selfh.st
+ToolJet,Low-code platform for building internal applications,36k,???? 高优先级,No-Code / Low-Code,,,https://github.com/ToolJet/ToolJet?ref=selfh.st,https://tooljet.ai/?ref=selfh.st
+Payload,Headless CMS and application framework,36k,???? 高优先级,Content Management,,,https://github.com/payloadcms/payload?ref=selfh.st,https://payloadcms.com/?ref=selfh.st
+Puter,Advanced open-source desktop environment in the browser,34k,???? 高优先级,Web Desktop,,,https://github.com/HeyPuter/puter?ref=selfh.st,https://puter.com/?ref=selfh.st
+LocalAI,Drop-in replacement REST API for OpenAI,33k,???? 高优先级,Artificial Intelligence,,,https://github.com/mudler/LocalAI?ref=selfh.st,https://localai.io/?ref=selfh.st
+Medusa,Commerce modules and tools for building rich and performant commerce applications,30k,???? 高优先级,E-commerce,,,https://github.com/medusajs/medusa?ref=selfh.st,https://medusajs.com/?ref=selfh.st
+Headscale,Open-source implementation of the Tailscale control server,29k,???? 高优先级,Remote Access,,,https://github.com/juanfont/headscale?ref=selfh.st,https://github.com/juanfont/headscale?ref=selfh.st
+restic,"Fast, secure, efficient backup program",29k,???? 高优先级,Backups,,,https://github.com/restic/restic?ref=selfh.st,https://restic.net/?ref=selfh.st
+Sunshine,Game stream host for Moonlight,27k,???? 高优先级,Gaming,,,https://github.com/LizardByte/Sunshine?ref=selfh.st,http://app.lizardbyte.dev/Sunshine/?ref=selfh.st
+LibreChat,Sleek and customizable interface for AI conversations,27k,???? 高优先级,Artificial Intelligence,,,https://github.com/danny-avila/LibreChat?ref=selfh.st,https://librechat.ai/?ref=selfh.st
+PostHog,"Open-source product analytics, session recording, feature flagging, and A/B testing",27k,???? 高优先级,Marketing,,,https://github.com/PostHog/posthog?ref=selfh.st,https://posthog.com/?ref=selfh.st
+Jitsi Meet,"Secure, simple, and scalable video conferences as a standalone or web application",26k,???? 高优先级,Video Conferencing,,,https://github.com/jitsi/jitsi-meet?ref=selfh.st,https://jitsi.org/meet?ref=selfh.st
+Loki,"Horizontally-scalable, highly-available, multi-tenant log aggregation system",26k,???? 高优先级,Logs,,,https://github.com/grafana/loki?ref=selfh.st,https://grafana.com/loki?ref=selfh.st
+Budibase,Low-code platform for building business apps and workflows in minutes,25k,???? 高优先级,No-Code / Low-Code,,,https://github.com/Budibase/budibase?ref=selfh.st,https://budibase.com/?ref=selfh.st
+ChangeDetection,Page change monitoring with alerts,25k,???? 高优先级,Monitoring,,,https://github.com/dgtlmoon/changedetection.io?ref=selfh.st,https://changedetection.io/?ref=selfh.st
+Authelia,Authentication and authorization server with 2FA and SSO via web portal,24k,???? 高优先级,Authentication,,,https://github.com/authelia/authelia?ref=selfh.st,https://www.authelia.com/?ref=selfh.st
+Chatwoot,"Live-chat, e-mail, and omni-channel customer support",24k,???? 高优先级,Support / Ticketing,,,https://github.com/chatwoot/chatwoot?ref=selfh.st,https://www.chatwoot.com/help-center?ref=selfh.st
+Plausible,"Simple, open-source, lightweight, and privacy-friendly web analytics",23k,???? 高优先级,Web Analytics,,,https://github.com/plausible/analytics?ref=selfh.st,https://plausible.io/?ref=selfh.st
+KeePassXC,Modern and secure password manager,23k,???? 高优先级,Password Manager,,,https://github.com/keepassxreboot/keepassxc?ref=selfh.st,https://keepassxc.org/?ref=selfh.st
+Watchtower,A process for automating Docker container base image updates,22k,???? 高优先级,Docker,,,https://github.com/containrrr/watchtower?ref=selfh.st,https://containrrr.dev/watchtower/?ref=selfh.st
+SigNoz,"Logs, metrics, and traces in a single pane",22k,???? 高优先级,Monitoring,,,https://github.com/SigNoz/signoz?ref=selfh.st,https://signoz.io/?ref=selfh.st
+Valkey,High-performance data structure server for serving key/value workloads,22k,???? 高优先级,Database,,,https://github.com/valkey-io/valkey?ref=selfh.st,https://valkey.io/?ref=selfh.st
+Dub,Open-source link management infrastructure for modern marketing teams,22k,???? 高优先级,URL Shortener,,,https://github.com/dubinc/dub?ref=selfh.st,https://dub.co/?ref=selfh.st
+Postiz,Social media post scheduling and measurement,22k,???? 高优先级,Scheduling,,,https://github.com/gitroomhq/postiz-app?ref=selfh.st,https://postiz.com/?ref=selfh.st
+Dokploy,Application deployment and management platform,21k,???? 高优先级,Deployment,,,https://github.com/Dokploy/dokploy?ref=selfh.st,https://dokploy.com/?ref=selfh.st
+Matomo,A powerful web analytics platform that gives you 100% data ownership,21k,???? 高优先级,Web Analytics,,,https://github.com/matomo-org/matomo?ref=selfh.st,https://matomo.org/?ref=selfh.st
+wg-easy,The easiest way to run WireGuard VPN with a web-based admin UI,20k,???? 高优先级,Remote Access,,,https://github.com/wg-easy/wg-easy?ref=selfh.st,https://wg-easy.github.io/wg-easy/latest/?ref=selfh.st
+Ente Photos,"Fully open-source, end-to-end encrypted alternative to Google Photos and Apple Photos",20k,???? 高优先级,Photos,,,https://github.com/ente-io/ente?ref=selfh.st,https://ente.io/?ref=selfh.st
+Ente Auth,"Open-source, end-to-end encrypted 2FA platform",20k,???? 高优先级,2FA,,,https://github.com/ente-io/ente?ref=selfh.st,https://ente.io/?ref=selfh.st
+Teleport,"Provides connectivity, authentication, access controls, and audit for infrastructure",19k,?? 较高优先级,Authentication,,,https://github.com/gravitational/teleport?ref=selfh.st,https://goteleport.com/?ref=selfh.st
+Dockge,Easy-to-use docker compose stack manager,18k,?? 较高优先级,Deployment,,,https://github.com/louislam/dockge?ref=selfh.st,https://dockge.kuma.pet/?ref=selfh.st
+Eleventy,Simple static site generator that transforms a directory of templates into HTML,18k,?? 较高优先级,Blog,,,https://github.com/11ty/eleventy?ref=selfh.st,https://www.11ty.dev/?ref=selfh.st
+PostgreSQL,Object-relational database management system that supports an extended subset of the SQL standard,18k,?? 较高优先级,Database,,,https://github.com/postgres/postgres?ref=selfh.st,https://www.postgresql.org/?ref=selfh.st
+Infisical,Secrets management platform and interface,18k,?? 较高优先级,Password Manager,,,https://github.com/Infisical/infisical?ref=selfh.st,https://infisical.com/?ref=selfh.st
+Invidious,Alternative front-end for YouTube,17k,?? 较高优先级,Front End,,,https://github.com/iv-org/invidious?ref=selfh.st,https://invidious.io/?ref=selfh.st
+Authentik,Open-source identity provider with support for various protocols,17k,?? 较高优先级,Authentication,,,https://github.com/goauthentik/authentik?ref=selfh.st,https://goauthentik.io/?ref=selfh.st
+Bitwarden,Password and credentials manager with encryption,17k,?? 较高优先级,2FA,,,https://github.com/bitwarden/server?ref=selfh.st,https://bitwarden.com/?ref=selfh.st
+BookStack,Platform for organizing and storing information in a book-like structure,17k,?? 较高优先级,Wiki,,,https://github.com/BookStackApp/BookStack?ref=selfh.st,https://www.bookstackapp.com/?ref=selfh.st
+SafeLine,Self-hosted web application firewall to protect from attacks and exploits,17k,?? 较高优先级,Firewall,,,https://github.com/chaitin/SafeLine?ref=selfh.st,https://ly.safepoint.cloud/fUxS0GW?ref=selfh.st
+Postal,A fully featured open source mail delivery platform for incoming and outgoing e-mail,16k,?? 较高优先级,Email,,,https://github.com/postalserver/postal?ref=selfh.st,https://postalserver.io/?ref=selfh.st
+NetBird,Peer-to-peer private network and centralized access control system,16k,?? 较高优先级,Remote Access,,,https://github.com/netbirdio/netbird?ref=selfh.st,https://netbird.io/?ref=selfh.st
+NocoBase,No-code platform for building business applications,16k,?? 较高优先级,No-Code / Low-Code,,,https://github.com/nocobase/nocobase?ref=selfh.st,https://www.nocobase.com/?ref=selfh.st
+Flarum,Simple forum software for building great communities,16k,?? 较高优先级,Forums,,,https://github.com/flarum/flarum?ref=selfh.st,https://flarum.org/?ref=selfh.st
+Overleaf,Web-based collaborative LaTeX editor,16k,?? 较高优先级,LaTeX,,,https://github.com/overleaf/overleaf?ref=selfh.st,https://github.com/overleaf/overleaf?ref=selfh.st
+NodeBB,Forum software built for the modern web,15k,?? 较高优先级,ActivityPub / Fediverse,,,https://github.com/NodeBB/NodeBB?ref=selfh.st,https://nodebb.org/?ref=selfh.st
+Mail-in-a-Box,Mail-in-a-Box lets you become your own mail service provider in a few easy steps.,15k,?? 较高优先级,Email,,,https://github.com/mail-in-a-box/mailinabox?ref=selfh.st,https://mailinabox.email/?ref=selfh.st
+Calibre-Web,"Web application for browsing, reading, and downloads book stored in a Calibre database",15k,?? 较高优先级,Books,,,https://github.com/janeczku/calibre-web?ref=selfh.st,https://github.com/janeczku/calibre-web?ref=selfh.st
+Fail2Ban,Daemon to ban hosts that cause multiple authentication errors,15k,?? 较高优先级,Networking,,,https://github.com/fail2ban/fail2ban?ref=selfh.st,http://www.fail2ban.org/?ref=selfh.st
+Zola,Fast static site generator in a single binary with everything built-in,15k,?? 较高优先级,Blog,,,https://github.com/getzola/zola?ref=selfh.st,https://www.getzola.org/?ref=selfh.st
+Apache Answer,Q&A platform for teams and communities,15k,?? 较高优先级,Forums,,,https://github.com/apache/answer?ref=selfh.st,https://answer.apache.org/?ref=selfh.st
+PeerTube,ActivityPub-federated video streaming platform,14k,?? 较高优先级,ActivityPub / Fediverse,,,https://github.com/Chocobozzz/PeerTube?ref=selfh.st,https://joinpeertube.org/?ref=selfh.st
+Lemmy,Link aggregator and forum for the Fediverse,14k,?? 较高优先级,ActivityPub / Fediverse,,,https://github.com/LemmyNet/lemmy?ref=selfh.st,https://join-lemmy.org/?ref=selfh.st
+CapRover,"App, database, and webserver deployment platform",14k,?? 较高优先级,Deployment,,,https://github.com/caprover/caprover?ref=selfh.st,https://caprover.com/?ref=selfh.st
+VictoriaMetrics,"Fast, cost-effective monitoring solution and time series database",14k,?? 较高优先级,Database,,,https://github.com/VictoriaMetrics/VictoriaMetrics?ref=selfh.st,https://victoriametrics.com/?ref=selfh.st
+Zigbee2MQTT,Zigbee to MQTT bridge for getting rid of proprietary Zigbee bridges,14k,?? 较高优先级,Internet of Things,,,https://github.com/Koenkk/zigbee2mqtt?ref=selfh.st,https://www.zigbee2mqtt.io/?ref=selfh.st
+Windmill,Developer infrastructure for internal tools,14k,?? 较高优先级,Development Infrastructure,,,https://github.com/windmill-labs/windmill?ref=selfh.st,https://windmill.dev/?ref=selfh.st
+Seafile,High performance file syncing and sharing,13k,?? 较高优先级,Cloud Storage,,,https://github.com/haiwen/seafile?ref=selfh.st,http://seafile.com/?ref=selfh.st
+Maxun,No-code web data extraction platform,13k,?? 较高优先级,No-Code / Low-Code,,,https://github.com/getmaxun/maxun?ref=selfh.st,https://www.maxun.dev/?ref=selfh.st
+Habitica,Role-playing gamified habit tracker,13k,?? 较高优先级,Habit Tracking,,,https://github.com/HabitRPG/habitica?ref=selfh.st,https://habitica.com/?ref=selfh.st
+Semaphore UI,"Modern UI and API for Ansible, Terraform, and other DevOps tools",12k,?? 较高优先级,Automation,,,https://github.com/semaphoreui/semaphore?ref=selfh.st,https://semaphoreui.com/?ref=selfh.st
+Borg,Deduplicating archiver with compression and encryption,12k,?? 较高优先级,Backups,,,https://github.com/borgbackup/borg?ref=selfh.st,https://www.borgbackup.org/?ref=selfh.st
+Snipe-IT,Asset management for IT operations,12k,?? 较高优先级,,,,https://github.com/grokability/snipe-it?ref=selfh.st,https://snipeitapp.com/?ref=selfh.st
+LibreTranslate,Open-source machine translation API,12k,?? 较高优先级,Language,,,https://github.com/LibreTranslate/LibreTranslate?ref=selfh.st,https://libretranslate.com/?ref=selfh.st
+Automatisch,Automation tool for business processes and workflows,12k,?? 较高优先级,Workflow Automation,,,https://github.com/automatisch/automatisch?ref=selfh.st,https://automatisch.io/?ref=selfh.st
+Misskey,"Misskey is an open-source, federated social media platform that's free forever",11k,?? 较高优先级,ActivityPub / Fediverse,,,https://github.com/misskey-dev/misskey?ref=selfh.st,https://misskey-hub.net/?ref=selfh.st
+Mailcow,The mailserver suite with the 'moo',11k,?? 较高优先级,Email,,,https://github.com/mailcow/mailcow-dockerized?ref=selfh.st,https://mailcow.email/?ref=selfh.st
+Neko,Self-hosted virtual browser,11k,?? 较高优先级,Media Streaming,,,https://github.com/m1k1o/neko?ref=selfh.st,https://neko.m1k1o.net/?ref=selfh.st
+CrowdSec,Participative security solution offering crowd-sourced protection against malicious IPs,11k,?? 较高优先级,Networking,,,https://github.com/crowdsecurity/crowdsec?ref=selfh.st,https://crowdsec.net/?ref=selfh.st
+MySQL,The world's most popular open-source database,11k,?? 较高优先级,Database,,,https://github.com/mysql/mysql-server?ref=selfh.st,http://www.mysql.com/?ref=selfh.st
+Formbricks,Privacy-first survey and feedback platform,11k,?? 较高优先级,Surveys and Forms,,,https://github.com/formbricks/formbricks?ref=selfh.st,https://formbricks.com/?ref=selfh.st
+YOURLS,Your Own URL Shortener,11k,?? 较高优先级,URL Shortener,,,https://github.com/YOURLS/YOURLS?ref=selfh.st,https://yourls.org/?ref=selfh.st
+OpenProject,Web-based project management software,11k,?? 较高优先级,Kanban,,,https://github.com/opf/openproject?ref=selfh.st,https://www.openproject.org/?ref=selfh.st
+Whoogle,"Self-hosted, ad-free, privacy-respecting metasearch engine",11k,?? 较高优先级,Search Engines,,,https://github.com/benbusby/whoogle-search?ref=selfh.st,https://pypi.org/project/whoogle-search/?ref=selfh.st
+Webhook,Lightweight webhook server for running shell commands,11k,?? 较高优先级,Webhooks,,,https://github.com/adnanh/webhook?ref=selfh.st,https://github.com/adnanh/webhook?ref=selfh.st
+XPipe,"Manage all your servers, containers, and virtual machines from your local desktop",11k,?? 较高优先级,Server Management,,,https://github.com/xpipe-io/xpipe?ref=selfh.st,https://xpipe.io/?ref=selfh.st
+Documenso,Open-source document signing,11k,?? 较高优先级,Document Signing,,,https://github.com/documenso/documenso?ref=selfh.st,https://documenso.com/?ref=selfh.st
+SonarQube,Code quality and security solution with deep integration for enterprise environments,10k,?? 较高优先级,Development,,,https://github.com/SonarSource/sonarqube?ref=selfh.st,http://www.sonarqube.org/?ref=selfh.st
+FlareSolverr,Proxy server to bypass Cloudflare protection,10k,?? 较高优先级,*arr,,,https://github.com/FlareSolverr/FlareSolverr?ref=selfh.st,https://github.com/FlareSolverr/FlareSolverr?ref=selfh.st
+Pangolin,Tunneled reverse proxy management server,10k,?? 较高优先级,Reverse Proxy,,,https://github.com/fosrl/pangolin?ref=selfh.st,https://fossorial.io/?ref=selfh.st
+Quickwit,Cloud-native search engine for observability,10k,?? 较高优先级,Logs,,,https://github.com/quickwit-oss/quickwit?ref=selfh.st,https://quickwit.io/?ref=selfh.st
+WooCommerce,"Customizable, open-source ecommerce platform built on WordPress",10k,?? 较高优先级,E-commerce,,,https://github.com/woocommerce/woocommerce?ref=selfh.st,https://woocommerce.com/?ref=selfh.st
+Mosquitto,Open-source implementation of the MQTT protocol,10k,?? 较高优先级,Internet of Things,,,https://github.com/eclipse-mosquitto/mosquitto?ref=selfh.st,https://mosquitto.org/?ref=selfh.st
+ebook2audiobook,Convert ebooks to audiobooks with metadata using dynamic AI models,10k,?? 较高优先级,Audiobooks,,,https://github.com/DrewThomasson/ebook2audiobook?ref=selfh.st,https://github.com/DrewThomasson/ebook2audiobook?ref=selfh.st
+umbrelOS,Beautiful home server OS for self-hosting with an app store,9k,? 中优先级,Deployment,,,https://github.com/getumbrel/umbrel?ref=selfh.st,https://umbrel.com/?ref=selfh.st
+Runtipi,Homeserver with a simple setup and one-click installs for your favorite self-hosted apps,9k,? 中优先级,Deployment,,,https://github.com/runtipi/runtipi?ref=selfh.st,https://www.runtipi.io/?ref=selfh.st
+Dozzle,Real-time log viewer for Docker containers,9k,? 中优先级,Docker,,,https://github.com/amir20/dozzle?ref=selfh.st,https://dozzle.dev/?ref=selfh.st
+Stalwart,Mail and collaboration server suite,9k,? 中优先级,Email,,,https://github.com/stalwartlabs/stalwart?ref=selfh.st,https://stalw.art/?ref=selfh.st
+SimpleX Chat,The first messaging network operating without user identifiers of any kind,9k,? 中优先级,Messaging,,,https://github.com/simplex-chat/simplex-chat?ref=selfh.st,https://simplex.chat/?ref=selfh.st
+Piped,Privacy-friendly YouTube frontend,9k,? 中优先级,Front End,,,https://github.com/TeamPiped/Piped?ref=selfh.st,https://piped.video/?ref=selfh.st
+ownCloud,Content collaboration and sharing and syncing of files,9k,? 中优先级,Cloud Storage,,,https://github.com/owncloud/core?ref=selfh.st,https://owncloud.com/?ref=selfh.st
+BigBlueButton,Complete open-source web conferencing system,9k,? 中优先级,Video Conferencing,,,https://github.com/bigbluebutton/bigbluebutton?ref=selfh.st,https://bigbluebutton.org/?ref=selfh.st
+Invoice Ninja,"Simple invoicing, multiple payment options, expense and vendor management, and more!",9k,? 中优先级,Accounting,,,https://github.com/invoiceninja/invoiceninja?ref=selfh.st,https://invoiceninja.com/?ref=selfh.st
+Akaunting,Online accounting software for small businesses and freelancers,9k,? 中优先级,Accounting,,,https://github.com/akaunting/akaunting?ref=selfh.st,https://akaunting.com/?ref=selfh.st
+PrestaShop,E-commerce web platform,9k,? 中优先级,E-commerce,,,https://github.com/PrestaShop/PrestaShop?ref=selfh.st,https://www.prestashop-project.org/?ref=selfh.st
+Typebot,Powerful chatbot builder,9k,? 中优先级,Customer Engagement,,,https://github.com/baptisteArno/typebot.io?ref=selfh.st,https://typebot.io/?ref=selfh.st
+Pterodactyl,Open-source game server management panel,8k,? 中优先级,Gaming,,,https://github.com/pterodactyl/panel?ref=selfh.st,https://pterodactyl.io/?ref=selfh.st
+Graylog,Free and open log management platform,8k,? 中优先级,Logs,,,https://github.com/Graylog2/graylog2-server?ref=selfh.st,https://www.graylog.org/?ref=selfh.st
+RSS Bridge,RSS feeds for websites missing them,8k,? 中优先级,RSS,,,https://github.com/RSS-Bridge/rss-bridge?ref=selfh.st,https://rss-bridge.org/bridge01/?ref=selfh.st
+Mautic,Open-source marketing automation software,8k,? 中优先级,Marketing,,,https://github.com/mautic/mautic?ref=selfh.st,https://www.mautic.org/?ref=selfh.st
+BunkerWeb,Next-generation and open-source web application firewall,8k,? 中优先级,Firewall,,,https://github.com/bunkerity/bunkerweb?ref=selfh.st,https://www.bunkerweb.io/?ref=selfh.st
+Pixelfed,"Free and ethical photo sharing platform, powered by ActivityPub federation",7k,? 中优先级,ActivityPub / Fediverse,,,https://github.com/pixelfed/pixelfed?ref=selfh.st,https://pixelfed.org/?ref=selfh.st
+Sandstorm,Open-source platform for self-hosting web apps,7k,? 中优先级,Deployment,,,https://github.com/sandstorm-io/sandstorm?ref=selfh.st,https://sandstorm.io/?ref=selfh.st
+Mailu,A simple yet full-featured mail server as a set of Docker images.,7k,? 中优先级,Email,,,https://github.com/Mailu/Mailu?ref=selfh.st,https://mailu.io/?ref=selfh.st
+Mumble,"Open-source, low-latency, high quality voice chat software",7k,? 中优先级,Messaging,,,https://github.com/mumble-voip/mumble?ref=selfh.st,https://www.mumble.info/?ref=selfh.st
+step-ca,"Online certificate authority for secure, automated certificate management",7k,? 中优先级,Reverse Proxy,,,https://github.com/smallstep/certificates?ref=selfh.st,https://smallstep.com/certificates?ref=selfh.st
+Rybbit,Privacy-friendly web analytics,7k,? 中优先级,Web Analytics,,,https://github.com/rybbit-io/rybbit?ref=selfh.st,https://rybbit.io/?ref=selfh.st
+Amnezia,Open-source VPN server and client,7k,? 中优先级,Remote Access,,,https://github.com/amnezia-vpn/amnezia-client?ref=selfh.st,https://amnezia.org/?ref=selfh.st
+Papermark,Open-source document sharing with built-in analytics and custom domains,7k,? 中优先级,File Sharing,,,https://github.com/mfts/papermark?ref=selfh.st,https://papermark.com/?ref=selfh.st
+NewsBlur,Personal news reader that brings people together to talk about the world,7k,? 中优先级,Feed Reader,,,https://github.com/samuelclay/NewsBlur?ref=selfh.st,http://www.newsblur.com/?ref=selfh.st
+CryptPad,End-to-end encrypted and open-source collaboration suite,7k,? 中优先级,File Transfer and Sync,,,https://github.com/cryptpad/cryptpad?ref=selfh.st,https://cryptpad.org/?ref=selfh.st
+Obsidian LiveSync,Community-implemented sync plugin for Obsidian,7k,? 中优先级,File Transfer and Sync,,,https://github.com/vrtmrz/obsidian-livesync?ref=selfh.st,https://github.com/vrtmrz/obsidian-livesync?ref=selfh.st
+solidtime,Modern open-source time-tracking app,7k,? 中优先级,Time Tracking,,,https://github.com/solidtime-io/solidtime?ref=selfh.st,https://www.solidtime.io/?ref=selfh.st
+Komodo,Tool for building and deploying software on multiple servers,6k,? 中优先级,Deployment,,,https://github.com/moghtech/komodo?ref=selfh.st,https://komo.do/?ref=selfh.st
+Roundcube,Browser-based multilingual IMAP client with an application-like user interface,6k,? 中优先级,Email,,,https://github.com/roundcube/roundcubemail?ref=selfh.st,https://roundcube.net/?ref=selfh.st
+Traccar,Open-source GPS tracking system,6k,? 中优先级,Tracking,,,https://github.com/traccar/traccar?ref=selfh.st,https://www.traccar.org/?ref=selfh.st
+HAProxy,Fast and reliable reverse-proxy offering high availability and load balancing,6k,? 中优先级,Reverse Proxy,,,https://github.com/haproxy/haproxy?ref=selfh.st,https://git.haproxy.org/?ref=selfh.st
+Standard Notes,End-to-end encrypted note-taking app for digitalists and professionals,6k,? 中优先级,Note-Taking,,,https://github.com/standardnotes/app?ref=selfh.st,https://standardnotes.com/?ref=selfh.st
+Checkmate,Open-source server monitoring application,6k,? 中优先级,Monitoring,,,https://github.com/bluewave-labs/Checkmate?ref=selfh.st,https://checkmate.so/?ref=selfh.st
+Rundeck,"Open-source automation service with a web console, command line tools, and web API",6k,? 中优先级,Automation,,,https://github.com/rundeck/rundeck?ref=selfh.st,http://rundeck.org/?ref=selfh.st
+Technitium,Ad blocker and DNS server for privacy and security,6k,? 中优先级,Ad Block,,,https://github.com/TechnitiumSoftware/DnsServer?ref=selfh.st,https://technitium.com/dns/?ref=selfh.st
+ZoneMinder,"Free, open-source closed-circuit television software application",6k,? 中优先级,NVR,,,https://github.com/ZoneMinder/zoneminder?ref=selfh.st,http://www.zoneminder.com/?ref=selfh.st
+HumHub,"Enterprise social network, knowledge database, intranet, and communication platform",6k,? 中优先级,Social Media,,,https://github.com/humhub/humhub?ref=selfh.st,https://www.humhub.com/?ref=selfh.st
+Ghostfolio,Open-source wealth management software,6k,? 中优先级,Wealth Management,,,https://github.com/ghostfolio/ghostfolio?ref=selfh.st,https://ghostfol.io/?ref=selfh.st
+Dolibarr,Open-source ERP and CRM for business,6k,? 中优先级,ERP,,,https://github.com/Dolibarr/dolibarr?ref=selfh.st,https://www.dolibarr.org/?ref=selfh.st
+Countly,Digital analytics and customer experience platform,6k,? 中优先级,Analytics,,,https://github.com/Countly/countly-server?ref=selfh.st,https://countly.com/?ref=selfh.st
+Soft Serve,Self-hostable git server for the command line,6k,? 中优先级,Git,,,https://github.com/charmbracelet/soft-serve?ref=selfh.st,https://github.com/charmbracelet/soft-serve?ref=selfh.st
+Tube Archivist,Self-hosted YouTube media server,6k,? 中优先级,Videos,,,https://github.com/tubearchivist/tubearchivist?ref=selfh.st,https://www.tubearchivist.com/?ref=selfh.st
+Cosmos,Home server application gateway and manager,5k,? 中优先级,Deployment,,,https://github.com/azukaar/Cosmos-Server?ref=selfh.st,https://cosmos-cloud.io/?ref=selfh.st
+Weblate,Web-based localization tool,5k,? 中优先级,Development,,,https://github.com/WeblateOrg/weblate?ref=selfh.st,https://weblate.org/?ref=selfh.st
+Woodpecker CI,Simple yet powerful CI/CD engine with extensibility,5k,? 中优先级,Development,,,https://github.com/woodpecker-ci/woodpecker?ref=selfh.st,https://woodpecker-ci.org/?ref=selfh.st
+Mox,Low-maintenance self-hosted e-mail,5k,? 中优先级,Email,,,https://github.com/mjl-/mox?ref=selfh.st,https://www.xmox.nl/?ref=selfh.st
+LinuxGSM,Command-line tool for simple deployment of dedicated game servers,5k,? 中优先级,Gaming,,,https://github.com/GameServerManagers/LinuxGSM?ref=selfh.st,https://linuxgsm.com/?ref=selfh.st
+RomM,"Beautiful, powerful, self-hosted ROM manager",5k,? 中优先级,Gaming,,,https://github.com/rommapp/romm?ref=selfh.st,https://romm.app/?ref=selfh.st
+GoatCounter,Privacy-friendly web analytics,5k,? 中优先级,Web Analytics,,,https://github.com/arp242/goatcounter?ref=selfh.st,https://www.goatcounter.com/?ref=selfh.st
+MeshCentral,A complete web-based remote monitoring and management web site,5k,? 中优先级,Remote Access,,,https://github.com/Ylianst/MeshCentral?ref=selfh.st,https://meshcentral.com/?ref=selfh.st
+Warpgate,"Smart SSH, HTTPS, and database bastion host for Linux",5k,? 中优先级,Remote Access,,,https://github.com/warp-tech/warpgate?ref=selfh.st,https://warpgate.null.page/?ref=selfh.st
+Librum,Application designed to make reading enjoyable and straightforward for everyone,5k,? 中优先级,Books,,,https://github.com/Librum-Reader/Librum?ref=selfh.st,https://librumreader.com/?ref=selfh.st
+Organizr,Homelab services organizer and dashboard,5k,? 中优先级,Dashboard,,,https://github.com/causefx/Organizr?ref=selfh.st,https://github.com/causefx/Organizr?ref=selfh.st
+Zabbix,Real-time monitoring of IT components and services,5k,? 中优先级,Monitoring,,,https://github.com/zabbix/zabbix?ref=selfh.st,https://www.zabbix.com/?ref=selfh.st
+Zammad,Web-based open-source helpdesk/customer support system,5k,? 中优先级,Support / Ticketing,,,https://github.com/zammad/zammad?ref=selfh.st,https://zammad.org/?ref=selfh.st
+wger,"Fitness, workout, nutrition, and weight tracker",5k,? 中优先级,Fitness,,,https://github.com/wger-project/wger?ref=selfh.st,https://wger.de/?ref=selfh.st
+Duplicacy,New generation cross-platform cloud backup tool based on lock-free deduplication,5k,? 中优先级,Backups,,,https://github.com/gilbertchen/duplicacy?ref=selfh.st,https://duplicacy.com/?ref=selfh.st
+Passbolt,Open-source password manager for teams,5k,? 中优先级,2FA,,,https://github.com/passbolt/passbolt_api?ref=selfh.st,https://passbolt.com/?ref=selfh.st
+Blocky,DNS proxy and ad-blocker for local networks,5k,? 中优先级,Ad Block,,,https://github.com/0xERR0R/blocky?ref=selfh.st,https://0xerr0r.github.io/blocky/?ref=selfh.st
+EverShop,Modular and fully customizable e-commerce platform,5k,? 中优先级,E-commerce,,,https://github.com/evershopcommerce/evershop?ref=selfh.st,https://evershop.io/?ref=selfh.st
+Scrypted,Home video integration and automation platform,5k,? 中优先级,NVR,,,https://github.com/koush/scrypted?ref=selfh.st,https://scrypted.app/?ref=selfh.st
+Webmin,Powerful and flexible server management control panel,5k,? 中优先级,Server Management,,,https://github.com/webmin/webmin?ref=selfh.st,http://www.webmin.com/?ref=selfh.st
+GLPI,Asset and IT management software package,5k,? 中优先级,Inventory Management,,,https://github.com/glpi-project/glpi?ref=selfh.st,https://glpi-project.org/?ref=selfh.st
+InvenTree,Open-source inventory management system,5k,? 中优先级,Inventory Management,,,https://github.com/inventree/InvenTree?ref=selfh.st,https://docs.inventree.org/?ref=selfh.st
+ClamAV,Open-source antivirus engine for detecting malicious threats,5k,? 中优先级,Antivirus,,,https://github.com/Cisco-Talos/clamav?ref=selfh.st,https://www.clamav.net/?ref=selfh.st
+evcc,Extensible EV charge controller and management system,5k,? 中优先级,Vehicles,,,https://github.com/evcc-io/evcc?ref=selfh.st,https://evcc.io/?ref=selfh.st
+Dawarich,Self-hosted alternative to Google Location History,5k,? 中优先级,GPS,,,https://github.com/Freika/dawarich?ref=selfh.st,https://dawarich.app/?ref=selfh.st
+GoToSocial,"Fast, fun, small ActivityPub server",4k,?? 一般优先级,ActivityPub / Fediverse,,,https://github.com/superseriousbusiness/gotosocial?ref=selfh.st,https://docs.gotosocial.org/?ref=selfh.st
+Kubero,Self-hosted PaaS running on Kubernetes,4k,?? 一般优先级,Deployment,,,https://github.com/kubero-dev/kubero?ref=selfh.st,https://github.com/kubero-dev/kubero?ref=selfh.st
+Requestly,"Developer tool for building, testing, and debuging web apps",4k,?? 一般优先级,Development,,,https://github.com/requestly/requestly?ref=selfh.st,https://requestly.com/?ref=selfh.st
+Diun,Receive notifications when an image is updated on a Docker registry,4k,?? 一般优先级,Docker,,,https://github.com/crazy-max/diun?ref=selfh.st,https://crazymax.dev/diun/?ref=selfh.st
+AnonAddy,Anonymous e-mail forwarding,4k,?? 一般优先级,Email,,,https://github.com/anonaddy/anonaddy?ref=selfh.st,https://addy.io/?ref=selfh.st
+Kanidm,Modern and simple identity management platform,4k,?? 一般优先级,Authentication,,,https://github.com/kanidm/kanidm?ref=selfh.st,https://kanidm.com/?ref=selfh.st
+Cerbos,"Open-source, policy-based authorization solution",4k,?? 一般优先级,Authentication,,,https://github.com/cerbos/cerbos?ref=selfh.st,https://cerbos.dev/?ref=selfh.st
+Zoraxy,General purpose reverse proxy and forwarding tool for networking noobs,4k,?? 一般优先级,Reverse Proxy,,,https://github.com/tobychui/zoraxy?ref=selfh.st,https://zoraxy.aroz.org/?ref=selfh.st
+Lychee,Easy-to-use photo management system for managing and sharing photos,4k,?? 一般优先级,Photos,,,https://github.com/LycheeOrg/Lychee?ref=selfh.st,https://lycheeorg.dev/?ref=selfh.st
+Memories,"Fast, modern, and advanced photo management Nextcloud app",4k,?? 一般优先级,Photos,,,https://github.com/pulsejet/memories?ref=selfh.st,https://memories.gallery/?ref=selfh.st
+pyLoad,Free and open-source download manager,4k,?? 一般优先级,Downloads,,,https://github.com/pyload/pyload?ref=selfh.st,https://pyload.net/?ref=selfh.st
+Feedbin,"Simple, fast, and nice looking RSS reader",4k,?? 一般优先级,Feed Reader,,,https://github.com/feedbin/feedbin?ref=selfh.st,https://feedbin.com/?ref=selfh.st
+Kinto,Minimal JSON storage platform,4k,?? 一般优先级,Cloud Storage,,,https://github.com/Kinto/kinto?ref=selfh.st,https://github.com/Kinto/kinto?ref=selfh.st
+FreeScout,Lightweight help desk and shared inbox,4k,?? 一般优先级,Support / Ticketing,,,https://github.com/freescout-help-desk/freescout?ref=selfh.st,https://freescout.net/?ref=selfh.st
+Your Spotify,Self-hosted Spotify tracking dashboard,4k,?? 一般优先级,Statistics,,,https://github.com/Yooooomi/your_spotify?ref=selfh.st,https://github.com/Yooooomi/your_spotify?ref=selfh.st
+MiroTalk,"Simple, secure, and fast real-time video conferences",4k,?? 一般优先级,Video Conferencing,,,https://github.com/miroslavpejic85/mirotalk?ref=selfh.st,https://p2p.mirotalk.com/?ref=selfh.st
+Unbound,"Validating, recursive, and caching DNS resolver",4k,?? 一般优先级,DNS,,,https://github.com/NLnetLabs/unbound?ref=selfh.st,https://nlnetlabs.nl/unbound?ref=selfh.st
+OpenBao,"Sensitive data store for secrets, certificates, and keys",4k,?? 一般优先级,Password Manager,,,https://github.com/openbao/openbao?ref=selfh.st,https://openbao.org/?ref=selfh.st
+OpenEMR,Open-source electronic health records,4k,?? 一般优先级,Medical,,,https://github.com/openemr/openemr?ref=selfh.st,https://open-emr.org/?ref=selfh.st
+Easy!Appointments,Highly customizable appointment scheduler,4k,?? 一般优先级,Scheduling,,,https://github.com/alextselegidis/easyappointments?ref=selfh.st,https://easyappointments.org/?ref=selfh.st
+Fider,Portal for feature requests and suggestions,4k,?? 一般优先级,Feedback,,,https://github.com/getfider/fider?ref=selfh.st,https://fider.io/?ref=selfh.st
+Rallly,Event polls for scheduling and organizing events,4k,?? 一般优先级,Event Polls,,,https://github.com/lukevella/rallly?ref=selfh.st,https://rallly.co/?ref=selfh.st
+OPNsense,"Open-source, FreeBSD-based firewall and routing software",4k,?? 一般优先级,Platform,,,https://github.com/opnsense/core?ref=selfh.st,https://opnsense.org/?ref=selfh.st
+Restreamer,Streaming server solution with a visually appearing interface and no ongoing license costs,4k,?? 一般优先级,Live Streaming,,,https://github.com/datarhei/restreamer?ref=selfh.st,https://docs.datarhei.com/restreamer/?ref=selfh.st
+YunoHost,App platform for easy installation and management,3k,?? 一般优先级,Deployment,,,https://github.com/YunoHost/yunohost?ref=selfh.st,https://yunohost.org/?ref=selfh.st
+Silex,No-code tool for building websites,3k,?? 一般优先级,Development,,,https://github.com/silexlabs/Silex?ref=selfh.st,https://www.silex.me/?ref=selfh.st
+Converse,Web-based XMPP/Jabber chat client,3k,?? 一般优先级,Messaging,,,https://github.com/conversejs/converse.js?ref=selfh.st,http://conversejs.org/?ref=selfh.st
+Synapse,Open-source Matrix homeserver written and maintained by the Matrix.org Foundation,3k,?? 一般优先级,Messaging,,,https://github.com/element-hq/synapse?ref=selfh.st,https://element-hq.github.io/synapse?ref=selfh.st
+TVHeadend,TV streaming server and digital video recorder,3k,?? 一般优先级,Media Streaming,,,https://github.com/tvheadend/tvheadend?ref=selfh.st,https://tvheadend.org/?ref=selfh.st
+Open Web Analytics,Open-source alternative to commercial web analytics tools like Google Analytics,3k,?? 一般优先级,Web Analytics,,,https://github.com/Open-Web-Analytics/Open-Web-Analytics?ref=selfh.st,http://www.openwebanalytics.com/?ref=selfh.st
+GLAuth,LDAP authentication server for developers,3k,?? 一般优先级,Authentication,,,https://github.com/glauth/glauth?ref=selfh.st,https://github.com/glauth/glauth?ref=selfh.st
+SWAG,NGINX webserver and reverse proxy with built-in Certbot and Fail2Ban,3k,?? 一般优先级,Reverse Proxy,,,https://github.com/linuxserver/docker-swag?ref=selfh.st,https://docs.linuxserver.io/general/swag?ref=selfh.st
+Pocket ID,Simple OIDC authentication provider,3k,?? 一般优先级,Authentication,,,https://github.com/pocket-id/pocket-id?ref=selfh.st,https://pocket-id.org/?ref=selfh.st
+AzuraCast,Web radio management suite,3k,?? 一般优先级,Music,,,https://github.com/AzuraCast/AzuraCast?ref=selfh.st,https://www.azuracast.com/?ref=selfh.st
+WGDashboard,Simple dashboard for configuring and managing WireGuard,3k,?? 一般优先级,Remote Access,,,https://github.com/donaldzou/WGDashboard?ref=selfh.st,https://github.com/donaldzou/WGDashboard?ref=selfh.st
+YoutubeDL-Material,Self-hosted YouTube downloader built on Material Design,3k,?? 一般优先级,Downloads,,,https://github.com/Tzahi12345/YoutubeDL-Material?ref=selfh.st,https://github.com/Tzahi12345/YoutubeDL-Material?ref=selfh.st
+Bitmagnet,"BitTorrent indexer, DHT crawler, and torrent search engine",3k,?? 一般优先级,Downloads,,,https://github.com/bitmagnet-io/bitmagnet?ref=selfh.st,https://bitmagnet.io/?ref=selfh.st
+TriliumNext Notes,Hierarchical note-taking and knowledge base application,3k,?? 一般优先级,Note-Taking,,,https://github.com/TriliumNext/Notes?ref=selfh.st,https://triliumnext.github.io/Docs/?ref=selfh.st
+LimeSurvey,Open-source survey software with advanced features,3k,?? 一般优先级,Surveys and Forms,,,https://github.com/LimeSurvey/LimeSurvey?ref=selfh.st,https://www.limesurvey.org/?ref=selfh.st
+Chartbrew,Database chart building and visualization,3k,?? 一般优先级,Database,,,https://github.com/chartbrew/chartbrew?ref=selfh.st,https://chartbrew.com/?ref=selfh.st
+Kometa,Script for updating and building Plex metadata,3k,?? 一般优先级,Automation,,,https://github.com/Kometa-Team/Kometa?ref=selfh.st,https://kometa.wiki/?ref=selfh.st
+OpnForm,Beautiful open-source form builder,3k,?? 一般优先级,Surveys and Forms,,,https://github.com/JhumanJ/OpnForm?ref=selfh.st,https://opnform.com/?ref=selfh.st
+Workout.cool,Modern fitness coaching platform,3k,?? 一般优先级,Fitness,,,https://github.com/Snouzy/workout-cool?ref=selfh.st,https://workout.cool/?ref=selfh.st
+Rotki,"Privacy-focused portfolio manager, accounting, and analytics tool",3k,?? 一般优先级,Accounting,,,https://github.com/rotki/rotki?ref=selfh.st,https://rotki.com/?ref=selfh.st
+Docker Volume Backup,Backup Docker volumes locally or to a number of compatible storage protocols,3k,?? 一般优先级,Backups,,,https://github.com/offen/docker-volume-backup?ref=selfh.st,https://offen.github.io/docker-volume-backup/?ref=selfh.st
+Raneto,Markdown-powered knowledge base,3k,?? 一般优先级,Wiki,,,https://github.com/ryanlelek/Raneto?ref=selfh.st,https://raneto.com/?ref=selfh.st
+Personal Management System,Central point for managing personal data,3k,?? 一般优先级,Content Management,,,https://github.com/Volmarg/personal-management-system?ref=selfh.st,http://personal-management-system.pl/?ref=selfh.st
+ddclient,Update dynamic DNS entries for accounts on a wide range of dynamic DNS services,3k,?? 一般优先级,DNS,,,https://github.com/ddclient/ddclient?ref=selfh.st,https://ddclient.net/?ref=selfh.st
+Kan,"Powerful, flexible kanban app",3k,?? 一般优先级,Kanban,,,https://github.com/kanbn/kan?ref=selfh.st,https://kan.bn/?ref=selfh.st
+Unregistry,Internal container image registry,3k,?? 一般优先级,Container Registry,,,https://github.com/psviderski/unregistry?ref=selfh.st,https://uncloud.run/?ref=selfh.st
+Gladys Assistant,"Privacy-first, open source home assistant",3k,?? 一般优先级,Home Automation,,,https://github.com/GladysAssistant/Gladys?ref=selfh.st,https://gladysassistant.com/?ref=selfh.st
+Kill-the-Newsletter,Convert email newsletters into Atom feeds,3k,?? 一般优先级,Newsletters,,,https://github.com/leafac/kill-the-newsletter?ref=selfh.st,https://kill-the-newsletter.com/?ref=selfh.st
+LinkStack,The ultimate solution for creating a personalized and professional profile page and link aggregator,3k,?? 一般优先级,Landing Page,,,https://github.com/LinkStackOrg/LinkStack?ref=selfh.st,https://linkstack.org/?ref=selfh.st
+13ft Ladder,Web interface for blocking ads and paywalls,3k,?? 一般优先级,Paywalls,,,https://github.com/wasi-master/13ft?ref=selfh.st,https://13ft.wasimaster.me/?ref=selfh.st
+Aureus,Comprehensive enterprise resource planning solution,3k,?? 一般优先级,ERP,,,https://github.com/aureuserp/aureuserp?ref=selfh.st,https://aureuserp.com/?ref=selfh.st
+Willow,"Open-source, local, and self-hosted voice assistant alternative",3k,?? 一般优先级,Smart Home,,,https://github.com/HeyWillow/willow?ref=selfh.st,https://heywillow.io/?ref=selfh.st
+Hi.Events,Event management and ticket selling platform,3k,?? 一般优先级,Events,,,https://github.com/HiEventsDev/Hi.Events?ref=selfh.st,https://hi.events/?ref=selfh.st
+pad.ws,Whiteboard IDE in the browser,3k,?? 一般优先级,Development Environment,,,https://github.com/pad-ws/pad.ws?ref=selfh.st,https://github.com/pad-ws/pad.ws?ref=selfh.st
+Friendica,A decentralized social network,2k,?? 一般优先级,ActivityPub / Fediverse,,,https://github.com/friendica/friendica?ref=selfh.st,https://friendi.ca/?ref=selfh.st
+BookWyrm,"Social network for reading, books, and reviews",2k,?? 一般优先级,ActivityPub / Fediverse,,,https://github.com/bookwyrm-social/bookwyrm?ref=selfh.st,http://joinbookwyrm.com/?ref=selfh.st
+DockSTARTer,Quick and easy Docker deployment platform,2k,?? 一般优先级,Deployment,,,https://github.com/GhostWriters/DockSTARTer?ref=selfh.st,https://dockstarter.com/?ref=selfh.st
+Canine,Easy-to-use and intuitive deployment platform for Kubernetes,2k,?? 一般优先级,Deployment,,,https://github.com/czhu12/canine?ref=selfh.st,https://canine.sh/?ref=selfh.st
+Docker Socket Proxy,Docker socket proxy for restricting requests to the Docker API,2k,?? 一般优先级,Docker,,,https://github.com/Tecnativa/docker-socket-proxy?ref=selfh.st,https://github.com/Tecnativa/docker-socket-proxy?ref=selfh.st
+Sablier,"Start, stop, and shut down containers on demand",2k,?? 一般优先级,Docker,,,https://github.com/sablierapp/sablier?ref=selfh.st,https://sablierapp.dev/?ref=selfh.st
+Wizarr,"User invitation management system for Jellyfin, Plex, and Emby",2k,?? 一般优先级,*arr,,,https://github.com/wizarrrr/wizarr?ref=selfh.st,https://docs.wizarr.dev/?ref=selfh.st
+Dockcheck,"CLI tool for Docker container updates, notifications, and automation",2k,?? 一般优先级,Docker,,,https://github.com/mag37/dockcheck?ref=selfh.st,https://github.com/mag37/dockcheck?ref=selfh.st
+Steam Headless,Unofficial headless remote Steam server via Docker,2k,?? 一般优先级,Gaming,,,https://github.com/Steam-Headless/docker-steam-headless?ref=selfh.st,https://github.com/Steam-Headless/docker-steam-headless?ref=selfh.st
+AnyCable,Realtime server for two-way reliable communication over WebSockets,2k,?? 一般优先级,Messaging,,,https://github.com/anycable/anycable?ref=selfh.st,https://anycable.io/?ref=selfh.st
+Nextcloud Talk,"Chat, video, and audio calls for Nextcloud",2k,?? 一般优先级,Messaging,,,https://github.com/nextcloud/spreed?ref=selfh.st,https://nextcloud.com/talk?ref=selfh.st
+Revolt,Open-source user-first chat platform,2k,?? 一般优先级,Messaging,,,https://github.com/revoltchat/backend?ref=selfh.st,https://developers.revolt.chat/api/?ref=selfh.st
+Chitchatter,"Secure, serverless peer-to-peer chat",2k,?? 一般优先级,Messaging,,,https://github.com/jeremyckahn/chitchatter?ref=selfh.st,https://github.com/jeremyckahn/chitchatter?ref=selfh.st
+Colanode,Local-first collaborative workspace with real-time chat,2k,?? 一般优先级,Messaging,,,https://github.com/colanode/colanode?ref=selfh.st,https://colanode.com/?ref=selfh.st
+Redlib,Private frontend for Reddit,2k,?? 一般优先级,Front End,,,https://github.com/redlib-org/redlib?ref=selfh.st,https://github.com/redlib-org/redlib?ref=selfh.st
+Baby Buddy,"Baby tracker for sleep, feedings, diaper changes, tummy time, and more",2k,?? 一般优先级,Tracking,,,https://github.com/babybuddy/babybuddy?ref=selfh.st,https://github.com/babybuddy/babybuddy?ref=selfh.st
+Kyoo,Portable and vast media library solution,2k,?? 一般优先级,Media Streaming,,,https://github.com/zoriya/Kyoo?ref=selfh.st,https://kyoo.zoriya.dev/?ref=selfh.st
+ErsatzTV,Configure and stream custom live channels from a media library,2k,?? 一般优先级,Media Streaming,,,https://github.com/ErsatzTV/ErsatzTV?ref=selfh.st,https://ersatztv.org/?ref=selfh.st
+Self-Hosted Gateway,Self-hosted Docker native tunneling to localhost,2k,?? 一般优先级,Reverse Proxy,,,https://github.com/hintjen/selfhosted-gateway?ref=selfh.st,https://gethomerun.app/?ref=selfh.st
+Vince,Web analytics for everyone,2k,?? 一般优先级,Web Analytics,,,https://github.com/vinceanalytics/vince?ref=selfh.st,https://www.vinceanalytics.com/?ref=selfh.st
+Wanderer,Self-hosted trail database,2k,?? 一般优先级,Tracking,,,https://github.com/Flomp/wanderer?ref=selfh.st,https://wanderer.to/?ref=selfh.st
+GoDoxy,Automatic Docker reverse proxy,2k,?? 一般优先级,Reverse Proxy,,,https://github.com/yusing/godoxy?ref=selfh.st,https://github.com/yusing/godoxy?ref=selfh.st
+Tinyauth,Simple authentication middleware for reverse proxies,2k,?? 一般优先级,Authentication,,,https://github.com/steveiliop56/tinyauth?ref=selfh.st,https://tinyauth.app/?ref=selfh.st
+ShellHub,Centralized SSH gateway that allows users to remotely manage their services from anywhere,2k,?? 一般优先级,Remote Access,,,https://github.com/shellhub-io/shellhub?ref=selfh.st,https://shellhub.io/?ref=selfh.st
+Spliit,Share expenses with friends and family,2k,?? 一般优先级,Budgeting,,,https://github.com/spliit-app/spliit?ref=selfh.st,https://spliit.app/?ref=selfh.st
+slskd,Client-server application for the Soulseek file-sharing network,2k,?? 一般优先级,Downloads,,,https://github.com/slskd/slskd?ref=selfh.st,https://github.com/slskd/slskd?ref=selfh.st
+ytdl-sub,Command line tool for downloading videos and metadata from YouTube,2k,?? 一般优先级,Downloads,,,https://github.com/jmbannon/ytdl-sub?ref=selfh.st,https://ytdl-sub.readthedocs.io/?ref=selfh.st
+SecureAI Tools,Private and secure AI tools for everyone's productivity,2k,?? 一般优先级,Artificial Intelligence,,,https://github.com/SecureAI-Tools/SecureAI-Tools?ref=selfh.st,https://github.com/SecureAI-Tools/SecureAI-Tools?ref=selfh.st
+SmokePing,"Latency logging, graphing, and alerts",2k,?? 一般优先级,Monitoring,,,https://github.com/oetiker/SmokePing?ref=selfh.st,http://www.smokeping.org/?ref=selfh.st
+ownCloud Infinite Scale,Enterprise file sync and share data platform,2k,?? 一般优先级,Cloud Storage,,,https://github.com/owncloud/ocis?ref=selfh.st,https://doc.owncloud.com/ocis/next/?ref=selfh.st
+Saltcorn,Extensible open-source no-code database application builder,2k,?? 一般优先级,No-Code / Low-Code,,,https://github.com/saltcorn/saltcorn?ref=selfh.st,https://saltcorn.com/?ref=selfh.st
+BroadcastChannel,Convert a Telegram channel into a microblog,2k,?? 一般优先级,Blog,,,https://github.com/ccbikai/BroadcastChannel?ref=selfh.st,https://memo.miantiao.me/?ref=selfh.st
+OpenCloud,"Secure and private app for storing, accessing, and sharing files",2k,?? 一般优先级,Cloud Storage,,,https://github.com/opencloud-eu/opencloud?ref=selfh.st,https://opencloud.eu/?ref=selfh.st
+sabre/dav,"CalDAV, CardDAV, and WebDAV framework",2k,?? 一般优先级,Calendar,,,https://github.com/sabre-io/dav?ref=selfh.st,http://sabre.io/?ref=selfh.st
+Medusa,Automatic video library manager for TV shows,2k,?? 一般优先级,Automation,,,https://github.com/pymedusa/Medusa?ref=selfh.st,https://pymedusa.com/?ref=selfh.st
+ARA,Ansible reporting via command recording,2k,?? 一般优先级,Automation,,,https://github.com/ansible-community/ara?ref=selfh.st,https://ara.recordsansible.org/?ref=selfh.st
+Docspell,"Organize documents sourced from scanners, e-mail, and other sources",2k,?? 一般优先级,Document Management,,,https://github.com/eikek/docspell?ref=selfh.st,https://docspell.org/?ref=selfh.st
+DefGuard,"Enterprise, fast, secure VPN & SSO platform with support for hardware keys and 2FA/MFA",2k,?? 一般优先级,2FA,,,https://github.com/DefGuard/defguard?ref=selfh.st,https://defguard.net/?ref=selfh.st
+Jellystat,Free and open-source statistics app for Jellyfin,2k,?? 一般优先级,Statistics,,,https://github.com/CyferShepard/Jellystat?ref=selfh.st,https://github.com/CyferShepard/Jellystat?ref=selfh.st
+Logdy,Web-based real-time log viewer,2k,?? 一般优先级,Logs,,,https://github.com/logdyhq/logdy-core?ref=selfh.st,https://logdy.dev/?ref=selfh.st
+Garmin Grafana,data from Garmin servers for local storage and visualization,2k,?? 一般优先级,Statistics,,,https://github.com/arpanghosh8453/garmin-grafana?ref=selfh.st,https://github.com/arpanghosh8453/garmin-grafana?ref=selfh.st
+Podsync,"Turn Youtube and Vimeo channels, users, and playlists into podcast feeds",2k,?? 一般优先级,Podcasts,,,https://github.com/mxpv/podsync?ref=selfh.st,https://github.com/mxpv/podsync?ref=selfh.st
+Mixpost,"Easily create, schedule, publish, and manage social media content in one place",2k,?? 一般优先级,Social Media,,,https://github.com/inovector/mixpost?ref=selfh.st,https://mixpost.app/?ref=selfh.st
+Dittofeed,Omni-channel customer engagement platform for messaging users across multiple channels,2k,?? 一般优先级,Marketing,,,https://github.com/dittofeed/dittofeed?ref=selfh.st,https://dittofeed.com/?ref=selfh.st
+SerpBear,Open-source search engine position tracking and keyword research app,2k,?? 一般优先级,Search Engines,,,https://github.com/towfiqi/serpbear?ref=selfh.st,https://docs.serpbear.com/?ref=selfh.st
+Grimoire,Bookmark manager for wizards,2k,?? 一般优先级,Bookmarks,,,https://github.com/goniszewski/grimoire?ref=selfh.st,https://grimoire.pro/?ref=selfh.st
+EspoCRM,Open source platform for managing customer relationships,2k,?? 一般优先级,Relationships,,,https://github.com/espocrm/espocrm?ref=selfh.st,https://www.espocrm.com/?ref=selfh.st
+Coral,Open-source commenting platform,2k,?? 一般优先级,Comments,,,https://github.com/coralproject/talk?ref=selfh.st,https://coralproject.net/?ref=selfh.st
+Diskover,"File indexer, search engine, and data management platform",2k,?? 一般优先级,File Management,,,https://github.com/diskoverdata/diskover-community?ref=selfh.st,https://diskoverdata.com/?ref=selfh.st
+Obico,Smart 3D printing platform with AI failure detection,2k,?? 一般优先级,3D Printing,,,https://github.com/TheSpaghettiDetective/obico-server?ref=selfh.st,https://obico.io/?ref=selfh.st
+Astuto,Open-source customer feedback tool,2k,?? 一般优先级,Feedback,,,https://github.com/astuto/astuto?ref=selfh.st,https://astuto.io/?ref=selfh.st
+LittleLink,Lightweight personal landing page,2k,?? 一般优先级,Landing Page,,,https://github.com/sethcottle/littlelink?ref=selfh.st,https://littlelink.io/?ref=selfh.st
+Keila,Open-source newsletter tool,2k,?? 一般优先级,Newsletters,,,https://github.com/pentacent/keila?ref=selfh.st,https://keila.io/?ref=selfh.st
+Fasten Health,Open-source personal medical record aggregator with provider integration,2k,?? 一般优先级,Medical,,,https://github.com/fastenhealth/fasten-onprem?ref=selfh.st,https://github.com/fastenhealth/fasten-onprem?ref=selfh.st
+Laudspeaker,"Customer and product engagement, onboarding, and adoption platform",2k,?? 一般优先级,Customer Engagement,,,https://github.com/laudspeaker/laudspeaker?ref=selfh.st,https://laudspeaker.com/?ref=github?ref=selfh.st
+Reiverr,"Clean, combined interface for Jellyfin, TMDB, Radarr, and Sonarr",2k,?? 一般优先级,Requests,,,https://github.com/aleksilassila/reiverr?ref=selfh.st,https://github.com/aleksilassila/reiverr?ref=selfh.st
+Worklenz,Open-source project management tool for efficient teams,2k,?? 一般优先级,Project Management,,,https://github.com/Worklenz/worklenz?ref=selfh.st,https://worklenz.com/?ref=selfh.st
+KrakenD,"Extensible, high performance API gateway for adopting microservices and secure communications",2k,?? 一般优先级,Web Server,,,https://github.com/krakend/krakend-ce?ref=selfh.st,https://www.krakend.io/?ref=selfh.st
+Panora,API endpoints for a catalogue of integrations for SaaS software,1k,?? 一般优先级,Development,,,https://github.com/panoratech/Panora?ref=selfh.st,https://panora.dev/?ref=selfh.st
+bknd,Lightweight Firebase/Supabase alternative,1k,?? 一般优先级,Development,,,https://github.com/bknd-io/bknd?ref=selfh.st,https://bknd.io/?ref=selfh.st
+Usertour,User onboarding platform designed for developers,1k,?? 一般优先级,Development,,,https://github.com/usertour/usertour?ref=selfh.st,https://www.usertour.io/?ref=selfh.st
+Unpackerr,Downloads and extracts media for import into *arr apps,1k,?? 一般优先级,*arr,,,https://github.com/Unpackerr/unpackerr?ref=selfh.st,https://unpackerr.zip/?ref=selfh.st
+Maintainerr,Monitor and remove unwatched Plex media,1k,?? 一般优先级,*arr,,,https://github.com/jorenn92/Maintainerr?ref=selfh.st,https://maintainerr.info/?ref=selfh.st
+Cypht,Lightweight open-source webmail aggregator,1k,?? 一般优先级,Email,,,https://github.com/cypht-org/cypht?ref=selfh.st,http://cypht.org/?ref=selfh.st
+Dovecot,Secure IMAP mail server,1k,?? 一般优先级,Email,,,https://github.com/dovecot/core?ref=selfh.st,http://www.dovecot.org/?ref=selfh.st
+SnappyMail,"Simple, modern, and fast web-based mail client",1k,?? 一般优先级,Email,,,https://github.com/the-djmaze/snappymail?ref=selfh.st,https://snappymail.eu/?ref=selfh.st
+AliasVault,Encrypted password and e-mail alias manager,1k,?? 一般优先级,Email,,,https://github.com/lanedirt/AliasVault?ref=selfh.st,https://aliasvault.net/?ref=selfh.st
+Games on Whales,Stream virtual desktops and games via Docker,1k,?? 一般优先级,Gaming,,,https://github.com/games-on-whales/wolf?ref=selfh.st,https://games-on-whales.github.io/wolf/stable/?ref=selfh.st
+Pelican Panel,Game server control panel,1k,?? 一般优先级,Gaming,,,https://github.com/pelican-dev/panel?ref=selfh.st,https://pelican.dev/?ref=selfh.st
+Retrom,Centralized game management service,1k,?? 一般优先级,Gaming,,,https://github.com/JMBeresford/retrom?ref=selfh.st,https://github.com/JMBeresford/retrom?ref=selfh.st
+Databag,Fast and lightweight messenger,1k,?? 一般优先级,Messaging,,,https://github.com/balzack/databag?ref=selfh.st,https://github.com/balzack/databag?ref=selfh.st
+Beatbump,Privacy-respecting alternative frontend for YouTube Music,1k,?? 一般优先级,Front End,,,https://github.com/snuffyDev/Beatbump?ref=selfh.st,https://beatbump.io/?ref=selfh.st
+Oxker,A simple interface for managing and controlling Docker containers from the terminal,949,?? 低优先级,Docker,,,https://github.com/mrjackwills/oxker?ref=selfh.st,https://github.com/mrjackwills/oxker?ref=selfh.st
+NPMplus,Nginx Proxy Manager with improvements,1k,?? 一般优先级,Reverse Proxy,,,https://github.com/ZoeyVid/NPMplus?ref=selfh.st,https://github.com/ZoeyVid/NPMplus?ref=selfh.st
+AdventureLog,Travel tracker and trip planner,1k,?? 一般优先级,Tracking,,,https://github.com/seanmorley15/AdventureLog?ref=selfh.st,https://adventurelog.app/?ref=selfh.st
+Litlyx,"Modern, cookie-free analytics tool",1k,?? 一般优先级,Web Analytics,,,https://github.com/Litlyx/litlyx?ref=selfh.st,https://litlyx.com/?ref=selfh.st
+Lodestone,Open-source hosting tool for Minecraft and other multiplayer games,963,?? 低优先级,Gaming,,,https://github.com/Lodestone-Team/lodestone?ref=selfh.st,https://www.lodestone.cc/?ref=selfh.st
+Squirrel Servers Manager,User-friendly server configuration and management tool,939,?? 低优先级,Docker,,,https://github.com/SquirrelCorporation/SquirrelServersManager?ref=selfh.st,https://squirrelserversmanager.io/?ref=selfh.st
+Lightweight Music Server,Music streaming software with a web interface,1k,?? 一般优先级,Music,,,https://github.com/epoupon/lms?ref=selfh.st,http://lms-demo.poupon.dev/?ref=selfh.st
+Maloja,Self-hosted music scrobble database for personal listening statistics and charts,1k,?? 一般优先级,Music,,,https://github.com/krateng/maloja?ref=selfh.st,https://maloja.krateng.ch/?ref=selfh.st
+Wiredoor,Expose applications running in private or local networks,1k,?? 一般优先级,Remote Access,,,https://github.com/wiredoor/wiredoor?ref=selfh.st,https://www.wiredoor.net/?ref=selfh.st
+DockFlare,Cloudflare Tunnel controller,1k,?? 一般优先级,Remote Access,,,https://github.com/ChrispyBacon-dev/DockFlare?ref=selfh.st,https://github.com/ChrispyBacon-dev/DockFlare?ref=selfh.st
+Immich-Frame,Awesome way to display photos as a digital photo frame,1k,?? 一般优先级,Photos,,,https://github.com/immichFrame/ImmichFrame?ref=selfh.st,https://github.com/immichFrame/ImmichFrame?ref=selfh.st
+Immich Power Tools,Power tools for organizing Immich libraries,1k,?? 一般优先级,Photos,,,https://github.com/varun-raj/immich-power-tools?ref=selfh.st,https://immich-power-tools.featureos.app/?ref=selfh.st
+copyparty,Turn almost any device into a file server accessible from any browser,1k,?? 一般优先级,File Sharing,,,https://github.com/9001/copyparty?ref=selfh.st,https://github.com/9001/copyparty?ref=selfh.st
+Recyclarr,Automatically sync TRaSH Guides to Sonarr and Radarr,1k,?? 一般优先级,Downloads,,,https://github.com/recyclarr/recyclarr?ref=selfh.st,https://recyclarr.dev/?ref=selfh.st
+Cryptgeon,Open-source note and file sharing service,1k,?? 一般优先级,File Sharing,,,https://github.com/cupcakearmy/cryptgeon?ref=selfh.st,https://cryptgeon.org/?ref=selfh.st
+CoreControl,Server infrastructure management dashboard,1k,?? 一般优先级,Dashboard,,,https://github.com/crocofied/CoreControl?ref=selfh.st,https://github.com/crocofied/CoreControl?ref=selfh.st
+ExpenseOwl,Simple expense tracking system,969,?? 低优先级,Budgeting,,,https://github.com/Tanq16/ExpenseOwl?ref=selfh.st,https://github.com/Tanq16/ExpenseOwl?ref=selfh.st
+Nextcloud Mail,Email application for Nextcloud,898,?? 低优先级,Email,,,https://github.com/nextcloud/mail?ref=selfh.st,https://apps.nextcloud.com/apps/mail?ref=selfh.st
+qBit Manage,Manage and automate tedious tasks in qBittorrent,1k,?? 一般优先级,Automation,,,https://github.com/StuffAnThings/qbit_manage?ref=selfh.st,https://github.com/StuffAnThings/qbit_manage?ref=selfh.st
+Endurain,Fitness tracking service,1k,?? 一般优先级,Fitness,,,https://github.com/joaovitoriasilva/endurain?ref=selfh.st,https://docs.endurain.com/?ref=selfh.st
+Libredesk,Customer support desk platform,1k,?? 一般优先级,Support / Ticketing,,,https://github.com/abhinavxd/libredesk?ref=selfh.st,https://libredesk.io/?ref=selfh.st
+Kubetail,Real-time logging dashboard for Kubernetes,1k,?? 一般优先级,Logs,,,https://github.com/kubetail-org/kubetail?ref=selfh.st,https://www.kubetail.com/?ref=selfh.st
+InvoiceShelf,"Create and track invoices, expenses, and payments",1k,?? 一般优先级,Accounting,,,https://github.com/InvoiceShelf/InvoiceShelf?ref=selfh.st,https://invoiceshelf.com/?ref=selfh.st
+Palmr,Seamless and secure file sharing,1k,?? 一般优先级,File Transfer and Sync,,,https://github.com/kyantech/Palmr?ref=selfh.st,https://palmr.kyantech.com.br/?ref=selfh.st
+AutoKitteh,Developer platform for workflow automation,831,?? 低优先级,Development,,,https://github.com/autokitteh/autokitteh?ref=selfh.st,https://autokitteh.com/?ref=selfh.st
+Z-Wave JS UI,Full featured Z-Wave control panel UI and MQTT gateway,1k,?? 一般优先级,Internet of Things,,,https://github.com/zwave-js/zwave-js-ui?ref=selfh.st,https://zwave-js.github.io/zwave-js-ui?ref=selfh.st
+Nextcloud Deck,Kanban-style project management app for Nextcloud,1k,?? 一般优先级,Kanban,,,https://github.com/nextcloud/deck?ref=selfh.st,https://apps.nextcloud.com/apps/deck?ref=selfh.st
+Zot,"OCI-native container image registry, simplified",1k,?? 一般优先级,Container Registry,,,https://github.com/project-zot/zot?ref=selfh.st,https://zotregistry.dev/?ref=selfh.st
+BirdNET-Analyzer,BirdNET analyzer for scientific audio data processing,1k,?? 一般优先级,,,,https://github.com/birdnet-team/BirdNET-Analyzer?ref=selfh.st,https://birdnet-team.github.io/BirdNET-Analyzer/?ref=selfh.st
+Bugsink,Self-hosted error tracking,801,?? 低优先级,Development,,,https://github.com/bugsink/bugsink?ref=selfh.st,https://www.bugsink.com/?ref=selfh.st
+OwnTracks Recorder,Store and access location data published by the OwnTracks mobile apps,1k,?? 一般优先级,Location,,,https://github.com/owntracks/recorder?ref=selfh.st,https://github.com/owntracks/recorder?ref=selfh.st
+Hook0,Open-source webhook server and UI,1k,?? 一般优先级,Webhooks,,,https://github.com/hook0/hook0?ref=selfh.st,https://www.hook0.com/?ref=selfh.st
+Plant-It,"Self-hosted, open-source gardening companion app",1k,?? 一般优先级,Gardening,,,https://github.com/MDeLuise/plant-it?ref=selfh.st,https://plant-it.org/?ref=selfh.st
+HortusFox,Collaborative plant management system,1k,?? 一般优先级,Gardening,,,https://github.com/danielbrendel/hortusfox-web?ref=selfh.st,https://www.hortusfox.com/?ref=selfh.st
+Beaver Habit Tracker,Self-hosted habit tracking app,1k,?? 一般优先级,Habit Tracking,,,https://github.com/daya0576/beaverhabits?ref=selfh.st,https://github.com/daya0576/beaverhabits?ref=selfh.st
+Emoncms,"Process, log, and visualize energy data",1k,?? 一般优先级,Visualization,,,https://github.com/emoncms/emoncms?ref=selfh.st,https://emoncms.org/?ref=selfh.st
+Nextcloud News,RSS/Atom feed reader,922,?? 低优先级,Feed Reader,,,https://github.com/nextcloud/news?ref=selfh.st,https://apps.nextcloud.com/apps/news?ref=selfh.st
+Immich Kiosk,Web slideshows for Immich,890,?? 低优先级,Photos,,,https://github.com/damongolding/immich-kiosk?ref=selfh.st,https://immichkiosk.app/?ref=selfh.st
+PeaNUT,Tiny dashboard for network UPS tools,901,?? 低优先级,Networking,,,https://github.com/Brandawg93/PeaNUT?ref=selfh.st,https://github.com/Brandawg93/PeaNUT?ref=selfh.st
+Scriberr,Self-hosted AI audio transcription,898,?? 低优先级,Artificial Intelligence,,,https://github.com/rishikanthc/Scriberr?ref=selfh.st,https://scriberr.app/?ref=selfh.st
+LoggiFly,Docker container log monitoring and notifications,783,?? 低优先级,Docker,,,https://github.com/clemcer/loggifly?ref=selfh.st,https://github.com/clemcer/loggifly?ref=selfh.st
+OpenBudgeteer,Budgeting app based on the bucket budgeting principle,860,?? 低优先级,Budgeting,,,https://github.com/TheAxelander/OpenBudgeteer?ref=selfh.st,https://theaxelander.github.io/?ref=selfh.st
+Recommendarr,Personalized media recommendations for existing media libraries,780,?? 低优先级,*arr,,,https://github.com/fingerthief/recommendarr?ref=selfh.st,https://github.com/fingerthief/recommendarr?ref=selfh.st
+Garage,S3-compatible object store for self-hosted geo-distributed deployments,940,?? 低优先级,Object Storage,,,https://github.com/deuxfleurs-org/garage?ref=selfh.st,https://garagehq.deuxfleurs.fr/?ref=selfh.st
+Immich Public Proxy,Share Immich assets without exposing the instance to the public,829,?? 低优先级,Photos,,,https://github.com/alangrainger/immich-public-proxy?ref=selfh.st,https://github.com/alangrainger/immich-public-proxy?ref=selfh.st
+ZTNET,Self-hosted ZeroTier network controller,814,?? 低优先级,Remote Access,,,https://github.com/sinamics/ztnet?ref=selfh.st,https://ztnet.network/?ref=selfh.st
+WatchState,"Sync media play states across Plex, Jellyfin, and Emby",802,?? 低优先级,Media Streaming,,,https://github.com/arabcoders/watchstate?ref=selfh.st,https://github.com/arabcoders/watchstate?ref=selfh.st
+Cleanuperr,Automated cleanup of unwanted or blocked media files,741,?? 低优先级,*arr,,,https://github.com/flmorg/cleanuperr?ref=selfh.st,https://github.com/flmorg/cleanuperr?ref=selfh.st
+Meelo,Personal music server for collectors and music maniacs,805,?? 低优先级,Music,,,https://github.com/Arthi-chaud/Meelo?ref=selfh.st,https://github.com/Arthi-chaud/Meelo?ref=selfh.st
+Dokemon,Web interface for managing Docker containers,730,?? 低优先级,Docker,,,https://github.com/productiveops/dokemon?ref=selfh.st,https://dokemon.dev/?ref=selfh.st
+NeoDB,Self-hosted federated tracking server,652,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/neodb-social/neodb?ref=selfh.st,https://neodb.net/?ref=selfh.st
+Docassemble,System for guided interviews and document assembly,850,?? 低优先级,Surveys and Forms,,,https://github.com/jhpyle/docassemble?ref=selfh.st,https://docassemble.org/?ref=selfh.st
+Cup,Docker container updates made easy,716,?? 低优先级,Docker,,,https://github.com/sergi0g/cup?ref=selfh.st,https://cup.sergi0g.dev/?ref=selfh.st
+Yamtrack,Self-hosted media tracker,770,?? 低优先级,Tracking,,,https://github.com/FuzzyGrim/Yamtrack?ref=selfh.st,https://github.com/FuzzyGrim/Yamtrack?ref=selfh.st
+Statistics for Strava,Open-source dashboard for Strava data,832,?? 低优先级,Fitness,,,https://github.com/robiningelbrecht/statistics-for-strava?ref=selfh.st,https://statistics-for-strava.robiningelbrecht.be/?ref=selfh.st
+CWA Book Downloader,Interface for searching and requesting book downloads,776,?? 低优先级,Books,,,https://github.com/calibrain/calibre-web-automated-book-downloader?ref=selfh.st,https://github.com/calibrain/calibre-web-automated-book-downloader?ref=selfh.st
+Marreta,"Tool for analyzing, cleaning, and tidying up web URLs",833,?? 低优先级,Paywalls,,,https://github.com/manualdousuario/marreta?ref=selfh.st,https://marreta.pcdomanual.com/?ref=selfh.st
+Music Assistant,Media library manager connecting streaming services to a wide range of connected speakers,704,?? 低优先级,Music,,,https://github.com/music-assistant/server?ref=selfh.st,https://music-assistant.io/?ref=selfh.st
+Fladder,Simple Jellyfin frontend,675,?? 低优先级,Front End,,,https://github.com/DonutWare/Fladder?ref=selfh.st,https://donutware.github.io/Fladder/?ref=selfh.st
+SuggestArr,Automated media recommendations and requests based on user activity,630,?? 低优先级,*arr,,,https://github.com/giuseppe99barchetta/SuggestArr?ref=selfh.st,https://github.com/giuseppe99barchetta/SuggestArr?ref=selfh.st
+Feedbase,Open-source solution for collecting feedback and communicating updates,596,?? 低优先级,Development,,,https://github.com/chroxify/feedbase?ref=selfh.st,https://feedbase.app/?ref=selfh.st
+ZaneOps,"Platform for deploying static sites, web apps, databases, and CRON jobs",559,?? 低优先级,Deployment,,,https://github.com/zane-ops/zane-ops?ref=selfh.st,https://zaneops.dev/?ref=selfh.st
+Bar Assistant,All-in-one solution for managing your home bar,803,?? 低优先级,Recipes,,,https://github.com/karlomikus/bar-assistant?ref=selfh.st,https://barassistant.app/?ref=selfh.st
+bewCloud,Simple web cloud storage solution,736,?? 低优先级,Cloud Storage,,,https://github.com/bewcloud/bewcloud?ref=selfh.st,https://bewcloud.com/?ref=selfh.st
+Automad,Flat-file content management system and template engine,757,?? 低优先级,Content Management,,,https://github.com/marcantondahmen/automad?ref=selfh.st,https://automad.org/?ref=selfh.st
+Kapowarr,Software for building and managing comic book libraries,612,?? 低优先级,*arr,,,https://github.com/Casvt/Kapowarr?ref=selfh.st,https://casvt.github.io/Kapowarr/?ref=selfh.st
+Deployrr,Automated homelab setups using Docker,530,?? 低优先级,Deployment,,,https://github.com/SimpleHomelab/Deployrr?ref=selfh.st,https://www.deployrr.app/?ref=selfh.st
+Gravity,Fully-replicated DNS and DHCP server with ad-blocking powered by etcd,732,?? 低优先级,Ad Block,,,https://github.com/BeryJu/gravity?ref=selfh.st,https://gravity.beryju.io/?ref=selfh.st
+Notifiarr,Monitoring and notifications via Discord,698,?? 低优先级,Monitoring,,,https://github.com/Notifiarr/notifiarr?ref=selfh.st,https://notifiarr.com/?ref=selfh.st
+Gaseous,ROM file and metadata manager with a web-based emulator,604,?? 低优先级,Gaming,,,https://github.com/gaseous-project/gaseous-server?ref=selfh.st,https://github.com/gaseous-project/gaseous-server?ref=selfh.st
+Postmarks,Single-user bookmarking for the Fediverse,502,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/ckolderup/postmarks?ref=selfh.st,https://postmarks.glitch.me/?ref=selfh.st
+Astroluma,Feature-rich dashboard for managing tasks and services,676,?? 低优先级,Dashboard,,,https://github.com/Sanjeet990/Astroluma?ref=selfh.st,https://getastroluma.com/?ref=selfh.st
+RecipeSage,"Collaborative recipe keeper, meal planner, and shopping list organizer",741,?? 低优先级,Grocery Lists,,,https://github.com/julianpoy/RecipeSage?ref=selfh.st,https://recipesage.com/?ref=selfh.st
+Visio,"HD video calls, screen sharing, and chats directly from the browser",697,?? 低优先级,Video Conferencing,,,https://github.com/suitenumerique/meet?ref=selfh.st,https://visio.numerique.gouv.fr/?ref=selfh.st
+Nextcloud Notes,Distraction-free notes and writing,652,?? 低优先级,Note-Taking,,,https://github.com/nextcloud/notes?ref=selfh.st,https://apps.nextcloud.com/apps/notes?ref=selfh.st
+GameVault,Self-hosted gaming platform,574,?? 低优先级,Gaming,,,https://github.com/Phalcode/gamevault-app?ref=selfh.st,https://gamevau.lt/?ref=selfh.st
+Fitbit Health Dashboard,"Script for FitBit data retrieval, storage, and visualization",672,?? 低优先级,Fitness,,,https://github.com/arpanghosh8453/fitbit-grafana?ref=selfh.st,https://github.com/arpanghosh8453/fitbit-grafana?ref=selfh.st
+RunsOn,Self-hosted runner for GitHub Actions via AWS,727,?? 低优先级,Runners,,,https://github.com/runs-on/runs-on?ref=selfh.st,https://runs-on.com/?ref=selfh.st
+SolidInvoice,Sophisticated invoicing application for small businesses,681,?? 低优先级,Accounting,,,https://github.com/SolidInvoice/SolidInvoice?ref=selfh.st,https://solidinvoice.co/?ref=selfh.st
+Multi-Scrobbler,Scrobble plays from multiple sources to multiple clients,614,?? 低优先级,Music,,,https://github.com/FoxxMD/multi-scrobbler?ref=selfh.st,https://foxxmd.github.io/multi-scrobbler?ref=selfh.st
+Notesnook,Open-source and end-to-end encrypted notes with desktop and mobile clients,627,?? 低优先级,Note-Taking,,,https://github.com/streetwriters/notesnook-sync-server?ref=selfh.st,https://notesnook.com/?ref=selfh.st
+Hauk,Open source real-time location sharing,701,?? 低优先级,Location,,,https://github.com/bilde2910/Hauk?ref=selfh.st,https://github.com/bilde2910/Hauk?ref=selfh.st
+Riven,Media streaming with various third-party integrations,585,?? 低优先级,Media Streaming,,,https://github.com/rivenmedia/riven?ref=selfh.st,https://rivenmedia.github.io/wiki/?ref=selfh.st
+FluidCalendar,Intelligent task scheduling and calendar management,650,?? 低优先级,Calendar,,,https://github.com/dotnetfactory/fluid-calendar?ref=selfh.st,https://github.com/dotnetfactory/fluid-calendar?ref=selfh.st
+Forms.md,Build multi-step forms and surveys with minimal code,647,?? 低优先级,Surveys and Forms,,,https://github.com/formsmd/formsmd?ref=selfh.st,https://forms.md/?ref=selfh.st
+Movary,"Central hub for tracking, rating, and exploring movie watch histories",571,?? 低优先级,Media Streaming,,,https://github.com/leepeuker/movary?ref=selfh.st,https://github.com/leepeuker/movary?ref=selfh.st
+Mayan EDMS,Advanced enterprise document management system,644,?? 低优先级,Document Management,,,https://gitlab.com/mayan-edms/mayan-edms?ref=selfh.st,https://www.mayan-edms.com/?ref=selfh.st
+Syncloud,Simple deployment of popular apps,413,?? 低优先级,Deployment,,,https://github.com/syncloud/platform?ref=selfh.st,https://syncloud.org/?ref=selfh.st
+Ktistec,Single-user ActivityPub server,398,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/toddsundsted/ktistec?ref=selfh.st,https://github.com/toddsundsted/ktistec?ref=selfh.st
+Xibo,Open-source digital signage platform,637,?? 低优先级,Digital Signage,,,https://github.com/xibosignage/xibo?ref=selfh.st,https://xibosignage.com/?ref=selfh.st
+Hollo,Federated single-user microblogging software,389,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/fedify-dev/hollo?ref=selfh.st,https://docs.hollo.social/?ref=selfh.st
+Double Take,Unified UI and API for processing and training images for facial recognition,644,?? 低优先级,Facial Recognition,,,https://github.com/skrashevich/double-take?ref=selfh.st,https://github.com/skrashevich/double-take?ref=selfh.st
+Gathio,"Simple, privacy-first event hosting",379,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/lowercasename/gathio?ref=selfh.st,https://github.com/lowercasename/gathio?ref=selfh.st
+Dockerizalo,Simple container deployment and management platform,387,?? 低优先级,Deployment,,,https://github.com/undernightcore/dockerizalo?ref=selfh.st,https://github.com/undernightcore/dockerizalo?ref=selfh.st
+webtrees,Online collaborative genealogy application,619,?? 低优先级,Genealogy / Family Trees,,,https://github.com/fisharebest/webtrees?ref=selfh.st,https://webtrees.net/?ref=selfh.st
+Jelu,Book tracking platform,512,?? 低优先级,Books,,,https://github.com/bayang/jelu?ref=selfh.st,https://github.com/bayang/jelu?ref=selfh.st
+Swetrix,Open-source and privacy-focused cookieless alternative to Google Analytics,498,?? 低优先级,Web Analytics,,,https://github.com/Swetrix/swetrix?ref=selfh.st,https://swetrix.com/?ref=selfh.st
+Typemill,"Lightweight, flat-file CMS for publishers",507,?? 低优先级,Books,,,https://github.com/typemill/typemill?ref=selfh.st,https://typemill.net/?ref=selfh.st
+Medama,Lightweight and privacy-focused web analytics,485,?? 低优先级,Web Analytics,,,https://github.com/medama-io/medama?ref=selfh.st,https://oss.medama.io/?ref=selfh.st
+Nextcloud Tasks,Tasks app for Nextcloud,606,?? 低优先级,Tasks and To-Do Lists,,,https://github.com/nextcloud/tasks?ref=selfh.st,https://apps.nextcloud.com/apps/tasks?ref=selfh.st
+Photofield,Experimental fast photo viewer,502,?? 低优先级,Photos,,,https://github.com/SmilyOrg/photofield?ref=selfh.st,https://github.com/SmilyOrg/photofield?ref=selfh.st
+Chirpy,Privacy-friendly and customizable commenting system,583,?? 低优先级,Comments,,,https://github.com/devrsi0n/chirpy?ref=selfh.st,https://chirpy.dev/?ref=selfh.st
+OwnTracks Frontend,Advanced interface for the OwnTracks ecosystem,458,?? 低优先级,Front End,,,https://github.com/owntracks/frontend?ref=selfh.st,https://github.com/owntracks/frontend?ref=selfh.st
+tirreno,Open-source security web analytics,578,?? 低优先级,Security,,,https://github.com/tirrenotechnologies/tirreno?ref=selfh.st,https://www.tirreno.com/?ref=selfh.st
+WeddingShare,A gallery for guests to view and drop photos from the big day,498,?? 低优先级,File Sharing,,,https://github.com/Cirx08/WeddingShare?ref=selfh.st,https://docs.wedding-share.org/?ref=selfh.st
+Meme Search,Meme search engine built with Python and Ruby,561,?? 低优先级,Search Engines,,,https://github.com/neonwatty/meme-search?ref=selfh.st,https://github.com/neonwatty/meme-search?ref=selfh.st
+RSS Translator,Open-source RSS translation tool for subscribing to translated RSS feeds,536,?? 低优先级,RSS,,,https://github.com/versun/RSS-Translator?ref=selfh.st,https://rsstranslator.com/?ref=selfh.st
+Lingarr,Automatically translate subtitle files to a desired language,394,?? 低优先级,*arr,,,https://github.com/lingarr-translate/lingarr?ref=selfh.st,https://github.com/lingarr-translate/lingarr?ref=selfh.st
+Antora,Modular documentation site generator,571,?? 低优先级,Static Site,,,https://gitlab.com/antora/antora?ref=selfh.st,https://antora.org/?ref=selfh.st
+FTPGrab,Easily grab files periodically from a remote FTP or SFTP server,522,?? 低优先级,File Transfer and Sync,,,https://github.com/crazy-max/ftpgrab?ref=selfh.st,https://crazymax.dev/ftpgrab/?ref=selfh.st
+wol,Simple Wake-on-LAN web interface,557,?? 低优先级,Wake-on-LAN,,,https://github.com/Trugamr/wol?ref=selfh.st,https://github.com/Trugamr/wol?ref=selfh.st
+PinePods,Complete management system for consuming podcasts,427,?? 低优先级,Media Streaming,,,https://github.com/madeofpendletonwool/PinePods?ref=selfh.st,https://pinepods.online/?ref=selfh.st
+Git-Sync,Backup and sync tool for git repositories,504,?? 低优先级,Backups,,,https://github.com/AkashRajpurohit/git-sync?ref=selfh.st,https://github.com/AkashRajpurohit/git-sync/wiki?ref=selfh.st
+Snac,"Simple, minimalistic ActivityPub instance",290,?? 低优先级,ActivityPub / Fediverse,,,https://codeberg.org/grunfink/snac2?ref=selfh.st,https://codeberg.org/grunfink/snac2?ref=selfh.st
+sup3r S3cret Mes5age,"Simple, secure self-destructing message service",540,?? 低优先级,Privacy,,,https://github.com/algolia/sup3rS3cretMes5age?ref=selfh.st,https://github.com/algolia/sup3rS3cretMes5age?ref=selfh.st
+Docking Station,Web app for managing and updating Docker containers,343,?? 低优先级,Docker,,,https://github.com/LooLzzz/docking-station?ref=selfh.st,https://github.com/LooLzzz/docking-station?ref=selfh.st
+Nextcloud Social,Nextcloud app for federated networking,498,?? 低优先级,,,,https://github.com/nextcloud/social?ref=selfh.st,https://apps.nextcloud.com/apps/social?ref=selfh.st
+Monetr,Budgeting app with a focus on recurring expenses,414,?? 低优先级,Budgeting,,,https://github.com/monetr/monetr?ref=selfh.st,https://monetr.app/?ref=selfh.st
+Teemii,Self-hosted manga reader and manager with extensible agent-based metadata retrieval,401,?? 低优先级,Books,,,https://github.com/dokkaner/teemii?ref=selfh.st,https://www.teemii.io/?ref=selfh.st
+PodFetch,Sleek and efficient podcast downloader,417,?? 低优先级,Downloads,,,https://github.com/SamTV12345/PodFetch?ref=selfh.st,https://samtv12345.github.io/PodFetch?ref=selfh.st
+BudgetBee,Personal finance management system,398,?? 低优先级,Budgeting,,,https://github.com/budgetbee/budgetbee?ref=selfh.st,https://budgetbee.github.io/budgetbee/?ref=selfh.st
+GlitchTip,"Simple, open-source error tracking",284,?? 低优先级,Development,,,https://gitlab.com/glitchtip/glitchtip-backend?ref=selfh.st,https://glitchtip.com/?ref=selfh.st
+Cert Warden,Centralized certificate management for secure infrastructure,358,?? 低优先级,Reverse Proxy,,,https://github.com/gregtwallace/certwarden?ref=selfh.st,https://www.certwarden.com/?ref=selfh.st
+Davis,Admin interface for sabre/dav,480,?? 低优先级,CalDAV/CarDAV,,,https://github.com/tchapi/davis?ref=selfh.st,https://github.com/users/tchapi/projects/1/views/1?ref=selfh.st
+MyBibliotheca,Personal library and reading tracker,363,?? 低优先级,Books,,,https://github.com/pickles4evaaaa/mybibliotheca?ref=selfh.st,https://github.com/pickles4evaaaa/mybibliotheca?ref=selfh.st
+Anonymous Overflow,Privacy frontend for StackOverflow,339,?? 低优先级,Front End,,,https://github.com/httpjamesm/AnonymousOverflow?ref=selfh.st,https://aohub.httpjames.space/?ref=selfh.st
+LANCommander,Open-source digital video game distribution platform,313,?? 低优先级,Gaming,,,https://github.com/LANCommander/LANCommander?ref=selfh.st,https://lancommander.app/?ref=selfh.st
+Starbase 80,"Homepage for Docker containers, services, and links",390,?? 低优先级,Dashboard,,,https://github.com/notclickable-jordan/starbase-80?ref=selfh.st,https://notclickable-jordan.github.io/starbase-80/?ref=selfh.st
+seelf,Lightweight self-hosted deployment platform written in Go,286,?? 低优先级,Docker,,,https://github.com/YuukanOO/seelf?ref=selfh.st,https://yuukanoo.github.io/seelf/?ref=selfh.st
+VoucherVault,"Store and manage vouchers, coupons, loyalty cards, and gift cards",338,?? 低优先级,Tracking,,,https://github.com/l4rm4nd/VoucherVault?ref=selfh.st,https://github.com/l4rm4nd/VoucherVault/wiki?ref=selfh.st
+Fli.so,Lightning-fast URL shortener with a clean interface,435,?? 低优先级,URL Shortener,,,https://github.com/thisuxhq/fli.so?ref=selfh.st,https://fli.so/?ref=selfh.st
+Foundry Virtual Tabletop,Modern roleplaying platform,294,?? 低优先级,Gaming,,,https://github.com/foundryvtt/foundryvtt?ref=selfh.st,https://foundryvtt.com/?ref=selfh.st
+Snikket,Open-source self-hosted personal messaging service,303,?? 低优先级,Messaging,,,https://github.com/snikket-im/snikket-server?ref=selfh.st,https://snikket.org/service/?ref=selfh.st
+Configarr,Simplified config sync for Radarr and Sonarr,269,?? 低优先级,*arr,,,https://github.com/raydak-labs/configarr?ref=selfh.st,https://configarr.raydak.de/?ref=selfh.st
+Jellyplist,Sync Spotify playlists to Jellyfin,331,?? 低优先级,Music,,,https://github.com/kamilkosek/jellyplist?ref=selfh.st,https://github.com/kamilkosek/jellyplist?ref=selfh.st
+Melody Auth,Effortless authentication built for flexibility and control,318,?? 低优先级,Authentication,,,https://github.com/ValueMelody/melody-auth?ref=selfh.st,https://auth.valuemelody.com/?ref=selfh.st
+Operational,Event tracking tool for tech products,317,?? 低优先级,Tracking,,,https://github.com/operational-co/operational.co?ref=selfh.st,https://operational.co/?ref=selfh.st
+Vocard,Highly customizable Discord music bot,324,?? 低优先级,Music,,,https://github.com/ChocoMeow/Vocard?ref=selfh.st,https://github.com/ChocoMeow/Vocard?ref=selfh.st
+auto-mcs,Cross-platform Minecraft server manager,275,?? 低优先级,Gaming,,,https://github.com/macarooni-man/auto-mcs?ref=selfh.st,https://www.auto-mcs.com/?ref=selfh.st
+Cupdate,Zero-config service for keeping container images up-to-date,250,?? 低优先级,Docker,,,https://github.com/AlexGustafsson/cupdate?ref=selfh.st,https://alexgustafsson.github.io/cupdate/?ref=selfh.st
+selfh.st/icons,Icon collection with proxy server for custom colors,427,?? 低优先级,Icons,,,https://github.com/selfhst/icons?ref=selfh.st,https://selfh.st/icons?ref=selfh.st
+Openchangelog,Easy to configure and self-hostable changelog website,212,?? 低优先级,Development,,,https://github.com/JonasHiltl/openchangelog?ref=selfh.st,https://openchangelog.com/?ref=selfh.st
+traefik-kop,Single public-facing Traefik instance for Kubernetes,296,?? 低优先级,Reverse Proxy,,,https://github.com/jittering/traefik-kop?ref=selfh.st,https://github.com/jittering/traefik-kop?ref=selfh.st
+Atomic CRM,Full-featured customer relationship manager,407,?? 低优先级,Relationships,,,https://github.com/marmelab/atomic-crm?ref=selfh.st,http://marmelab.com/atomic-crm/?ref=selfh.st
+Explo,Music discovery for self-hosted music platforms,306,?? 低优先级,Music,,,https://github.com/LumePart/Explo?ref=selfh.st,https://github.com/LumePart/Explo?ref=selfh.st
+Argus,Software release monitoring and notifications,394,?? 低优先级,Notifications,,,https://github.com/release-argus/Argus?ref=selfh.st,https://release-argus.io/?ref=selfh.st
+Tootik,Federated nano-blogging service with federation,160,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/dimkr/tootik?ref=selfh.st,https://github.com/dimkr/tootik?ref=selfh.st
+FerriShare,Simple file sharing app with E2E encryption,326,?? 低优先级,File Sharing,,,https://github.com/TobiasMarschner/ferrishare?ref=selfh.st,https://github.com/TobiasMarschner/ferrishare?ref=selfh.st
+Manage My Damn Life,A self-hosted frontend for managing your CalDAV tasks and calendars,352,?? 低优先级,Calendar,,,https://github.com/intri-in/manage-my-damn-life-nextjs?ref=selfh.st,https://intri.in/manage-my-damn-life/?ref=selfh.st
+DollarDollar Bill Y'all,Expense tracking and bill-splitting application designed for privacy,301,?? 低优先级,Budgeting,,,https://github.com/harung1993/dollardollar?ref=selfh.st,https://github.com/harung1993/dollardollar?ref=selfh.st
+Nextcloud Forms,Simple form and survey app for Nextcloud,343,?? 低优先级,Surveys and Forms,,,https://github.com/nextcloud/forms?ref=selfh.st,https://apps.nextcloud.com/apps/forms?ref=selfh.st
+Mobilizon,Federated organization and mobilization platform,142,?? 低优先级,ActivityPub / Fediverse,,,https://framagit.org/kaihuri/mobilizon?ref=selfh.st,https://joinmobilizon.org/?ref=selfh.st
+Investbrain,Manage and track investment portfolio performance,375,?? 低优先级,Wealth Management,,,https://github.com/investbrainapp/investbrain?ref=selfh.st,https://investbra.in/?ref=selfh.st
+lurker,Read-only Reddit frontend with mobile support,263,?? 低优先级,Front End,,,https://github.com/oppiliappan/lurker?ref=selfh.st,https://github.com/oppiliappan/lurker?ref=selfh.st
+Pulsarr,"Plex watchlist monitoring, routing, and notifications",218,?? 低优先级,*arr,,,https://github.com/jamcalli/Pulsarr?ref=selfh.st,https://jamcalli.github.io/Pulsarr/?ref=selfh.st
+Middleware Manager,"Traefik middleware, router, and server manager",265,?? 低优先级,Reverse Proxy,,,https://github.com/hhftechnology/middleware-manager?ref=selfh.st,https://github.com/hhftechnology/middleware-manager?ref=selfh.st
+Nextcloud Office,Collabora Online integration for Nextcloud,386,?? 低优先级,Office Suite,,,https://github.com/nextcloud/richdocuments?ref=selfh.st,https://nextcloud.com/collaboraonline?ref=selfh.st
+PieFed,Federated link aggregation platform,130,?? 低优先级,ActivityPub / Fediverse,,,https://codeberg.org/rimu/pyfedi?ref=selfh.st,https://join.piefed.social/?ref=selfh.st
+PoeticMetric,Privacy-focused and blazingly fast alternative to Google Analytics,263,?? 低优先级,Web Analytics,,,https://github.com/th0th/poeticmetric?ref=selfh.st,https://www.poeticmetric.com/?ref=selfh.st
+Spacepad,Simple meeting room occupancy display,261,?? 低优先级,Tracking,,,https://github.com/magweter/spacepad?ref=selfh.st,https://spacepad.io/?ref=selfh.st
+Trailarr,Download and manage trailers for media libraries,203,?? 低优先级,*arr,,,https://github.com/nandyalu/trailarr?ref=selfh.st,https://github.com/nandyalu/trailarr?ref=selfh.st
+Redict,Distributed key/value store and independent fork of Redis,322,?? 低优先级,Database,,,https://codeberg.org/redict/redict?ref=selfh.st,https://redict.io/?ref=selfh.st
+OpenPanel,Powerful and flexible web hosting control panel for Linux,373,?? 低优先级,Control Panel,,,https://github.com/stefanpejcic/OpenPanel?ref=selfh.st,https://openpanel.com/?ref=selfh.st
+Dockwatch,Simple UI for managing container updates and notifications,195,?? 低优先级,Docker,,,https://github.com/Notifiarr/dockwatch?ref=selfh.st,https://dockwatch.wiki/?ref=selfh.st
+Wapy.dev,Subscription management platform,371,?? 低优先级,Subscriptions,,,https://github.com/meceware/wapy.dev?ref=selfh.st,https://www.wapy.dev/?ref=selfh.st
+Betula,Federated personal link collection and bookmark manager,114,?? 低优先级,ActivityPub / Fediverse,,,https://github.com/bouncepaw/betula?ref=selfh.st,https://github.com/bouncepaw/betula?ref=selfh.st
+Mantrae,User-friendly Traefik management interface,236,?? 低优先级,Front End,,,https://github.com/MizuchiLabs/mantrae?ref=selfh.st,https://mizuchi.dev/mantrae/?ref=selfh.st
+Anchr,Small toolbox for common tasks on the internet,337,?? 低优先级,Bookmarks,,,https://github.com/muety/anchr?ref=selfh.st,https://anchr.io/?ref=selfh.st
+Scratch Map,Scratch-off style map for tracking travels,356,?? 低优先级,Maps,,,https://github.com/ad3m3r5/scratch-map?ref=selfh.st,https://github.com/ad3m3r5/scratch-map?ref=selfh.st
+Streamystats,Statistics and analytics service for Jellyfin,305,?? 低优先级,Statistics,,,https://github.com/fredrikburmester/streamystats?ref=selfh.st,https://github.com/fredrikburmester/streamystats?ref=selfh.st
+"I, Librarian",PDF and office document organization and management,302,?? 低优先级,Document Management,,,https://github.com/mkucej/i-librarian-free?ref=selfh.st,https://i-librarian.net/?ref=selfh.st
+BiblioReads,Goodreads frontend focused on privacy,234,?? 低优先级,Books,,,https://github.com/nesaku/BiblioReads?ref=selfh.st,https://biblioreads.eu.org/?ref=selfh.st
+tinyfeed,Generic static HTML pages from a collection of feeds,265,?? 低优先级,Feed Reader,,,https://github.com/TheBigRoomXXL/tinyfeed?ref=selfh.st,https://feed.lovergne.dev/?ref=selfh.st
+positive-intentions Chat,Decentralized chat in the browser,195,?? 低优先级,Messaging,,,https://github.com/positive-intentions/chat?ref=selfh.st,https://github.com/positive-intentions/chat?ref=selfh.st
+PASTA,Audio and subtitle track changer for Plex,324,?? 低优先级,Subtitles,,,https://github.com/cglatot/pasta?ref=selfh.st,https://www.pastatool.com/?ref=selfh.st
+Screenlite,Digital signage solution,323,?? 低优先级,Digital Signage,,,https://github.com/screenlite/screenlite?ref=selfh.st,https://screenlite.org/?ref=selfh.st
+Subscription Manager,Track subscriptions and manage expenses,234,?? 低优先级,Budgeting,,,https://github.com/dh1011/subscription-manager?ref=selfh.st,https://github.com/dh1011/subscription-manager?ref=selfh.st
+Voltaserve,Cloud storage for creators,320,?? 低优先级,File Management,,,https://github.com/kouprlabs/voltaserve?ref=selfh.st,https://voltaserve.com/?ref=selfh.st
+Silicon Notes,Web-based personal knowledge base with few frills,238,?? 低优先级,Note-Taking,,,https://github.com/cu/silicon?ref=selfh.st,https://github.com/cu/silicon?ref=selfh.st
+Pleroma,Microblogging server with ActivityPub support,67,?? 低优先级,ActivityPub / Fediverse,,,https://git.pleroma.social/pleroma/pleroma?ref=selfh.st,https://pleroma.social/?ref=selfh.st
+Akkoma,Microblogging server software with ActivityPub support,67,?? 低优先级,ActivityPub / Fediverse,,,https://akkoma.dev/AkkomaGang/akkoma?ref=selfh.st,https://akkoma.social/?ref=selfh.st
+Domain Watchdog,Monitor and auto-purchase domains when they become available,244,?? 低优先级,Networking,,,https://github.com/maelgangloff/domain-watchdog?ref=selfh.st,https://demo.domainwatchdog.eu/?ref=selfh.st
+Crafty Controller,Minecraft server control panel and launcher,161,?? 低优先级,Gaming,,,https://gitlab.com/crafty-controller/crafty-4?ref=selfh.st,https://craftycontrol.com/?ref=selfh.st
+YeetFile,Encrypted file sharing vault service,220,?? 低优先级,File Sharing,,,https://github.com/benbusby/yeetfile?ref=selfh.st,https://yeetfile.com/?ref=selfh.st
+Hubzilla,Community websites that can interact with each other,53,?? 低优先级,ActivityPub / Fediverse,,,https://framagit.org/hubzilla/core?ref=selfh.st,https://hubzilla.org/?ref=selfh.st
+FreedomBox,Install and configure server applications with only a few clicks,64,?? 低优先级,Deployment,,,https://salsa.debian.org/freedombox-team/freedombox?ref=selfh.st,https://freedombox.org/?ref=selfh.st
+Leed,Free and minimal RSS aggregator,224,?? 低优先级,Feed Reader,,,https://github.com/LeedRSS/Leed?ref=selfh.st,https://github.com/LeedRSS/Leed?ref=selfh.st
+Gancio,Shared agenda for local communities,45,?? 低优先级,ActivityPub / Fediverse,,,https://framagit.org/les/gancio?ref=selfh.st,https://gancio.org/?ref=selfh.st
+FeedCord,RSS reader with Discord integration,220,?? 低优先级,Feed Reader,,,https://github.com/Qolors/FeedCord?ref=selfh.st,https://github.com/Qolors/FeedCord?ref=selfh.st
+circled.me,"Photo, chat, and sharing community server",197,?? 低优先级,Photos,,,https://github.com/circled-me/server?ref=selfh.st,https://circled.me/?ref=selfh.st
+Hyperpipe,Privacy-respecting frontend for YouTube Music,162,?? 低优先级,Front End,,,https://codeberg.org/Hyperpipe/Hyperpipe?ref=selfh.st,https://hyperpipe.surge.sh/?ref=selfh.st
+Petio,"Request, review, and discover companion app for Plex",276,?? 低优先级,Requests,,,https://github.com/petio-team/petio?ref=selfh.st,https://petio.tv/?ref=selfh.st
+Stormkit,Infrastructure provider for Jamstack applications,75,?? 低优先级,Development,,,https://github.com/stormkit-io/app-stormkit-io?ref=selfh.st,https://app.stormkit.io/?ref=selfh.st
+WagmiOS,Container deployment and management with AI integration,41,?? 低优先级,Deployment,,,https://github.com/mentholmike/wagmios?ref=selfh.st,https://wagmilabs.fun/?ref=selfh.st
+BunkerM,All-in-one Mosquitto (MQTT) broker with web UI,267,?? 低优先级,Home Automation,,,https://github.com/bunkeriot/BunkerM?ref=selfh.st,https://www.bunkeriot.com/?ref=selfh.st
+Atlas CMMS,Powerful maintenance management system,278,?? 低优先级,Maintenance,,,https://github.com/Grashjs/cmms?ref=selfh.st,https://atlas-cmms.com/?ref=selfh.st
+LogForge,Service monitoring dashboard for Docker containers,95,?? 低优先级,Docker,,,https://github.com/log-forge/logforge?ref=selfh.st,https://log-forge.github.io/logforgeweb/?ref=selfh.st
+eddrit,Lightweight alternative frontend for Reddit,138,?? 低优先级,Front End,,,https://github.com/corenting/eddrit?ref=selfh.st,https://eddrit.com/?ref=selfh.st
+nforwardauth,Simple and minimalist forward auth service intended for use with reverse proxies,149,?? 低优先级,Authentication,,,https://github.com/nosduco/nforwardauth?ref=selfh.st,https://github.com/nosduco/nforwardauth?ref=selfh.st
+Subatic,Simple video hosting site that scales with content,149,?? 低优先级,Media Streaming,,,https://github.com/orthdron/subatic?ref=selfh.st,https://subatic.com/?ref=selfh.st
+Socialhome,Federated personal profile with social networking,9,?? 低优先级,ActivityPub / Fediverse,,,https://gitlab.com/jaywink/socialhome?ref=selfh.st,https://gitlab.com/jaywink/socialhome?ref=selfh.st
+Honey,A nice and sweet place for your self-hosted services,186,?? 低优先级,Dashboard,,,https://github.com/dani3l0/honey?ref=selfh.st,https://honeyy.vercel.app/?ref=selfh.st
+Upvote RSS,Generate RSS feeds for popular social aggregation websites,219,?? 低优先级,RSS,,,https://github.com/johnwarne/upvote-rss?ref=selfh.st,https://www.upvote-rss.com/?ref=selfh.st
+Redirecterr,Filter and redirect Overseerr requests,84,?? 低优先级,*arr,,,https://github.com/varthe/Redirecterr?ref=selfh.st,https://github.com/varthe/Redirecterr?ref=selfh.st
+Specifically Clementines,"Open-source, self-hosted grocery list",250,?? 低优先级,Grocery Lists,,,https://github.com/davideshay/groceries?ref=selfh.st,https://github.com/davideshay/groceries?ref=selfh.st
+Metadata Remote,Web-based metadata manager for audio files,150,?? 低优先级,Music,,,https://github.com/wow-signal-dev/metadata-remote?ref=selfh.st,https://github.com/wow-signal-dev/metadata-remote?ref=selfh.st
+Nortix Mail,Disposable e-mail server with an easy configuration,94,?? 低优先级,Email,,,https://github.com/Zhoros/NortixMail?ref=selfh.st,https://github.com/Zhoros/NortixMail?ref=selfh.st
+SeerrBridge,Integration for Jellyseerr/Overseerr and DebridMediaManager,170,?? 低优先级,Downloads,,,https://github.com/Woahai321/SeerrBridge?ref=selfh.st,https://soluify.com/?ref=selfh.st
+Priviblur,Privacy-focused alternative frontend to Tumblr,121,?? 低优先级,Front End,,,https://github.com/syeopite/priviblur?ref=selfh.st,https://github.com/syeopite/priviblur?ref=selfh.st
+Monitarr,Monitor downloads from Radarr and Sonarr,76,?? 低优先级,*arr,,,https://github.com/nickshanks347/monitarr?ref=selfh.st,https://github.com/nickshanks347/monitarr?ref=selfh.st
+SonaShow,Web GUI for finding similar shows to selected Sonarr shows,73,?? 低优先级,*arr,,,https://github.com/TheWicklowWolf/SonaShow?ref=selfh.st,https://github.com/TheWicklowWolf/SonaShow?ref=selfh.st
+Frigate-Notify,Event notifications for a standalone Frigate NVR instance,227,?? 低优先级,Notifications,,,https://github.com/0x2142/frigate-notify?ref=selfh.st,https://frigate-notify.0x2142.com/?ref=selfh.st
+Operately,"Startup platform for managing projects, goals, and processes",238,?? 低优先级,Project Management,,,https://github.com/operately/operately?ref=selfh.st,https://operately.com/?ref=selfh.st
+Refeed,Open-source RSS reader for the modern human,171,?? 低优先级,Feed Reader,,,https://github.com/michaelkremenetsky/Refeed?ref=selfh.st,https://refeedreader.com/?ref=selfh.st
+Stackspin,Open-source application single-click application installer,3,?? 低优先级,Deployment,,,https://open.greenhost.net/stackspin/stackspin?ref=selfh.st,https://www.stackspin.net/?ref=selfh.st
+Authgear,Turnkey solution for consumer authentication needs,123,?? 低优先级,Authentication,,,https://github.com/authgear/authgear-server?ref=selfh.st,https://www.authgear.com/?ref=selfh.st
+Easypanel,Next generation server control panel,,?? 低优先级,Deployment,,,,https://easypanel.io/?ref=selfh.st
+Cloudron,Complete solution for running apps on your own server,,?? 低优先级,Deployment,,,,https://www.cloudron.io/?ref=selfh.st
+Installatron,One-click web solution for effortless application management,,?? 低优先级,Deployment,,,,https://installatron.com/?ref=selfh.st
+Touitomamout,Easily sync tweets to Mastodon and Bluesky,243,?? 低优先级,ActivityPub - Tool,,,https://github.com/louisgrasset/touitomamout?ref=selfh.st,https://github.com/louisgrasset/touitomamout?ref=selfh.st
+NextBeats,"Modern, customizable lofi music player",131,?? 低优先级,Music,,,https://github.com/btahir/next-beats?ref=selfh.st,https://nextbeats.vercel.app/?ref=selfh.st
+Plex Rewind,Present Plex user statistics and habits in a beautiful and organized manner,230,?? 低优先级,Year-in-Review,,,https://github.com/RaunoT/plex-rewind?ref=selfh.st,https://github.com/RaunoT/plex-rewind?ref=selfh.st
+RadaRec,Web GUI for finding similar movies to selected Radarr movies,60,?? 低优先级,*arr,,,https://github.com/TheWicklowWolf/RadaRec?ref=selfh.st,https://github.com/TheWicklowWolf/RadaRec?ref=selfh.st
+Nextcloud Tables,Create your own tables and columns from scratch or pre-defined templates,168,?? 低优先级,No-Code / Low-Code,,,https://github.com/nextcloud/tables?ref=selfh.st,https://apps.nextcloud.com/apps/tables?ref=selfh.st
+Pepperminty Wiki,Complete wiki engine contained in a single file,200,?? 低优先级,Wiki,,,https://github.com/sbrl/Pepperminty-Wiki?ref=selfh.st,https://peppermint.mooncarrot.space/?ref=selfh.st
+Feeds Fun,News reader with tags and AI,183,?? 低优先级,RSS,,,https://github.com/Tiendil/feeds.fun?ref=selfh.st,https://feeds.fun/?ref=selfh.st
+RapidForge,Self-hosted endpoints for forms and tasks via scripts,16,?? 低优先级,Development,,,https://github.com/rapidforge-io/release?ref=selfh.st,https://rapidforge.io/?ref=selfh.st
+GoAway,Lightweight DNS sinkhole for blocking unwanted domains,203,?? 低优先级,DNS,,,https://github.com/pommee/goaway?ref=selfh.st,https://github.com/pommee/goaway?ref=selfh.st
+Owlistic,Real-time note-taking and to-do app,132,?? 低优先级,Note-Taking,,,https://github.com/owlistic-notes/owlistic?ref=selfh.st,https://owlistic-notes.github.io/owlistic/?ref=selfh.st
+Jellyfin Rewind,A year-in-review app for Jellyfin music listeners,205,?? 低优先级,Year-in-Review,,,https://github.com/Chaphasilor/jellyfin-rewind?ref=selfh.st,https://jellyfin-rewind.chaphasilor.xyz/?ref=selfh.st
+OmniPoly,Frontend for LanguageTool and LibreTranslate with AI translation,79,?? 低优先级,Front End,,,https://github.com/kWeglinski/OmniPoly?ref=selfh.st,https://github.com/kWeglinski/OmniPoly?ref=selfh.st
+XRSH,XR-friendly shells in the browser,0,?? 低优先级,Development,,,https://forgejo.isvery.ninja/xrsh/xrsh?ref=selfh.st,https://forgejo.isvery.ninja/xrsh/xrsh?ref=selfh.st
+Phorge,Community-driven development platform,,?? 低优先级,Development,,,https://we.phorge.it/source/phorge?ref=selfh.st,https://phorge.it/?ref=selfh.st
+PortChecker,Port status queries for provided hostnames or IP addresses,131,?? 低优先级,Networking,,,https://github.com/dsgnr/portchecker.io?ref=selfh.st,https://portchecker.io/?ref=selfh.st
+BookHaven,Browser-based ePub reader,96,?? 低优先级,Books,,,https://github.com/HrBingR/BookHaven?ref=selfh.st,https://github.com/HrBingR/BookHaven?ref=selfh.st
+Piglet,Simple web app for managing household budgets,106,?? 低优先级,Budgeting,,,https://github.com/k3nd0x/piglet?ref=selfh.st,https://github.com/k3nd0x/piglet?ref=selfh.st
+Amurex,Simple yet powerful AI meeting assistant,126,?? 低优先级,Artificial Intelligence,,,https://github.com/thepersonalaicompany/amurex-backend?ref=selfh.st,https://api.amurex.ai/?ref=selfh.st
+Meshping,Ping any number of targets and collect response times,124,?? 低优先级,Networking,,,https://github.com/Svedrin/meshping?ref=selfh.st,https://github.com/Svedrin/meshping?ref=selfh.st
+managebot,View and manage Docker containers from Discord,21,?? 低优先级,Docker,,,https://github.com/xdFNLeaks/managebot?ref=selfh.st,https://github.com/xdFNLeaks/managebot?ref=selfh.st
+URL-to-PNG,"URL to PNG utility with parallel rendering and storage caching via Local, S3, or CouchDB",197,?? 低优先级5image,Screenshots,,,https://github.com/jasonraimondi/url-to-png?ref=selfh.st,https://jasonraimondi.github.io/url-to-png/?ref=selfh.st
+Dribdat,Self-hosted challenge boards for sweeter hackathons,72,?? 低优先级,Tracking,,,https://github.com/dribdat/dribdat?ref=selfh.st,https://dribdat.cc/?ref=selfh.st
+Geoposler,E-mail campaign management application,27,?? 低优先级,Email,,,https://github.com/garanda21/geoposler?ref=selfh.st,https://github.com/garanda21/geoposler?ref=selfh.st
+Plex Prerolls,Script for automating and managing Plex pre-rolls,69,?? 低优先级,Media Streaming,,,https://github.com/nwithan8/plex-prerolls?ref=selfh.st,https://github.com/nwithan8/plex-prerolls?ref=selfh.st
+UniFi Voucher Site,Web-based platform for generating and managing UniFi network guest vouchers,113,?? 低优先级,Networking,,,https://github.com/glenndehaan/unifi-voucher-site?ref=selfh.st,https://github.com/glenndehaan/unifi-voucher-site?ref=selfh.st
+Faridoon,Save and publish chat quotes for others to see,46,?? 低优先级,Messaging,,,https://github.com/jamesread/Faridoon?ref=selfh.st,https://jamesread.github.io/Faridoon/?ref=selfh.st
+Thrifty,Simple monthly income and expense tracker,89,?? 低优先级,Budgeting,,,https://github.com/tiehfood/thrifty?ref=selfh.st,https://github.com/tiehfood/thrifty?ref=selfh.st
+SoFE,Monitor non-filler episodes in Sonarr and generate Plex collections,10,?? 低优先级,*arr,,,https://github.com/chkpwd/sofe?ref=selfh.st,https://github.com/chkpwd/sofe?ref=selfh.st
+Receipt Wrangler,Easy-to-use self-hosted receipt manager,139,?? 低优先级,Document Management,,,https://github.com/Receipt-Wrangler/receipt-wrangler-api?ref=selfh.st,https://github.com/Receipt-Wrangler/receipt-wrangler-api?ref=selfh.st
+Mantium,Manga tracking dashboard from multiple sources,72,?? 低优先级,Books,,,https://github.com/diogovalentte/mantium?ref=selfh.st,https://github.com/diogovalentte/mantium?ref=selfh.st
+MQTT Web Interface,Lightweight web interface for MQTT visualization,146,?? 低优先级,Internet of Things,,,https://github.com/terdia/mqttui?ref=selfh.st,https://github.com/terdia/mqttui?ref=selfh.st
+Liwan,Easy and privacy-first web analytics,57,?? 低优先级,Web Analytics,,,https://github.com/explodingcamera/liwan?ref=selfh.st,https://liwan.dev/?ref=selfh.st
+Live Blog,Live blogging platform for professionals,110,?? 低优先级,Blog,,,https://github.com/liveblog/liveblog?ref=selfh.st,https://www.sourcefabric.org/software/liveblog?ref=selfh.st
+PlexGifMaker,Generate GIFs using a Plex library and subtitles,53,?? 低优先级,Media Streaming,,,https://github.com/TechBuckler/PlexGifMaker?ref=selfh.st,https://github.com/TechBuckler/PlexGifMaker?ref=selfh.st
+SparkyBudget,Personal finance management app,74,?? 低优先级,Budgeting,,,https://github.com/CodeWithCJ/SparkyBudget?ref=selfh.st,https://github.com/CodeWithCJ/SparkyBudget?ref=selfh.st
+Mergeable,Better inbox for GitHub pull requests,94,?? 低优先级,Dashboard,,,https://github.com/pvcnt/mergeable?ref=selfh.st,https://www.usemergeable.dev/?ref=selfh.st
+VaulTLS,mTLS certificate manager,160,?? 低优先级,Security,,,https://github.com/7ritn/VaulTLS?ref=selfh.st,https://github.com/7ritn/VaulTLS?ref=selfh.st
+PlikShare,Self-hosted file sharing solution,78,?? 低优先级,File Sharing,,,https://github.com/damian-krychowski/plikshare?ref=selfh.st,https://plikshare.com/?ref=selfh.st
+Dovel,Simple and easy-to-use mail server,,?? 低优先级,Email,,,https://dovel.email/server/index.html?ref=selfh.st,https://dovel.email/?ref=selfh.st
+Homarr iFrames,iFrames designed for Homarr dashboards,87,?? 低优先级,Dashboard,,,https://github.com/diogovalentte/homarr-iframes?ref=selfh.st,https://github.com/diogovalentte/homarr-iframes?ref=selfh.st
+Medialytics,"A basic, free tool that shows information about Plex content",119,?? 低优先级,Statistics,,,https://github.com/Drewpeifer/medialytics?ref=selfh.st,https://github.com/Drewpeifer/medialytics?ref=selfh.st
+Shared Moments,A website designed for couples to capture and preserve their special moments,62,?? 低优先级,Photos,,,https://github.com/tech-kev/SharedMoments?ref=selfh.st,https://github.com/tech-kev/SharedMoments?ref=selfh.st
+Youlag,Theme and video extension for FreshRSS,115,?? 低优先级,RSS,,,https://github.com/civilblur/youlag?ref=selfh.st,https://github.com/civilblur/youlag?ref=selfh.st
+ShotShare,Open-source image sharing application,159,?? 低优先级,Image Sharing,,,https://github.com/mdshack/shotshare?ref=selfh.st,https://github.com/mdshack/shotshare?ref=selfh.st
+DAViCal,Calendar storage and sharing,101,?? 低优先级,Calendar,,,https://gitlab.com/davical-project/davical?ref=selfh.st,https://www.davical.org/?ref=selfh.st
+Storyteller,Create and read eBooks with synced narration,145,?? 低优先级,Audiobooks,,,https://gitlab.com/smoores/storyteller?ref=selfh.st,https://gitlab.com/smoores/storyteller?ref=selfh.st
+GhostFile,"Lightweight, one-time file upload server",59,?? 低优先级,File Sharing,,,https://github.com/jon6fingrs/ghostfile?ref=selfh.st,https://github.com/jon6fingrs/ghostfile?ref=selfh.st
+Counter,Web analytics made simple and privacy-friendly,23,?? 低优先级,Web Analytics,,,https://github.com/ihucos/counter.dev-selfhost?ref=selfh.st,https://github.com/ihucos/counter.dev-selfhost?ref=selfh.st
+Overr-Syncerr,Webhook handler for subtitle management,131,?? 低优先级,Subtitles,,,https://github.com/gssariev/overr-syncerr?ref=selfh.st,https://github.com/gssariev/overr-syncerr?ref=selfh.st
+Poenskelisten,Collaborative wishlists for gifts and presents,136,?? 低优先级,Wish Lists,,,https://github.com/aunefyren/poenskelisten?ref=selfh.st,https://github.com/aunefyren/poenskelisten?ref=selfh.st
+Wingfit,Minimal fitness app for workout tracking,80,?? 低优先级,Fitness,,,https://github.com/itskovacs/wingfit?ref=selfh.st,https://wingfit.fr/?ref=selfh.st
+BrickTracker,"Organize and track LEGO sets, parts, and minifigures",13,?? 低优先级,Tracking,,,https://gitea.baerentsen.space/FrederikBaerentsen/BrickTracker?ref=selfh.st,https://gitea.baerentsen.space/FrederikBaerentsen/BrickTracker?ref=selfh.st
+Cannery,Firearm and ammunition tracking platform,12,?? 低优先级,Tracking,,,https://github.com/shibaobun/cannery?ref=selfh.st,https://gitea.bubbletea.dev/shibao/cannery?ref=selfh.st
+docker-php-startpage,PHP-based startpage and status monitor in Docker,55,?? 低优先级,Dashboard,,,https://github.com/loganmarchione/docker-php-startpage?ref=selfh.st,https://github.com/loganmarchione/docker-php-startpage?ref=selfh.st
+Obskurnee,Book club companion for voting on upcoming books,19,?? 低优先级,Books,,,https://github.com/zblesk/obskurnee?ref=selfh.st,https://github.com/zblesk/obskurnee?ref=selfh.st
+Posteria,Web-based media poster management system,130,?? 低优先级,Media Assets,,,https://github.com/jeremehancock/Posteria?ref=selfh.st,https://posteria.app/?ref=selfh.st
+Music Service,"Monitor, download, and sync online music with cloud storage providers",41,?? 低优先级,Downloads,,,https://github.com/thijstakken/MusicService?ref=selfh.st,https://thijstakken.github.io/MusicService/?ref=selfh.st
+MagicPack,Web-based Wake-On-LAN tool for teams or companies,48,?? 低优先级,Networking,,,https://github.com/alex-swki/magicpack?ref=selfh.st,https://github.com/alex-swki/magicpack?ref=selfh.st
+FusionAuth,Customer authentication and authorization platform for making developers' lives awesome,,?? 低优先级,Authentication,,,,https://fusionauth.io/download?ref=selfh.st
+Channels DVR,"Flexible, standalone media server that lets you watch TV your way",,?? 低优先级,Media Streaming,,,,https://getchannels.com/dvr-server/?ref=selfh.st
+MyHeats,Live-leaderboard with simple and elegant scoring,,?? 低优先级,Tracking,,,https://code.in0rdr.ch/myheats/?ref=selfh.st,https://myheats.p0c.ch/?ref=selfh.st
+Civitai Data Manager,Civitai model metadata backups and management,40,?? 低优先级,Artificial Intelligence,,,https://github.com/jeremysltn/civitai-data-manager?ref=selfh.st,https://github.com/jeremysltn/civitai-data-manager?ref=selfh.st
+Vidzy,Federated alternative to TikTok,93,?? 低优先级,Social Media,,,https://github.com/vidzy-social/vidzy?ref=selfh.st,https://vidzy.codeberg.page/?ref=selfh.st
+DeepSubX,Use DeepL API to translate media subtitles,31,?? 低优先级,Artificial Intelligence,,,https://github.com/garanda21/deepsubx?ref=selfh.st,https://github.com/garanda21/deepsubx?ref=selfh.st
+Comic Library Utilities,Toolset for managing large comic libraries,106,?? 低优先级,Comics,,,https://github.com/allaboutduncan/comic-utils?ref=selfh.st,https://github.com/allaboutduncan/comic-utils?ref=selfh.st
+Voilib,Podcast search engine,71,?? 低优先级,Podcasts,,,https://github.com/unmonoqueteclea/voilib?ref=selfh.st,https://voilib.com/?ref=selfh.st
+Feedlynx,Generate RSS feeds for links collected via browser extension,80,?? 低优先级,Bookmarks,,,https://github.com/wezm/feedlynx?ref=selfh.st,https://github.com/wezm/feedlynx?ref=selfh.st
+HelpRealm,Lightweight support ticket system,42,?? 低优先级,Support / Ticketing,,,https://github.com/danielbrendel/dnyHelpRealm?ref=selfh.st,https://www.helprealm.net/?ref=selfh.st
+Loops,Federated short video sharing platform,96,?? 低优先级,ActivityPub - Platform,,,https://github.com/joinloops/loops-server?ref=selfh.st,https://joinloops.org/?ref=selfh.st
+RSS,Simple Twitter-feed-style RSS aggregator,17,?? 低优先级,Feed Reader,,,https://codeberg.org/danb/rss?ref=selfh.st,https://codeberg.org/danb/rss?ref=selfh.st
+Roundup,"Issue-tracking tool for bugs, help desks, agile development, customer issues, and more",38,?? 低优先级,Support / Ticketing,,,https://github.com/roundup-tracker/roundup?ref=selfh.st,https://www.roundup-tracker.org/?ref=selfh.st
+Localess,Translation and content management platform,60,?? 低优先级,Content Management,,,https://github.com/Lessify/localess?ref=selfh.st,https://localess.org/home?ref=selfh.st
+GigaPaste,"File sharing, URL shortening, and pastebin all-in-one",2,?? 低优先级,File Sharing,,,https://github.com/NRicode/GigaPaste?ref=selfh.st,https://github.com/NRicode/GigaPaste?ref=selfh.st
+TestFlight Watcher,Monitor TestFlight betas and notify on availability,18,?? 低优先级,Monitoring,,,https://github.com/MaximilianGT500/testflight-watcher?ref=selfh.st,https://github.com/MaximilianGT500/testflight-watcher?ref=selfh.st
+FileRun,Access your files anywhere through self-hosted secure cloud storage,,?? 低优先级,Cloud Storage,,,,https://filerun.com/?ref=selfh.st
+Calorific,Simple self-hosted calorie tracking,65,?? 低优先级,Health and Wellness,,,https://github.com/xdpirate/calorific?ref=selfh.st,https://github.com/xdpirate/calorific?ref=selfh.st
+Richy,Application for managing investment portfolios,34,?? 低优先级,Wealth Management,,,https://gitlab.com/imn1/richy?ref=selfh.st,https://gitlab.com/imn1/richy?ref=selfh.st
+Trackly,Jellyfin music library interface and release notifications,56,?? 低优先级,Music Streaming,,,https://github.com/7eventy7/trackly?ref=selfh.st,https://github.com/7eventy7/trackly?ref=selfh.st
+HiveDAV,Curlable free/busy scheduler with CalDAV integration,,?? 低优先级,Calendar,,,https://code.in0rdr.ch/hivedav/?ref=selfh.st,https://hivedav.p0c.ch/?ref=selfh.st
+ZipCaptions,Generate text from a given audio source using only your browser,53,?? 低优先级,Accessibility,,,https://github.com/jptrsn/zip-captions?ref=selfh.st,https://zipcaptions.app/?ref=selfh.st
+Authman,Cross-platform 2FA TOTP server with mobile and desktop apps,6,?? 低优先级,2FA,,,https://github.com/simular/authman-server?ref=selfh.st,https://github.com/simular/authman-server?ref=selfh.st
+HymnoScribe,Comprehensive tool for creating hymn sheets,6,?? 低优先级,Document Management,,,https://github.com/Revisor01/HymnoScribe?ref=selfh.st,https://hymnoscribe.de/?ref=selfh.st
+OpenTalk,"Secure video conferencing solution designed with productivity, digital sovereignty, and privacy in m...",5,?? 低优先级,Video Conferencing,,,https://gitlab.opencode.de/opentalk/ot-setup?ref=selfh.st,https://opentalk.eu/?ref=selfh.st
+BBYEN,YouTube subscription e-mail notifications,19,?? 低优先级,Notifications,,,https://github.com/MarcelRobitaille/bbyen?ref=selfh.st,https://github.com/MarcelRobitaille/bbyen?ref=selfh.st
+Maker Management Platform,"Digital asset manger for 3D printing, manufacturing, laser engraving, and more",28,?? 低优先级,3D Printing,,,https://github.com/Maker-Management-Platform/agent?ref=selfh.st,https://github.com/Maker-Management-Platform/agent?ref=selfh.st
+ELEMENT.FM,Open-source podcast hosting platform,4,?? 低优先级,Podcasts,,,https://gitlab.com/elementfm/docs?ref=selfh.st,https://element.fm/?ref=selfh.st
+Pods-Blitz,Fast and reliable podcast publishing,2,?? 低优先级,Podcasts,,,https://codeberg.org/pods-blitz/pods-blitz?ref=selfh.st,https://pods-blitz.org/?ref=selfh.st
+Blue Iris,Video security and webcam software,,?? 低优先级,NVR,,,,https://blueirissoftware.com/?ref=selfh.st
+RepoFlow,User-friendly and powerful package management platform,,?? 低优先级,Container Registry,,,,https://www.repoflow.io/?ref=selfh.st
+Flox,"Self-hosted movie, series, and anime watch list",22,?? 低优先级,Movies,,,https://github.com/Simounet/flox?ref=selfh.st,https://simounet.github.io/flox/?ref=selfh.st
+Kontoj,Tool for creating account credentials for multiple services via JSON,8,?? 低优先级,Identity Management,,,https://github.com/galaksiotech/kontoj?ref=selfh.st,https://kontoj.galaksio.tech/?ref=selfh.st

@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block title %}批量检查结果 - 懒猫应用商店管理系统{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center mb-4">
+    <a href="{{ url_for('batch_check') }}" class="btn btn-outline-secondary me-3">
+        <i class="fas fa-arrow-left"></i> 返回检查
+    </a>
+    <h2><i class="fas fa-check-circle text-primary"></i> 批量检查结果</h2>
+</div>
+
+<!-- 统计信息 -->
+<div class="row mb-4">
+    {% set total = results|length %}
+    {% set existing = results|selectattr('exists')|list|length %}
+    {% set missing = total - existing %}
+    
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-primary">{{ total }}</h3>
+                <p class="card-text">总检查数量</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-success">{{ existing }}</h3>
+                <p class="card-text">已存在应用</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-danger">{{ missing }}</h3>
+                <p class="card-text">缺失应用</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 结果列表 -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="fas fa-list"></i> 检查详情
+        </h5>
+        <div>
+            <button class="btn btn-outline-primary btn-sm" onclick="copyMissingApps()">
+                <i class="fas fa-copy"></i> 复制缺失应用
+            </button>
+            <button class="btn btn-outline-success btn-sm" onclick="exportResults()">
+                <i class="fas fa-download"></i> 导出结果
+            </button>
+            {% if missing > 0 %}
+            <button class="btn btn-warning btn-sm" onclick="batchAddMissingApps()">
+                <i class="fas fa-plus-circle"></i> 一键插入缺失应用
+            </button>
+            {% endif %}
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">应用名称</th>
+                        <th width="15%">状态</th>
+                        <th width="15%">相似度</th>
+                        <th width="25%">匹配应用</th>
+                        <th width="15%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr class="{{ 'table-success' if result.exists else 'table-danger' }}">
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <strong>{{ result.input_name }}</strong>
+                        </td>
+                        <td>
+                            {% if result.exists %}
+                            <span class="badge bg-success">
+                                <i class="fas fa-check"></i> 已存在
+                            </span>
+                            {% else %}
+                            <span class="badge bg-danger">
+                                <i class="fas fa-times"></i> 不存在
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.similarity > 0 %}
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar 
+                                    {{ 'bg-success' if result.similarity >= 0.7 else 'bg-warning' if result.similarity >= 0.5 else 'bg-danger' }}" 
+                                    style="width: {{ (result.similarity * 100)|round }}%">
+                                    {{ (result.similarity * 100)|round }}%
+                                </div>
+                            </div>
+                            {% else %}
+                            <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.match %}
+                            <div>
+                                <strong>{{ result.match[1] }}</strong>
+                                {% if result.match[3] > 0 %}
+                                <br><small class="text-muted">下载量: {{ "{:,}".format(result.match[3]) }}</small>
+                                {% endif %}
+                            </div>
+                            {% else %}
+                            <span class="text-muted">无匹配</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if result.match %}
+                            <a href="{{ url_for('view_app', app_id=result.match[0]) }}" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-eye"></i> 查看
+                            </a>
+                            {% else %}
+                            <button class="btn btn-outline-success btn-sm" onclick="addApp('{{ result.input_name }}')">
+                                <i class="fas fa-plus"></i> 添加
+                            </button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 缺失应用列表（用于复制） -->
+{% if missing > 0 %}
+<div class="card mt-4">
+    <div class="card-header">
+        <h6 class="mb-0">
+            <i class="fas fa-exclamation-triangle text-warning"></i> 
+            缺失应用列表 ({{ missing }} 个)
+        </h6>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">以下应用在懒猫商店中不存在，建议优先移植：</p>
+        <div class="bg-light p-3 rounded">
+            <pre id="missingAppsList" class="mb-0">{% for result in results %}{% if not result.exists %}{{ result.input_name }}
+{% endif %}{% endfor %}</pre>
+        </div>
+        <div class="mt-2">
+            <button class="btn btn-outline-primary btn-sm" onclick="copyMissingApps()">
+                <i class="fas fa-copy"></i> 复制列表
+            </button>
+            <button class="btn btn-warning btn-sm ms-2" onclick="batchAddMissingApps()">
+                <i class="fas fa-plus-circle"></i> 一键插入这些应用
+            </button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- 重新检查表单 -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h6 class="mb-0">
+            <i class="fas fa-redo text-primary"></i> 重新检查
+        </h6>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('batch_check') }}">
+            <textarea name="app_list" class="form-control" rows="5" placeholder="修改应用列表后重新检查...">{{ app_list }}</textarea>
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i> 重新检查
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function copyMissingApps() {
+    const missingList = document.getElementById('missingAppsList');
+    if (missingList) {
+        navigator.clipboard.writeText(missingList.textContent).then(function() {
+            // 显示复制成功提示
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> 已复制';
+            btn.classList.remove('btn-outline-primary');
+            btn.classList.add('btn-success');
+            
+            setTimeout(function() {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-primary');
+            }, 2000);
+        });
+    }
+}
+
+function exportResults() {
+    // 创建CSV内容
+    let csvContent = "应用名称,状态,相似度,匹配应用,下载量\n";
+    
+    {% for result in results %}
+    csvContent += "{{ result.input_name }},";
+    csvContent += "{{ '已存在' if result.exists else '不存在' }},";
+    csvContent += "{{ (result.similarity * 100)|round }}%,";
+    csvContent += "{{ result.match[1] if result.match else '' }},";
+    csvContent += "{{ result.match[3] if result.match and result.match[3] > 0 else '0' }}\n";
+    {% endfor %}
+    
+    // 下载CSV文件
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'batch_check_results_' + new Date().toISOString().slice(0,10) + '.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function addApp(appName) {
+    // 跳转到添加应用页面，并预填应用名称
+    window.location.href = `{{ url_for('add_app') }}?name=${encodeURIComponent(appName)}`;
+}
+
+function batchAddMissingApps() {
+    // 获取所有缺失的应用名称
+    const missingApps = [];
+    {% for result in results %}
+    {% if not result.exists %}
+    missingApps.push('{{ result.input_name }}');
+    {% endif %}
+    {% endfor %}
+    
+    if (missingApps.length === 0) {
+        alert('没有缺失的应用需要添加！');
+        return;
+    }
+    
+    // 确认对话框
+    const confirmMessage = `确定要将以下 ${missingApps.length} 个缺失应用添加到数据库吗？\n\n${missingApps.join('\n')}\n\n注意：这些应用将被标记为"暂不适合"，ID从1000000开始编号。`;
+    
+    if (!confirm(confirmMessage)) {
+        return;
+    }
+    
+    // 显示加载状态
+    const btn = event.target.closest('button');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 正在添加...';
+    btn.disabled = true;
+    
+    // 发送请求
+    fetch('/batch_add_missing', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            missing_apps: missingApps
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // 显示成功消息
+            alert(`✅ ${data.message}\n\n添加的应用：\n${data.added.map(app => `• ${app[1]} (ID: ${app[0]})`).join('\n')}`);
+            
+            // 刷新页面显示最新状态
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        } else {
+            alert(`❌ ${data.message}`);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('❌ 添加失败，请检查网络连接！');
+    })
+    .finally(() => {
+        // 恢复按钮状态
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    });
+}
+
+// 添加成功提示样式
+function showSuccessToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'alert alert-success alert-dismissible fade show position-fixed';
+    toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    toast.innerHTML = `
+        <i class="fas fa-check-circle"></i> ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // 自动隐藏
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+        }
+    }, 5000);
+}
+</script>
+{% endblock %} 

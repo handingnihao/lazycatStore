@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}添加应用 - 懒猫应用商店管理系统{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="d-flex align-items-center mb-4">
+            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-3">
+                <i class="fas fa-arrow-left"></i> 返回
+            </a>
+            <h2><i class="fas fa-plus text-primary"></i> 添加应用</h2>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-tag"></i> 应用名称 <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="name" name="name" 
+                               value="{{ request.args.get('name', '') }}" required>
+                        <div class="form-text">应用的显示名称</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="brief" class="form-label">
+                            <i class="fas fa-info-circle"></i> 应用简介
+                        </label>
+                        <textarea class="form-control" id="brief" name="brief" rows="3" 
+                                  placeholder="请输入应用的简短描述..."></textarea>
+                        <div class="form-text">应用的功能描述和特点</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="count" class="form-label">
+                                    <i class="fas fa-download"></i> 下载量
+                                </label>
+                                <input type="number" class="form-control" id="count" name="count" 
+                                       value="0" min="0">
+                                <div class="form-text">应用的下载或使用次数</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="icon_src" class="form-label">
+                                    <i class="fas fa-image"></i> 图标链接
+                                </label>
+                                <input type="url" class="form-control" id="icon_src" name="icon_src" 
+                                       placeholder="https://example.com/icon.png">
+                                <div class="form-text">应用图标的URL地址</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="href" class="form-label">
+                            <i class="fas fa-link"></i> 详情链接
+                        </label>
+                        <input type="url" class="form-control" id="href" name="href" 
+                               placeholder="https://lazycat.cloud/appstore/detail/...">
+                        <div class="form-text">应用在懒猫商店中的详情页面链接</div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-times"></i> 取消
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> 保存应用
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 帮助信息 -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h6 class="card-title">
+                    <i class="fas fa-lightbulb text-warning"></i> 填写提示
+                </h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> 应用名称是必填项</li>
+                            <li><i class="fas fa-check text-success"></i> 简介有助于用户了解应用功能</li>
+                            <li><i class="fas fa-check text-success"></i> 下载量可以体现应用受欢迎程度</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-info text-info"></i> 图标链接应为有效的图片URL</li>
+                            <li><i class="fas fa-info text-info"></i> 详情链接指向应用的官方页面</li>
+                            <li><i class="fas fa-info text-info"></i> 所有链接都是可选的</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 图标预览功能
+document.getElementById('icon_src').addEventListener('input', function() {
+    const iconUrl = this.value;
+    const existingPreview = document.getElementById('iconPreview');
+    
+    if (existingPreview) {
+        existingPreview.remove();
+    }
+    
+    if (iconUrl && iconUrl.match(/\.(jpeg|jpg|gif|png)$/)) {
+        const preview = document.createElement('img');
+        preview.id = 'iconPreview';
+        preview.src = iconUrl;
+        preview.style.cssText = 'width: 32px; height: 32px; border-radius: 8px; margin-top: 5px;';
+        preview.onerror = function() { this.style.display = 'none'; };
+        this.parentNode.appendChild(preview);
+    }
+});
+
+// 表单验证
+document.querySelector('form').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value.trim();
+    if (!name) {
+        e.preventDefault();
+        alert('请输入应用名称！');
+        document.getElementById('name').focus();
+    }
+});
+</script>
+{% endblock %} 

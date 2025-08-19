@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+{% block title %}编辑应用 - {{ app[1] }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="d-flex align-items-center mb-4">
+            <a href="{{ url_for('view_app', app_id=app[0]) }}" class="btn btn-outline-secondary me-3">
+                <i class="fas fa-arrow-left"></i> 返回详情
+            </a>
+            <h2><i class="fas fa-edit text-primary"></i> 编辑应用</h2>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle"></i> 编辑 "{{ app[1] }}" (ID: {{ app[0] }})
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-tag"></i> 应用名称 <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="name" name="name" 
+                               value="{{ app[1] }}" required>
+                        <div class="form-text">应用的显示名称</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="brief" class="form-label">
+                            <i class="fas fa-info-circle"></i> 应用简介
+                        </label>
+                        <textarea class="form-control" id="brief" name="brief" rows="4">{{ app[2] or '' }}</textarea>
+                        <div class="form-text">应用的功能描述和特点</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="count" class="form-label">
+                                    <i class="fas fa-download"></i> 下载量
+                                </label>
+                                <input type="number" class="form-control" id="count" name="count" 
+                                       value="{{ app[3] or 0 }}" min="0">
+                                <div class="form-text">应用的下载或使用次数</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="icon_src" class="form-label">
+                                    <i class="fas fa-image"></i> 图标链接
+                                </label>
+                                <input type="url" class="form-control" id="icon_src" name="icon_src" 
+                                       value="{{ app[5] or '' }}" placeholder="https://example.com/icon.png">
+                                <div class="form-text">应用图标的URL地址</div>
+                                {% if app[5] %}
+                                <div class="mt-2">
+                                    <img src="{{ app[5] }}" alt="当前图标" 
+                                         style="width: 32px; height: 32px; border-radius: 8px;" 
+                                         onerror="this.style.display='none'">
+                                    <small class="text-muted ms-2">当前图标</small>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="href" class="form-label">
+                            <i class="fas fa-link"></i> 详情链接
+                        </label>
+                        <input type="url" class="form-control" id="href" name="href" 
+                               value="{{ app[4] or '' }}" placeholder="https://lazycat.cloud/appstore/detail/...">
+                        <div class="form-text">应用在懒猫商店中的详情页面链接</div>
+                    </div>
+
+                    <!-- 时间信息显示 -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-calendar"></i> 创建时间
+                            </label>
+                            <input type="text" class="form-control" value="{{ app[6] or '未知' }}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="fas fa-clock"></i> 最后更新
+                            </label>
+                            <input type="text" class="form-control" value="{{ app[7] or '未更新' }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('view_app', app_id=app[0]) }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-times"></i> 取消
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> 保存更改
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 编辑历史 -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h6 class="card-title">
+                    <i class="fas fa-history text-info"></i> 编辑说明
+                </h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> 修改后将自动更新"最后更新"时间</li>
+                            <li><i class="fas fa-check text-success"></i> 应用名称不能为空</li>
+                            <li><i class="fas fa-check text-success"></i> 链接格式会自动验证</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-info text-info"></i> 创建时间不可修改</li>
+                            <li><i class="fas fa-info text-info"></i> 图标链接应为有效的图片URL</li>
+                            <li><i class="fas fa-info text-info"></i> 所有更改立即生效</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 图标预览功能
+document.getElementById('icon_src').addEventListener('input', function() {
+    const iconUrl = this.value;
+    let preview = document.getElementById('iconPreview');
+    
+    if (preview) {
+        preview.remove();
+    }
+    
+    if (iconUrl && iconUrl.match(/\.(jpeg|jpg|gif|png)$/)) {
+        preview = document.createElement('div');
+        preview.id = 'iconPreview';
+        preview.innerHTML = `
+            <div class="mt-2">
+                <img src="${iconUrl}" alt="预览图标" 
+                     style="width: 32px; height: 32px; border-radius: 8px;" 
+                     onerror="this.style.display='none'">
+                <small class="text-muted ms-2">预览</small>
+            </div>
+        `;
+        this.parentNode.appendChild(preview);
+    }
+});
+
+// 表单验证
+document.querySelector('form').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value.trim();
+    if (!name) {
+        e.preventDefault();
+        alert('请输入应用名称！');
+        document.getElementById('name').focus();
+        return;
+    }
+    
+    // 确认保存
+    if (!confirm('确定要保存这些更改吗？')) {
+        e.preventDefault();
+    }
+});
+
+// 自动保存草稿功能（可选）
+let autoSaveTimer;
+function autoSave() {
+    clearTimeout(autoSaveTimer);
+    autoSaveTimer = setTimeout(function() {
+        const formData = {
+            name: document.getElementById('name').value,
+            brief: document.getElementById('brief').value,
+            count: document.getElementById('count').value,
+            href: document.getElementById('href').value,
+            icon_src: document.getElementById('icon_src').value
+        };
+        
+        // 保存到localStorage
+        localStorage.setItem('editApp_{{ app[0] }}', JSON.stringify(formData));
+    }, 2000);
+}
+
+// 监听表单变化
+document.querySelectorAll('input, textarea').forEach(function(element) {
+    element.addEventListener('input', autoSave);
+});
+
+// 页面加载时恢复草稿
+window.addEventListener('load', function() {
+    const saved = localStorage.getItem('editApp_{{ app[0] }}');
+    if (saved) {
+        const data = JSON.parse(saved);
+        if (confirm('发现未保存的草稿，是否恢复？')) {
+            Object.keys(data).forEach(function(key) {
+                const element = document.getElementById(key);
+                if (element && data[key] !== element.value) {
+                    element.value = data[key];
+                }
+            });
+        } else {
+            localStorage.removeItem('editApp_{{ app[0] }}');
+        }
+    }
+});
+
+// 保存成功后清除草稿
+window.addEventListener('beforeunload', function() {
+    if (document.querySelector('form').checkValidity()) {
+        localStorage.removeItem('editApp_{{ app[0] }}');
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}批量检查应用 - 懒猫应用商店管理系统{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="d-flex align-items-center mb-4">
+            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary me-3">
+                <i class="fas fa-arrow-left"></i> 返回
+            </a>
+            <h2><i class="fas fa-search text-primary"></i> 批量检查应用</h2>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-list-check text-primary"></i> 输入应用列表
+                </h5>
+                <p class="card-text text-muted">
+                    请输入要检查的应用名称，每行一个。系统会自动检查这些应用是否已在懒猫商店中存在。
+                </p>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="app_list" class="form-label">应用列表</label>
+                        <textarea class="form-control" id="app_list" name="app_list" rows="12" 
+                                  placeholder="请输入应用名称，每行一个：&#10;&#10;Dashy&#10;Fenrus&#10;Glance&#10;Heimdall&#10;Hiccup&#10;Homarr&#10;Homepage by gethomepage&#10;Homepage by tomershvueli&#10;Homer&#10;Hubleys&#10;LinkStack&#10;LittleLink&#10;Mafl&#10;portkey&#10;ryot&#10;Starbase 80&#10;Web-Portal&#10;Your Spotify" required></textarea>
+                        <div class="form-text">
+                            <i class="fas fa-info-circle"></i> 
+                            支持复制粘贴应用列表，系统会自动按行分割处理
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-outline-secondary" onclick="clearList()">
+                            <i class="fas fa-eraser"></i> 清空
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i> 开始检查
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 使用说明 -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h6 class="card-title">
+                    <i class="fas fa-question-circle text-info"></i> 使用说明
+                </h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>检查结果说明：</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success"></i> <strong>已存在</strong> - 在懒猫商店中找到高度相似的应用</li>
+                            <li><i class="fas fa-times-circle text-danger"></i> <strong>不存在</strong> - 懒猫商店中未找到此应用</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>功能特点：</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-magic text-primary"></i> 智能相似度匹配</li>
+                            <li><i class="fas fa-download text-primary"></i> 结果可导出</li>
+                            <li><i class="fas fa-bolt text-primary"></i> 快速批量处理</li>
+                            <li><i class="fas fa-plus-circle text-warning"></i> 一键插入缺失应用</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function clearList() {
+    document.getElementById('app_list').value = '';
+    document.getElementById('app_list').focus();
+}
+
+// 自动调整文本框高度
+document.getElementById('app_list').addEventListener('input', function() {
+    const lines = this.value.split('\n').length;
+    const minRows = 12;
+    const maxRows = 25;
+    const rows = Math.max(minRows, Math.min(maxRows, lines + 2));
+    this.rows = rows;
+});
+</script>
+{% endblock %} 

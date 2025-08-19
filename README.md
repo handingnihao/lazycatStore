@@ -1,55 +1,288 @@
-<p align="center">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/decipher3114/Capter/master/assets/images/banner_dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/decipher3114/Capter/master/assets/images/banner_light.png">
-      <img src="https://raw.githubusercontent.com/decipher3114/Capter/master/assets/images/banner_dark.png">
-    </picture>
-</p>
-<h3 align="center">Cross-Platform Screen Capture and Annotation Tool</h3>
+# 懒猫应用商店数据分析系统
 
-## ✨ Features
+这是一个完整的懒猫应用商店数据分析和管理系统，包含数据库管理、Web可视化界面和批量应用检查功能。
 
-- Capture fullscreen, window, or cropped area with ease
-- Window selection assistance for precise captures
-- Powerful annotation tools: Rectangle, Circle, Line, Arrow, Freehand, Highlighter, and Text
-- Fast and efficient with a minimalistic, user-friendly UI
-- Built-in copy-to-clipboard support for quick sharing
+## 🌟 主要功能
 
-## 📥 Installation
+### 📊 数据库管理系统
+- **SQLite数据库存储**：将CSV数据导入SQLite数据库，提供高效的数据存储和查询
+- **完整的增删改查**：支持应用的添加、编辑、删除和查看
+- **智能搜索**：支持应用名称和描述的模糊搜索
+- **分页浏览**：大数据量下的高效分页显示
 
-- ### Windows
+### 🎨 Web可视化界面
+- **现代化UI设计**：基于Bootstrap 5的响应式界面
+- **实时统计图表**：使用Chart.js展示数据统计和趋势
+- **批量应用检查**：可视化的批量应用存在性检查工具
+- **数据导出功能**：支持CSV格式的结果导出
 
-  ```
-  winget install decipher.Capter
-  ```
+### 🔍 应用分析功能
+- **应用对比分析**：比较selfh.st和懒猫官方应用商店的差异
+- **优先级排序**：基于GitHub Stars的应用移植优先级评估
+- **移植难易度分析**：评估应用的Docker支持和移植复杂度
+- **智能匹配算法**：使用相似度算法进行应用名称匹配
 
-- ### Arch
-  ```
-  paru -S capter
-  ```
-  OR
-  ```
-  yay -S capter
-  ```
-- ### Debian
+## 📁 项目结构
 
-  Download from [Releases](https://github.com/decipher3114/Capter/releases/latest)
+```
+├── database_manager.py          # 数据库管理核心模块
+├── web_app.py                  # Flask Web应用主程序
+├── start_web.py                # 一键启动脚本
+├── templates/                  # HTML模板文件夹
+│   ├── base.html              # 基础模板
+│   ├── index.html             # 主页（应用列表）
+│   ├── add_app.html           # 添加应用页面
+│   ├── edit_app.html          # 编辑应用页面
+│   ├── view_app.html          # 应用详情页面
+│   ├── statistics.html        # 统计分析页面
+│   ├── batch_check.html       # 批量检查页面
+│   └── batch_check_results.html # 批量检查结果页面
+├── lazycat_apps.db            # SQLite数据库文件（自动生成）
+├── lazycat20250625.csv        # 懒猫官方应用数据
+├── selfh.csv                  # selfh.st应用数据
+└── 分析工具/
+    ├── app_analyzer.py        # 核心分析程序
+    ├── priority_apps_list.py  # 优先级排序
+    ├── migration_difficulty_analyzer.py # 移植难度分析
+    ├── docker_ready_apps_report.py # Docker就绪应用报告
+    ├── app_checker_tool.py    # GUI批量检查工具
+    └── quick_app_checker.py   # 命令行快速检查器
+```
 
-- ### Mac OS
+## 🚀 快速开始
 
-  Download from [Releases](https://github.com/decipher3114/Capter/releases/latest)
+### 方法一：一键启动（推荐）
+```bash
+python start_web.py
+```
 
-- ### Cargo
-  ```
-  cargo install --git https://github.com/decipher3114/Capter
-  ```
+### 方法二：手动启动
+1. **初始化数据库**
+```bash
+python database_manager.py
+```
 
-## 🎬 Video
+2. **安装依赖**
+```bash
+pip install flask
+```
 
-[![YouTube](http://i.ytimg.com/vi/1RSB8945yJA/0.jpg)](https://www.youtube.com/watch?v=1RSB8945yJA)
+3. **启动Web服务**
+```bash
+python web_app.py
+```
 
-### 🙌 Thanks to
+4. **访问系统**
+打开浏览器访问：http://localhost:5000
 
-- [iced](https://github.com/iced-rs) community for their help
-- [XelXen](https://github.com/xelxen) for UI idea
-- Other crate maintainers
+## 💻 Web界面功能
+
+### 🏠 主页 - 应用列表
+- 分页显示所有应用
+- 实时搜索功能
+- 应用图标显示
+- 快速操作按钮（查看、编辑、删除）
+
+### 📊 统计分析页面
+- 总体数据统计卡片
+- 热门应用排行榜
+- 可视化图表（条形图、饼图）
+- 数据分布分析
+
+### ➕ 应用管理
+- **添加应用**：完整的表单验证和图标预览
+- **编辑应用**：支持所有字段修改，自动保存草稿
+- **查看详情**：完整的应用信息展示
+- **删除应用**：安全的删除确认机制
+- **🆕 自定义ID管理**：缺失应用使用1000000+的ID，避免与官方应用冲突
+
+### 🔍 批量检查工具
+- 批量输入应用名称
+- 智能相似度匹配
+- 可视化结果展示
+- 一键复制缺失应用列表
+- CSV格式结果导出
+- **🆕 一键插入缺失应用**：自动将缺失应用添加到数据库，标记为"暂不适合"
+
+## 📈 数据分析结果
+
+### 核心统计数据
+- **懒猫官方应用总数**：1,551个
+- **有下载量的应用**：1,232个
+- **平均下载量**：23.54次
+- **最高下载量**：2,883次（懒猫网盘）
+
+### 热门应用排行
+1. **懒猫网盘** - 2,883下载
+2. **懒猫相册** - 2,419下载  
+3. **视频播放器** - 969下载
+4. **懒猫开发者工具** - 880下载
+
+## 🛠 技术栈
+
+### 后端技术
+- **Python 3.x**：主要编程语言
+- **Flask**：Web框架
+- **SQLite**：轻量级数据库
+- **difflib**：字符串相似度计算
+
+### 前端技术
+- **Bootstrap 5**：响应式UI框架
+- **Chart.js**：数据可视化图表
+- **Font Awesome**：图标库
+- **JavaScript ES6**：交互功能
+
+### 数据处理
+- **pandas**：数据分析和处理
+- **csv**：CSV文件读写
+- **json**：数据序列化
+
+## 🆕 一键插入功能
+
+### 功能特点
+- **智能ID管理**：自动分配1000000+的自定义ID，避免与官方应用ID冲突
+- **批量处理**：支持一次性添加多个缺失应用
+- **安全机制**：自动跳过已存在的应用，避免重复添加
+- **标准化描述**：所有插入的应用统一标记为"暂不适合"
+- **可视化反馈**：详细显示添加结果和跳过的应用
+
+### 使用场景
+1. **批量检查后快速入库**：检查发现缺失应用后，一键添加到数据库
+2. **应用商店完善**：为后续评估和移植工作建立完整的应用清单
+3. **数据管理**：保持应用数据的完整性，便于统计分析
+
+### ID分配规则
+- **官方应用**：ID范围 1-999999（来自CSV导入）
+- **自定义应用**：ID范围 1000000+（手动添加或一键插入）
+- **自动递增**：新添加的自定义应用ID自动递增，确保唯一性
+
+## 🔧 API接口
+
+### RESTful API端点
+- `GET /api/search` - 搜索应用
+- `GET /api/statistics` - 获取统计信息
+- `POST /add` - 添加应用
+- `PUT /edit/<id>` - 编辑应用
+- `DELETE /delete/<id>` - 删除应用
+- `POST /batch_add_missing` - 批量添加缺失应用
+
+### 搜索API示例
+```bash
+curl "http://localhost:5000/api/search?q=懒猫&page=1&per_page=10"
+```
+
+### 批量添加API示例
+```bash
+curl -X POST "http://localhost:5000/batch_add_missing" \
+  -H "Content-Type: application/json" \
+  -d '{"missing_apps": ["Hiccup", "Hubleys", "LittleLink"]}'
+```
+
+## 📱 移动端支持
+
+Web界面完全响应式设计，支持：
+- 📱 手机浏览器
+- 📟 平板设备  
+- 💻 桌面浏览器
+- 🖥️ 大屏显示器
+
+## 🔒 数据安全
+
+- **本地存储**：所有数据存储在本地SQLite数据库
+- **无外部依赖**：不需要云服务或外部API
+- **备份支持**：数据库文件可直接复制备份
+- **导入导出**：支持CSV格式的数据导入导出
+
+## 🎯 使用场景
+
+### 应用商店管理员
+- 查看和管理应用列表
+- 分析应用下载趋势
+- 批量检查新应用
+
+### 开发者
+- 研究市场应用分布
+- 分析竞品情况
+- 寻找移植机会
+
+### 数据分析师
+- 应用市场数据分析
+- 用户行为研究
+- 趋势预测分析
+
+## 🔄 数据更新
+
+### 自动更新
+- Web界面提供"重新导入数据"功能
+- 支持增量更新和全量更新
+- 保持数据库结构完整性
+
+### 手动更新
+```bash
+# 重新导入CSV数据
+python database_manager.py
+```
+
+## 🐛 故障排除
+
+### 常见问题
+
+**Q: 数据库初始化失败**
+A: 检查CSV文件是否存在，确保文件编码正确
+
+**Q: Web界面无法访问**
+A: 确认Flask已安装，检查端口5000是否被占用
+
+**Q: 图标不显示**
+A: 检查图标URL是否有效，确保网络连接正常
+
+**Q: 搜索结果不准确**
+A: 相似度算法基于字符串匹配，可能需要调整阈值
+
+### 日志查看
+Web应用运行时会在控制台显示详细日志，包括：
+- 数据库操作记录
+- 用户访问日志
+- 错误信息详情
+
+## 🚀 性能优化
+
+### 数据库优化
+- 创建索引提高查询速度
+- 分页减少内存占用
+- 连接池管理数据库连接
+
+### 前端优化
+- CDN加载外部资源
+- 图片懒加载
+- 缓存静态文件
+
+## 🔮 未来规划
+
+### 功能扩展
+- [ ] 用户权限管理
+- [ ] 应用分类标签
+- [ ] 高级搜索过滤
+- [ ] 数据可视化仪表板
+- [ ] RESTful API完善
+- [ ] 移动端App
+
+### 技术升级
+- [ ] 迁移到PostgreSQL
+- [ ] 引入Redis缓存
+- [ ] Docker容器化部署
+- [ ] 微服务架构改造
+
+## 📞 技术支持
+
+如有问题或建议，请通过以下方式联系：
+- 创建GitHub Issue
+- 发送邮件反馈
+- 提交Pull Request
+
+---
+
+**开发者**：AI Assistant  
+**更新时间**：2024年6月26日  
+**版本**：v2.0 (数据库版本)  
+**许可证**：MIT License
