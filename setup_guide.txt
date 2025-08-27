@@ -1,0 +1,2 @@
+# 这是一个示例，你需要将your_github_token_here替换为真实的GitHub token
+GITHUB_TOKEN=your_github_token_here

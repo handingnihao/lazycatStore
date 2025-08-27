@@ -111,9 +111,14 @@
             <thead>
               <tr>
                 <th width="8%">ID</th>
-                <th width="30%">应用信息</th>
-                <th width="40%">简介描述</th>
-                <th width="12%">下载量</th>
+                <th width="28%">应用信息</th>
+                <th width="33%">简介描述</th>
+                <th width="10%" onclick="sortBy('count')" style="cursor: pointer;" title="点击排序">
+                  下载量 <i id="countSortIcon" class="fas fa-sort text-muted"></i>
+                </th>
+                <th width="11%" onclick="sortBy('star')" style="cursor: pointer;" title="点击排序">
+                  <i class="fab fa-github"></i> Star <i id="starSortIcon" class="fas fa-sort text-muted"></i>
+                </th>
                 <th width="10%">操作</th>
               </tr>
             </thead>
@@ -150,6 +155,29 @@
                 </td>
                 <td>
                   <span class="badge bg-secondary">{{ app[3] if app|length > 3 else 0 }}</span>
+                </td>
+                <td>
+                  {% if app|length > 6 and app[6] > 0 %}
+                    {% if app[6] >= 50000 %}
+                    <span class="badge bg-warning text-dark" title="{{ '{:,}'.format(app[6]) }} stars">
+                      <i class="fas fa-star"></i> {{ "{:,.0f}k".format(app[6]/1000) }}
+                    </span>
+                    {% elif app[6] >= 10000 %}
+                    <span class="badge bg-info" title="{{ '{:,}'.format(app[6]) }} stars">
+                      <i class="fas fa-star"></i> {{ "{:,.1f}k".format(app[6]/1000) }}
+                    </span>
+                    {% elif app[6] >= 1000 %}
+                    <span class="badge bg-success" title="{{ '{:,}'.format(app[6]) }} stars">
+                      <i class="fas fa-star"></i> {{ "{:,.1f}k".format(app[6]/1000) }}
+                    </span>
+                    {% else %}
+                    <span class="badge bg-secondary" title="{{ app[6] }} stars">
+                      <i class="fas fa-star"></i> {{ app[6] }}
+                    </span>
+                    {% endif %}
+                  {% else %}
+                  <span class="text-muted">-</span>
+                  {% endif %}
                 </td>
                 <td>
                   <button class="btn btn-sm btn-outline-success" 
@@ -193,15 +221,17 @@
 let currentPage = {{ page }};
 let totalPages = {{ total_pages }};
 let totalPending = {{ total_pending }};
+let currentSort = 'count'; // 当前排序方式
+let currentSortOrder = 'desc'; // 当前排序方向 desc/asc
 
 async function loadPage(page, source = 'unknown') {
   console.log(`Loading pending guides page ${page} via Ajax (source: ${source})`);
   
   const tableBody = document.getElementById('appsTableBody');
-  tableBody.innerHTML = '<tr><td colspan="5" class="text-center"><i class="fas fa-spinner fa-spin"></i> 加载中...</td></tr>';
+  tableBody.innerHTML = '<tr><td colspan="6" class="text-center"><i class="fas fa-spinner fa-spin"></i> 加载中...</td></tr>';
   
   try {
-    const res = await fetch(`/api/pending_guides?page=${page}`);
+    const res = await fetch(`/api/pending_guides?page=${page}&sort=${currentSort}&order=${currentSortOrder}`);
     const data = await res.json();
     
     if (data.success) {
@@ -219,7 +249,7 @@ async function loadPage(page, source = 'unknown') {
     }
   } catch (e) {
     console.error('Ajax loading error:', e);
-    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">网络错误</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="6" class="text-center text-danger">网络错误</td></tr>';
   }
 }
 
@@ -227,7 +257,7 @@ function renderTable(apps) {
   const tableBody = document.getElementById('appsTableBody');
   
   if (apps.length === 0) {
-    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-success"><i class="fas fa-check-circle"></i> 暂无待写攻略应用</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="6" class="text-center text-success"><i class="fas fa-check-circle"></i> 暂无待写攻略应用</td></tr>';
     return;
   }
   
@@ -261,6 +291,18 @@ function renderTable(apps) {
         </td>
         <td>
           <span class="badge bg-secondary">${app.count}</span>
+        </td>
+        <td>
+          ${app.star_count > 0 ? 
+            (app.star_count >= 50000 ? 
+              `<span class="badge bg-warning text-dark" title="${app.star_count.toLocaleString()} stars"><i class="fas fa-star"></i> ${(app.star_count/1000).toFixed(0)}k</span>` :
+            app.star_count >= 10000 ? 
+              `<span class="badge bg-info" title="${app.star_count.toLocaleString()} stars"><i class="fas fa-star"></i> ${(app.star_count/1000).toFixed(1)}k</span>` :
+            app.star_count >= 1000 ? 
+              `<span class="badge bg-success" title="${app.star_count.toLocaleString()} stars"><i class="fas fa-star"></i> ${(app.star_count/1000).toFixed(1)}k</span>` :
+              `<span class="badge bg-secondary" title="${app.star_count} stars"><i class="fas fa-star"></i> ${app.star_count}</span>`) :
+            '<span class="text-muted">-</span>'
+          }
         </td>
         <td>
           <button class="btn btn-sm btn-outline-success" 
@@ -342,8 +384,59 @@ async function markGuideCompleted(appId, appName) {
   }
 }
 
+// 排序功能
+async function sortBy(sortType) {
+  console.log(`Sorting by: ${sortType}`);
+  
+  // 如果点击的是当前排序列，切换排序方向
+  if (currentSort === sortType) {
+    currentSortOrder = currentSortOrder === 'desc' ? 'asc' : 'desc';
+    console.log(`Toggling sort order to: ${currentSortOrder}`);
+  } else {
+    // 如果是新的排序列，默认使用降序
+    currentSort = sortType;
+    currentSortOrder = 'desc';
+    console.log(`New sort type: ${currentSort}, order: ${currentSortOrder}`);
+  }
+  
+  // 更新排序图标
+  updateSortIcons(currentSort, currentSortOrder);
+  
+  // 重新加载第1页数据
+  await loadPage(1, 'sort-change');
+}
+
+function updateSortIcons(activeSort, sortOrder = 'desc') {
+  // 重置所有图标
+  const countIcon = document.getElementById('countSortIcon');
+  const starIcon = document.getElementById('starSortIcon');
+  
+  if (countIcon) countIcon.className = 'fas fa-sort text-muted';
+  if (starIcon) starIcon.className = 'fas fa-sort text-muted';
+  
+  // 根据排序方向设置图标
+  const iconClass = sortOrder === 'desc' ? 'fas fa-sort-down text-primary' : 'fas fa-sort-up text-primary';
+  
+  // 设置活动排序图标
+  if (activeSort === 'count' && countIcon) {
+    countIcon.className = iconClass;
+  } else if (activeSort === 'star' && starIcon) {
+    starIcon.className = iconClass;
+  }
+}
+
 // 初始化分页导航
 document.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlSort = urlParams.get('sort') || 'count';
+  const urlOrder = urlParams.get('order') || 'desc';
+  
+  // 从 URL 参数更新排序状态
+  currentSort = urlSort;
+  currentSortOrder = urlOrder;
+  
+  // 初始化排序图标
+  updateSortIcons(currentSort, currentSortOrder);
   updatePagination();
 });
 </script>

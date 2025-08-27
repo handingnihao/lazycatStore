@@ -74,6 +74,69 @@ class DatabaseManager:
         except sqlite3.OperationalError:
             pass  # 列已存在
         
+        # 初始化GitHub候选应用表
+        self._init_github_tables()
+        
+        conn.commit()
+        conn.close()
+    
+    def _init_github_tables(self):
+        """初始化GitHub相关表"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # GitHub候选应用表
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS github_candidates (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                repo_name TEXT NOT NULL,
+                repo_full_name TEXT UNIQUE NOT NULL,
+                description TEXT,
+                url TEXT,
+                stars INTEGER DEFAULT 0,
+                forks INTEGER DEFAULT 0,
+                language TEXT,
+                topics TEXT,
+                license TEXT,
+                size_kb INTEGER DEFAULT 0,
+                open_issues INTEGER DEFAULT 0,
+                created_at TEXT,
+                updated_at TEXT,
+                last_analysis TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                priority_score REAL DEFAULT 0.0,
+                priority_level TEXT,
+                effort_estimation TEXT,
+                is_suitable INTEGER DEFAULT 1,
+                notes TEXT
+            )
+        ''')
+        
+        # Docker分析结果表
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS docker_analysis (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                candidate_id INTEGER,
+                services_count INTEGER DEFAULT 0,
+                total_ports INTEGER DEFAULT 0,
+                exposed_ports TEXT,
+                complexity_level TEXT,
+                complexity_score INTEGER DEFAULT 0,
+                requires_build INTEGER DEFAULT 0,
+                external_dependencies TEXT,
+                storage_requirements TEXT,
+                network_requirements TEXT,
+                deployment_notes TEXT,
+                migration_warnings TEXT,
+                analysis_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (candidate_id) REFERENCES github_candidates (id)
+            )
+        ''')
+        
+        # 创建索引
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_github_stars ON github_candidates(stars)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_github_priority ON github_candidates(priority_score)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_github_suitable ON github_candidates(is_suitable)')
+        
         conn.commit()
         conn.close()
     
@@ -151,24 +214,41 @@ class DatabaseManager:
         except:
             return 0
     
-    def search_apps(self, keyword='', limit=50, offset=0):
+    def search_apps(self, keyword='', limit=50, offset=0, sort_by='count'):
         """搜索应用"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
+        # 定义排序选项
+        sort_options = {
+            'count': 'apps.count DESC, apps.name',
+            'star': 'COALESCE(ad.star_count, 0) DESC, apps.name',
+            'name': 'apps.name',
+            'created': 'apps.created_at DESC'
+        }
+        
+        # 设置排序方式
+        order_by = sort_options.get(sort_by, sort_options['count'])
+        
         if keyword:
-            cursor.execute('''
-                SELECT id, name, brief, count, href, icon_src, created_at
+            cursor.execute(f'''
+                SELECT apps.id, apps.name, apps.brief, apps.count, apps.href, apps.icon_src, apps.created_at,
+                       COALESCE(ad.star_count, 0) as star_count, 
+                       ad.github_repo, ad.source_type
                 FROM apps
-                WHERE name LIKE ? OR brief LIKE ?
-                ORDER BY count DESC, name
+                LEFT JOIN app_details ad ON apps.id = ad.app_id
+                WHERE apps.name LIKE ? OR apps.brief LIKE ?
+                ORDER BY {order_by}
                 LIMIT ? OFFSET ?
             ''', (f'%{keyword}%', f'%{keyword}%', limit, offset))
         else:
-            cursor.execute('''
-                SELECT id, name, brief, count, href, icon_src, created_at
+            cursor.execute(f'''
+                SELECT apps.id, apps.name, apps.brief, apps.count, apps.href, apps.icon_src, apps.created_at,
+                       COALESCE(ad.star_count, 0) as star_count, 
+                       ad.github_repo, ad.source_type
                 FROM apps
-                ORDER BY count DESC, name
+                LEFT JOIN app_details ad ON apps.id = ad.app_id
+                ORDER BY {order_by}
                 LIMIT ? OFFSET ?
             ''', (limit, offset))
         
@@ -370,20 +450,39 @@ class DatabaseManager:
             'apps_pending_guides': apps_pending_guides
         }
     
-    def get_apps_without_guides(self, limit: int = 50, offset: int = 0):
-        """列出没有攻略的应用，支持分页，按下载量排序，排除被标记为暂时不写攻略的应用"""
+    def get_apps_without_guides(self, limit: int = 50, offset: int = 0, sort_by: str = 'count', sort_order: str = 'desc'):
+        """列出没有攻略的应用，支持分页和排序，排除被标记为暂时不写攻略的应用"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
-        # 获取数据
+        # 设置排序方向
+        order_dir = 'DESC' if sort_order.lower() == 'desc' else 'ASC'
+        name_order = 'ASC' if sort_by == 'name' else 'ASC'  # 名字总是升序作为第二排序
+        
+        # 定义排序选项
+        sort_options = {
+            'count': f'apps.count {order_dir}, apps.name {name_order}',
+            'star': f'COALESCE(ad.star_count, 0) {order_dir}, apps.name {name_order}',
+            'name': f'apps.name {order_dir}',
+            'created': f'apps.created_at {order_dir}'
+        }
+        
+        # 设置排序方式
+        order_by = sort_options.get(sort_by, sort_options['count'])
+        
+        # 获取数据，包含star信息
         cursor.execute(
-            '''
-            SELECT id, name, brief, count, href, icon_src FROM apps
-            WHERE (has_guide IS NULL OR has_guide = 0)
-              AND (guide_url IS NULL OR guide_url = '')
-              AND (skip_guide IS NULL OR skip_guide = 0)
-              AND (pending_guide IS NULL OR pending_guide = 0)
-            ORDER BY count DESC, name
+            f'''
+            SELECT apps.id, apps.name, apps.brief, apps.count, apps.href, apps.icon_src,
+                   COALESCE(ad.star_count, 0) as star_count, 
+                   ad.github_repo, ad.source_type
+            FROM apps
+            LEFT JOIN app_details ad ON apps.id = ad.app_id
+            WHERE (apps.has_guide IS NULL OR apps.has_guide = 0)
+              AND (apps.guide_url IS NULL OR apps.guide_url = '')
+              AND (apps.skip_guide IS NULL OR apps.skip_guide = 0)
+              AND (apps.pending_guide IS NULL OR apps.pending_guide = 0)
+            ORDER BY {order_by}
             LIMIT ? OFFSET ?
             ''', (limit, offset)
         )
@@ -448,17 +547,36 @@ class DatabaseManager:
         conn.close()
         return result
     
-    def get_pending_guide_apps(self, limit: int = 50, offset: int = 0):
-        """获取待写攻略的应用列表"""
+    def get_pending_guide_apps(self, limit: int = 50, offset: int = 0, sort_by: str = 'count', sort_order: str = 'desc'):
+        """获取待写攻略的应用列表，支持排序"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
-        # 获取数据
+        # 设置排序方向
+        order_dir = 'DESC' if sort_order.lower() == 'desc' else 'ASC'
+        name_order = 'ASC' if sort_by == 'name' else 'ASC'  # 名字总是升序作为第二排序
+        
+        # 定义排序选项
+        sort_options = {
+            'count': f'apps.count {order_dir}, apps.name {name_order}',
+            'star': f'COALESCE(ad.star_count, 0) {order_dir}, apps.name {name_order}',
+            'name': f'apps.name {order_dir}',
+            'created': f'apps.created_at {order_dir}'
+        }
+        
+        # 设置排序方式
+        order_by = sort_options.get(sort_by, sort_options['count'])
+        
+        # 获取数据，包含star信息
         cursor.execute(
-            '''
-            SELECT id, name, brief, count, href, icon_src FROM apps
-            WHERE pending_guide = 1
-            ORDER BY count DESC, name
+            f'''
+            SELECT apps.id, apps.name, apps.brief, apps.count, apps.href, apps.icon_src,
+                   COALESCE(ad.star_count, 0) as star_count, 
+                   ad.github_repo, ad.source_type
+            FROM apps
+            LEFT JOIN app_details ad ON apps.id = ad.app_id
+            WHERE apps.pending_guide = 1
+            ORDER BY {order_by}
             LIMIT ? OFFSET ?
             ''', (limit, offset)
         )
@@ -920,6 +1038,273 @@ class DatabaseManager:
                 'message': f'导入过程中出错: {str(e)}',
                 'stats': {}
             }
+    
+    # GitHub候选应用相关方法
+    def add_github_candidate(self, repo_info, evaluation_result=None):
+        """添加GitHub候选应用"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        try:
+            # 准备topics字符串
+            topics_str = ','.join(repo_info.get('topics', []))
+            
+            cursor.execute('''
+                INSERT OR REPLACE INTO github_candidates 
+                (repo_name, repo_full_name, description, url, stars, forks, language, 
+                 topics, license, size_kb, open_issues, created_at, updated_at,
+                 priority_score, priority_level, effort_estimation)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                repo_info.get('name', ''),
+                repo_info.get('full_name', ''),
+                repo_info.get('description', ''),
+                repo_info.get('url', ''),
+                repo_info.get('stars', 0),
+                repo_info.get('forks', 0),
+                repo_info.get('language', ''),
+                topics_str,
+                repo_info.get('license'),
+                repo_info.get('size', 0),
+                repo_info.get('open_issues', 0),
+                repo_info.get('created_at', ''),
+                repo_info.get('updated_at', ''),
+                evaluation_result.migration_score.total_score if evaluation_result else 0.0,
+                evaluation_result.migration_score.priority_level if evaluation_result else '',
+                evaluation_result.effort_estimation if evaluation_result else ''
+            ))
+            
+            candidate_id = cursor.lastrowid
+            
+            # 如果有Docker分析结果，也保存
+            if evaluation_result and evaluation_result.docker_analysis:
+                docker_analysis = evaluation_result.docker_analysis
+                self._save_docker_analysis(cursor, candidate_id, docker_analysis)
+            
+            conn.commit()
+            print(f"✅ 添加GitHub候选应用: {repo_info.get('full_name', '')} (ID: {candidate_id})")
+            return candidate_id
+            
+        except Exception as e:
+            print(f"❌ 添加GitHub候选应用失败: {e}")
+            return None
+        finally:
+            conn.close()
+    
+    def _save_docker_analysis(self, cursor, candidate_id, docker_analysis):
+        """保存Docker分析结果"""
+        cursor.execute('''
+            INSERT OR REPLACE INTO docker_analysis
+            (candidate_id, services_count, total_ports, exposed_ports, complexity_level,
+             complexity_score, requires_build, external_dependencies, storage_requirements,
+             network_requirements, deployment_notes, migration_warnings)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            candidate_id,
+            docker_analysis.services_count,
+            docker_analysis.total_ports,
+            ','.join(map(str, docker_analysis.exposed_ports)),
+            docker_analysis.complexity_level,
+            docker_analysis.complexity_score,
+            1 if docker_analysis.requires_build else 0,
+            '|'.join(docker_analysis.external_dependencies),
+            '|'.join(docker_analysis.storage_requirements),
+            '|'.join(docker_analysis.network_requirements),
+            '|'.join(docker_analysis.deployment_notes),
+            '|'.join(docker_analysis.migration_warnings)
+        ))
+    
+    def batch_add_github_candidates(self, evaluations):
+        """批量添加GitHub候选应用"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        added_count = 0
+        updated_count = 0
+        
+        try:
+            for evaluation in evaluations:
+                repo_info = {
+                    'name': evaluation.repo_name.split('/')[-1] if '/' in evaluation.repo_name else evaluation.repo_name,
+                    'full_name': evaluation.repo_name,
+                    'description': evaluation.description,
+                    'url': evaluation.repo_url,
+                    'stars': evaluation.github_metrics.stars,
+                    'forks': evaluation.github_metrics.forks,
+                    'language': evaluation.github_metrics.language,
+                    'topics': evaluation.github_metrics.topics,
+                    'license': evaluation.github_metrics.license,
+                    'size': evaluation.github_metrics.size,
+                    'open_issues': evaluation.github_metrics.open_issues,
+                    'created_at': evaluation.github_metrics.created_at,
+                    'updated_at': evaluation.github_metrics.updated_at
+                }
+                
+                # 检查是否已存在
+                cursor.execute('SELECT id FROM github_candidates WHERE repo_full_name = ?', (evaluation.repo_name,))
+                existing = cursor.fetchone()
+                
+                candidate_id = self.add_github_candidate(repo_info, evaluation)
+                if candidate_id:
+                    if existing:
+                        updated_count += 1
+                    else:
+                        added_count += 1
+            
+            print(f"✅ 批量处理完成: 添加 {added_count} 个，更新 {updated_count} 个GitHub候选应用")
+            return {'added': added_count, 'updated': updated_count}
+            
+        except Exception as e:
+            print(f"❌ 批量添加GitHub候选应用失败: {e}")
+            return {'added': 0, 'updated': 0}
+        finally:
+            conn.close()
+    
+    def get_github_candidates(self, limit=50, offset=0, sort_by='priority_score', 
+                            filter_suitable=True, min_stars=0):
+        """获取GitHub候选应用列表"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # 构建查询条件
+        where_conditions = []
+        params = []
+        
+        if filter_suitable:
+            where_conditions.append('gc.is_suitable = 1')
+        
+        if min_stars > 0:
+            where_conditions.append('gc.stars >= ?')
+            params.append(min_stars)
+        
+        where_clause = 'WHERE ' + ' AND '.join(where_conditions) if where_conditions else ''
+        
+        # 排序选项
+        sort_options = {
+            'priority_score': 'gc.priority_score DESC',
+            'stars': 'gc.stars DESC',
+            'updated_at': 'gc.updated_at DESC',
+            'name': 'gc.repo_name ASC'
+        }
+        order_by = sort_options.get(sort_by, sort_options['priority_score'])
+        
+        # 主查询
+        query = f'''
+            SELECT gc.id, gc.repo_name, gc.repo_full_name, gc.description, gc.url,
+                   gc.stars, gc.forks, gc.language, gc.topics, gc.license,
+                   gc.priority_score, gc.priority_level, gc.effort_estimation,
+                   gc.is_suitable, gc.last_analysis,
+                   da.complexity_level, da.complexity_score, da.services_count,
+                   da.total_ports, da.requires_build
+            FROM github_candidates gc
+            LEFT JOIN docker_analysis da ON gc.id = da.candidate_id
+            {where_clause}
+            ORDER BY {order_by}
+            LIMIT ? OFFSET ?
+        '''
+        
+        params.extend([limit, offset])
+        cursor.execute(query, params)
+        results = cursor.fetchall()
+        
+        # 获取总数
+        count_query = f'''
+            SELECT COUNT(*)
+            FROM github_candidates gc
+            {where_clause}
+        '''
+        cursor.execute(count_query, params[:-2])  # 排除limit和offset参数
+        total = cursor.fetchone()[0]
+        
+        conn.close()
+        return results, total
+    
+    def get_github_candidate_by_id(self, candidate_id):
+        """根据ID获取GitHub候选应用详情"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT gc.*, da.services_count, da.total_ports, da.exposed_ports,
+                   da.complexity_level, da.complexity_score, da.requires_build,
+                   da.external_dependencies, da.storage_requirements,
+                   da.network_requirements, da.deployment_notes, da.migration_warnings
+            FROM github_candidates gc
+            LEFT JOIN docker_analysis da ON gc.id = da.candidate_id
+            WHERE gc.id = ?
+        ''', (candidate_id,))
+        
+        result = cursor.fetchone()
+        conn.close()
+        return result
+    
+    def mark_github_candidate_suitable(self, candidate_id, is_suitable=True, notes=''):
+        """标记GitHub候选应用是否适合移植"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            UPDATE github_candidates 
+            SET is_suitable = ?, notes = ?
+            WHERE id = ?
+        ''', (1 if is_suitable else 0, notes, candidate_id))
+        
+        success = cursor.rowcount > 0
+        conn.commit()
+        conn.close()
+        
+        return success
+    
+    def get_github_statistics(self):
+        """获取GitHub候选应用统计信息"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # 总候选应用数
+        cursor.execute('SELECT COUNT(*) FROM github_candidates')
+        total_candidates = cursor.fetchone()[0]
+        
+        # 适合移植的应用数
+        cursor.execute('SELECT COUNT(*) FROM github_candidates WHERE is_suitable = 1')
+        suitable_candidates = cursor.fetchone()[0]
+        
+        # 按优先级分组统计
+        cursor.execute('''
+            SELECT priority_level, COUNT(*) 
+            FROM github_candidates 
+            WHERE is_suitable = 1 AND priority_level IS NOT NULL
+            GROUP BY priority_level
+        ''')
+        priority_stats = dict(cursor.fetchall())
+        
+        # 按语言分组统计（Top 5）
+        cursor.execute('''
+            SELECT language, COUNT(*) 
+            FROM github_candidates 
+            WHERE is_suitable = 1 AND language IS NOT NULL
+            GROUP BY language
+            ORDER BY COUNT(*) DESC
+            LIMIT 5
+        ''')
+        language_stats = cursor.fetchall()
+        
+        # 平均Stars数
+        cursor.execute('''
+            SELECT AVG(stars) 
+            FROM github_candidates 
+            WHERE is_suitable = 1
+        ''')
+        avg_stars = cursor.fetchone()[0] or 0
+        
+        conn.close()
+        
+        return {
+            'total_candidates': total_candidates,
+            'suitable_candidates': suitable_candidates,
+            'priority_stats': priority_stats,
+            'language_stats': language_stats,
+            'avg_stars': round(avg_stars, 1)
+        }
 
 def main():
     """主函数 - 初始化数据库并导入数据"""

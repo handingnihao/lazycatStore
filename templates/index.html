@@ -15,25 +15,42 @@
     </div>
 </div>
 
-<!-- 搜索框 -->
+<!-- 搜索框和排序 -->
 <div class="row mb-4">
     <div class="col-md-6">
-        <form method="GET" action="{{ url_for('index') }}">
+        <form method="GET" action="{{ url_for('index') }}" id="searchForm">
             <div class="input-group">
                 <input type="text" class="form-control" name="search" value="{{ search }}" 
                        placeholder="搜索应用名称或描述...">
+                <input type="hidden" name="sort" value="{{ sort_by }}">
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-search"></i> 搜索
                 </button>
                 {% if search %}
-                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                <a href="{{ url_for('index', sort=sort_by) }}" class="btn btn-outline-secondary">
                     <i class="fas fa-times"></i> 清除
                 </a>
                 {% endif %}
             </div>
         </form>
     </div>
-    <div class="col-md-6 text-end">
+    <div class="col-md-3">
+        <select class="form-select" id="sortSelect" onchange="changeSortOrder()">
+            <option value="count" {{ 'selected' if sort_by == 'count' else '' }}>
+                <i class="fas fa-download"></i> 按下载量排序
+            </option>
+            <option value="star" {{ 'selected' if sort_by == 'star' else '' }}>
+                <i class="fas fa-star"></i> 按Star数排序
+            </option>
+            <option value="name" {{ 'selected' if sort_by == 'name' else '' }}>
+                <i class="fas fa-sort-alpha-down"></i> 按名称排序
+            </option>
+            <option value="created" {{ 'selected' if sort_by == 'created' else '' }}>
+                <i class="fas fa-clock"></i> 按创建时间排序
+            </option>
+        </select>
+    </div>
+    <div class="col-md-3 text-end">
         <small class="text-muted">
             显示第 {{ (page-1)*per_page + 1 }} - {{ page*per_page if page*per_page < total else total }} 条，
             共 {{ total }} 个应用
@@ -48,11 +65,14 @@
         <thead>
             <tr>
                 <th width="5%">ID</th>
-                <th width="20%">应用名称</th>
-                <th width="40%">简介</th>
-                <th width="10%">下载量</th>
-                <th width="15%">创建时间</th>
-                <th width="10%">操作</th>
+                <th width="25%">应用名称</th>
+                <th width="35%">简介</th>
+                <th width="8%">下载量</th>
+                <th width="8%">
+                    <i class="fab fa-github text-secondary"></i> Star
+                </th>
+                <th width="12%">创建时间</th>
+                <th width="7%">操作</th>
             </tr>
         </thead>
         <tbody>
@@ -72,10 +92,22 @@
                                 <i class="fas fa-plus-circle"></i> 自定义
                             </span>
                             {% endif %}
+                            {% if app|length > 9 and app[9] == 'github' %}
+                            <span class="badge bg-success ms-1" style="font-size: 0.7em;" title="开源项目">
+                                <i class="fab fa-github"></i> 开源
+                            </span>
+                            {% endif %}
                             {% if app[4] %}
                             <br><small class="text-muted">
                                 <a href="{{ app[4] }}" target="_blank" class="text-decoration-none">
                                     <i class="fas fa-external-link-alt"></i> 详情
+                                </a>
+                            </small>
+                            {% endif %}
+                            {% if app|length > 8 and app[8] %}
+                            <br><small class="text-muted">
+                                <a href="{{ app[8] }}" target="_blank" class="text-decoration-none">
+                                    <i class="fab fa-github"></i> GitHub
                                 </a>
                             </small>
                             {% endif %}
@@ -90,6 +122,29 @@
                     <span class="badge bg-primary">{{ "{:,}".format(app[3]) }}</span>
                     {% else %}
                     <span class="badge bg-secondary">0</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if app|length > 7 and app[7] > 0 %}
+                        {% if app[7] >= 50000 %}
+                        <span class="badge bg-warning text-dark" title="{{ '{:,}'.format(app[7]) }} stars">
+                            <i class="fas fa-star"></i> {{ "{:,.0f}k".format(app[7]/1000) }}
+                        </span>
+                        {% elif app[7] >= 10000 %}
+                        <span class="badge bg-info" title="{{ '{:,}'.format(app[7]) }} stars">
+                            <i class="fas fa-star"></i> {{ "{:,.1f}k".format(app[7]/1000) }}
+                        </span>
+                        {% elif app[7] >= 1000 %}
+                        <span class="badge bg-success" title="{{ '{:,}'.format(app[7]) }} stars">
+                            <i class="fas fa-star"></i> {{ "{:,.1f}k".format(app[7]/1000) }}
+                        </span>
+                        {% else %}
+                        <span class="badge bg-secondary" title="{{ app[7] }} stars">
+                            <i class="fas fa-star"></i> {{ app[7] }}
+                        </span>
+                        {% endif %}
+                    {% else %}
+                    <span class="text-muted">-</span>
                     {% endif %}
                 </td>
                 <td>
@@ -121,7 +176,7 @@
     <ul class="pagination justify-content-center">
         {% if page > 1 %}
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('index', page=page-1, search=search) }}">
+            <a class="page-link" href="{{ url_for('index', page=page-1, search=search, sort=sort_by) }}">
                 <i class="fas fa-chevron-left"></i>
             </a>
         </li>
@@ -134,7 +189,7 @@
             </li>
             {% elif p <= 3 or p >= total_pages - 2 or (p >= page - 1 and p <= page + 1) %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('index', page=p, search=search) }}">{{ p }}</a>
+                <a class="page-link" href="{{ url_for('index', page=p, search=search, sort=sort_by) }}">{{ p }}</a>
             </li>
             {% elif p == 4 and page > 6 %}
             <li class="page-item disabled">
@@ -149,7 +204,7 @@
         
         {% if page < total_pages %}
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('index', page=page+1, search=search) }}">
+            <a class="page-link" href="{{ url_for('index', page=page+1, search=search, sort=sort_by) }}">
                 <i class="fas fa-chevron-right"></i>
             </a>
         </li>
@@ -210,6 +265,16 @@ function deleteApp(appId, appName) {
     new bootstrap.Modal(document.getElementById('deleteModal')).show();
 }
 
+// 排序选择器变化处理
+function changeSortOrder() {
+    const sortSelect = document.getElementById('sortSelect');
+    const searchForm = document.getElementById('searchForm');
+    const sortInput = searchForm.querySelector('input[name="sort"]');
+    
+    sortInput.value = sortSelect.value;
+    searchForm.submit();
+}
+
 // 自动隐藏成功消息
 setTimeout(function() {
     const alerts = document.querySelectorAll('.alert-success');
@@ -218,5 +283,13 @@ setTimeout(function() {
         bsAlert.close();
     });
 }, 3000);
+
+// 为star badge添加悬停效果
+document.addEventListener('DOMContentLoaded', function() {
+    const starBadges = document.querySelectorAll('[title*="stars"]');
+    starBadges.forEach(function(badge) {
+        badge.style.cursor = 'help';
+    });
+});
 </script>
 {% endblock %} 
