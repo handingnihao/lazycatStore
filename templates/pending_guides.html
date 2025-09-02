@@ -180,13 +180,22 @@
                   {% endif %}
                 </td>
                 <td>
-                  <button class="btn btn-sm btn-outline-success" 
-                          onclick="markGuideCompleted({{ app[0] }}, '{{ app[1] }}')"
-                          title="标记为已有攻略"
-                          data-bs-toggle="tooltip"
-                          data-bs-placement="top">
-                    <i class="fas fa-check"></i>
-                  </button>
+                  <div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-outline-primary" 
+                            onclick="copyGuidePrompt({{ app[0] }}, '{{ app[1] }}', '{{ app[7] if app|length > 7 else '' }}')"
+                            title="复制攻略写作提示"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-success" 
+                            onclick="markGuideCompleted({{ app[0] }}, '{{ app[1] }}')"
+                            title="标记为已有攻略"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top">
+                      <i class="fas fa-check"></i>
+                    </button>
+                  </div>
                 </td>
               </tr>
               {% endfor %}
@@ -305,11 +314,18 @@ function renderTable(apps) {
           }
         </td>
         <td>
-          <button class="btn btn-sm btn-outline-success" 
-                  onclick="markGuideCompleted(${app.id}, '${app.name}')"
-                  title="标记为已有攻略">
-            <i class="fas fa-check"></i>
-          </button>
+          <div class="btn-group" role="group">
+            <button class="btn btn-sm btn-outline-primary" 
+                    onclick="copyGuidePrompt(${app.id}, '${app.name}', '${app.github_repo || ''}')"
+                    title="复制攻略写作提示">
+              <i class="fas fa-copy"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-success" 
+                    onclick="markGuideCompleted(${app.id}, '${app.name}')"
+                    title="标记为已有攻略">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
         </td>
       </tr>
     `;
@@ -355,6 +371,75 @@ function generatePaginationHtml() {
   
   html += '</ul></nav>';
   return html;
+}
+
+// 复制攻略写作提示到剪贴板
+async function copyGuidePrompt(appId, appName, githubRepo) {
+  const button = event.target.closest('button');
+  const originalContent = button.innerHTML;
+  
+  // 构建要复制的内容
+  let copyText = '';
+  
+  // 如果有GitHub地址，添加到内容中
+  if (githubRepo) {
+    copyText = `GitHub地址：${githubRepo}\n\n`;
+  } else {
+    copyText = `应用名称：${appName}\n\n`;
+  }
+  
+  // 添加攻略写作提示
+  copyText += `给这个项目写一篇推荐文章，要着重实用性介绍，要支持markdown格式，要尽量口语化，让小白也能看懂，不要说教，要[去爹味]，你可以从网上搜索其他的文章，取长补短，你要添加一些实用的使用方法为出发点进行编写攻略，这样其他用户使用应用您的攻略也大大的帮助到其他用户了。`;
+  
+  try {
+    // 使用现代的 Clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(copyText);
+      
+      // 更新按钮显示复制成功
+      button.innerHTML = '<i class="fas fa-check"></i>';
+      button.classList.remove('btn-outline-primary');
+      button.classList.add('btn-success');
+      
+      // 2秒后恢复原样
+      setTimeout(() => {
+        button.innerHTML = originalContent;
+        button.classList.remove('btn-success');
+        button.classList.add('btn-outline-primary');
+      }, 2000);
+    } else {
+      // 降级方案：使用传统的方法
+      const textarea = document.createElement('textarea');
+      textarea.value = copyText;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-999999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        // 更新按钮显示复制成功
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        button.classList.remove('btn-outline-primary');
+        button.classList.add('btn-success');
+        
+        // 2秒后恢复原样
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.classList.remove('btn-success');
+          button.classList.add('btn-outline-primary');
+        }, 2000);
+      } catch (err) {
+        console.error('复制失败:', err);
+        alert('复制失败，请手动复制');
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+  } catch (err) {
+    console.error('复制失败:', err);
+    alert('复制失败，请手动复制');
+  }
 }
 
 async function markGuideCompleted(appId, appName) {
