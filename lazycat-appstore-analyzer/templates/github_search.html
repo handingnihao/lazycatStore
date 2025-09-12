@@ -1,0 +1,464 @@
+{% extends "base.html" %}
+
+{% block title %}GitHub应用搜索 - 懒猫应用商店{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1><i class="fab fa-github me-2"></i>GitHub应用搜索</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">首页</a></li>
+                        <li class="breadcrumb-item active">GitHub搜索</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索表单 -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-search me-2"></i>搜索配置</h5>
+                </div>
+                <div class="card-body">
+                    <form id="searchForm">
+                        <div class="row">
+                            <!-- 搜索方式选择 -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">搜索方式</label>
+                                <select class="form-select" id="searchType" name="search_type">
+                                    <option value="category">按类别搜索</option>
+                                    <option value="keywords">关键词搜索</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 应用类别 -->
+                            <div class="col-md-6 mb-3" id="categorySection">
+                                <label class="form-label">应用类别</label>
+                                <select class="form-select" id="category" name="category">
+                                    <option value="productivity">生产力工具</option>
+                                    <option value="media">媒体服务</option>
+                                    <option value="development">开发工具</option>
+                                    <option value="monitoring">监控系统</option>
+                                    <option value="storage">存储同步</option>
+                                    <option value="security">安全工具</option>
+                                    <option value="communication">通讯协作</option>
+                                    <option value="database">数据库</option>
+                                    <option value="analytics">数据分析</option>
+                                    <option value="automation">自动化工具</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 关键词输入 -->
+                            <div class="col-md-12 mb-3" id="keywordsSection" style="display: none;">
+                                <label class="form-label">搜索关键词 <small class="text-muted">(多个关键词用逗号分隔)</small></label>
+                                <input type="text" class="form-control" id="keywords" name="keywords" 
+                                       placeholder="例如: note, task, productivity">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- 最小Stars数 -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">最小Stars数</label>
+                                <select class="form-select" id="minStars" name="min_stars">
+                                    <option value="50">50+</option>
+                                    <option value="100" selected>100+</option>
+                                    <option value="500">500+</option>
+                                    <option value="1000">1000+</option>
+                                    <option value="5000">5000+</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 最大结果数 -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">最大结果数</label>
+                                <select class="form-select" id="maxResults" name="max_results">
+                                    <option value="20">20</option>
+                                    <option value="50" selected>50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 搜索按钮 -->
+                            <div class="col-md-4 mb-3 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100" id="searchBtn">
+                                    <i class="fas fa-search me-2"></i>开始搜索
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索状态 -->
+    <div id="searchStatus" class="alert d-none" role="alert"></div>
+
+    <!-- 搜索结果 -->
+    <div id="searchResults" class="row" style="display: none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 id="resultsTitle"><i class="fas fa-list me-2"></i>搜索结果</h5>
+                    <div>
+                        <button class="btn btn-success btn-sm" id="evaluateAllBtn" style="display: none;">
+                            <i class="fas fa-chart-line me-2"></i>评估所有应用
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" id="exportBtn" style="display: none;">
+                            <i class="fas fa-download me-2"></i>导出结果
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" id="resultsContainer">
+                    <!-- 结果将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评估结果 -->
+    <div id="evaluationResults" class="row" style="display: none;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5><i class="fas fa-chart-bar me-2"></i>移植评估结果</h5>
+                    <div>
+                        <button class="btn btn-primary btn-sm" id="saveCandidatesBtn">
+                            <i class="fas fa-save me-2"></i>保存候选应用
+                        </button>
+                        <a href="/migration_report" class="btn btn-outline-info btn-sm">
+                            <i class="fas fa-file-alt me-2"></i>查看报告
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body" id="evaluationContainer">
+                    <!-- 评估结果将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 加载动画 -->
+<div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">加载中...</span>
+                </div>
+                <h5 id="loadingText">正在搜索GitHub应用...</h5>
+                <p class="text-muted mb-0" id="loadingSubtext">这可能需要几分钟时间</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('searchForm');
+    const searchType = document.getElementById('searchType');
+    const categorySection = document.getElementById('categorySection');
+    const keywordsSection = document.getElementById('keywordsSection');
+    const loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+    
+    let searchResults = [];
+    let evaluationResults = [];
+    
+    // 切换搜索方式
+    searchType.addEventListener('change', function() {
+        if (this.value === 'keywords') {
+            categorySection.style.display = 'none';
+            keywordsSection.style.display = 'block';
+        } else {
+            categorySection.style.display = 'block';
+            keywordsSection.style.display = 'none';
+        }
+    });
+    
+    // 搜索表单提交
+    searchForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const searchData = {
+            search_type: formData.get('search_type'),
+            category: formData.get('category'),
+            keywords: formData.get('keywords') ? formData.get('keywords').split(',').map(k => k.trim()) : [],
+            min_stars: parseInt(formData.get('min_stars')),
+            max_results: parseInt(formData.get('max_results'))
+        };
+        
+        // 显示加载动画
+        document.getElementById('loadingText').textContent = '正在搜索GitHub应用...';
+        loadingModal.show();
+        
+        try {
+            const response = await fetch('/api/github_search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(searchData)
+            });
+            
+            const result = await response.json();
+            loadingModal.hide();
+            
+            if (result.success) {
+                searchResults = result.results;
+                displaySearchResults(result.results);
+                showStatus('success', result.message);
+            } else {
+                showStatus('danger', result.message);
+            }
+        } catch (error) {
+            loadingModal.hide();
+            showStatus('danger', '搜索请求失败: ' + error.message);
+        }
+    });
+    
+    // 显示搜索结果
+    function displaySearchResults(results) {
+        const container = document.getElementById('resultsContainer');
+        const resultsDiv = document.getElementById('searchResults');
+        const title = document.getElementById('resultsTitle');
+        
+        if (results.length === 0) {
+            container.innerHTML = '<div class="text-center text-muted"><i class="fas fa-search fa-3x mb-3"></i><p>没有找到符合条件的应用</p></div>';
+        } else {
+            title.innerHTML = `<i class="fas fa-list me-2"></i>搜索结果 (${results.length} 个应用)`;
+            
+            let html = '<div class="row">';
+            results.forEach((repo, index) => {
+                const starsColor = repo.stars >= 1000 ? 'text-warning' : repo.stars >= 500 ? 'text-info' : 'text-muted';
+                const languageColor = getLanguageColor(repo.language);
+                
+                html += `
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <a href="${repo.url}" target="_blank" class="text-decoration-none">
+                                    ${repo.name}
+                                </a>
+                            </h6>
+                            <p class="card-text text-muted small">${repo.description.substring(0, 100)}${repo.description.length > 100 ? '...' : ''}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <span class="${starsColor}"><i class="fas fa-star"></i> ${repo.stars}</span>
+                                    <span class="ms-2 text-muted"><i class="fas fa-code-branch"></i> ${repo.forks}</span>
+                                </div>
+                                <span class="badge ${languageColor}">${repo.language || 'Unknown'}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            html += '</div>';
+            
+            container.innerHTML = html;
+            
+            // 显示操作按钮
+            document.getElementById('evaluateAllBtn').style.display = 'inline-block';
+            document.getElementById('exportBtn').style.display = 'inline-block';
+        }
+        
+        resultsDiv.style.display = 'block';
+    }
+    
+    // 评估所有应用
+    document.getElementById('evaluateAllBtn').addEventListener('click', async function() {
+        if (searchResults.length === 0) {
+            showStatus('warning', '没有可评估的应用');
+            return;
+        }
+        
+        // 显示加载动画
+        document.getElementById('loadingText').textContent = '正在评估移植优先级...';
+        document.getElementById('loadingSubtext').textContent = '正在分析Docker配置和移植难度';
+        loadingModal.show();
+        
+        try {
+            const response = await fetch('/api/evaluate_migration', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ repos: searchResults })
+            });
+            
+            const result = await response.json();
+            loadingModal.hide();
+            
+            if (result.success) {
+                evaluationResults = result.evaluations;
+                displayEvaluationResults(result.evaluations);
+                showStatus('success', result.message);
+            } else {
+                showStatus('danger', result.message);
+            }
+        } catch (error) {
+            loadingModal.hide();
+            showStatus('danger', '评估请求失败: ' + error.message);
+        }
+    });
+    
+    // 显示评估结果
+    function displayEvaluationResults(evaluations) {
+        const container = document.getElementById('evaluationContainer');
+        const resultsDiv = document.getElementById('evaluationResults');
+        
+        if (evaluations.length === 0) {
+            container.innerHTML = '<div class="text-center text-muted"><p>评估失败，没有获得结果</p></div>';
+        } else {
+            let html = '<div class="table-responsive">';
+            html += `
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>应用名称</th>
+                        <th>评分</th>
+                        <th>优先级</th>
+                        <th>工作量</th>
+                        <th>复杂度</th>
+                        <th>Stars</th>
+                        <th>语言</th>
+                        <th>建议</th>
+                    </tr>
+                </thead>
+                <tbody>
+            `;
+            
+            evaluations.forEach((evaluation, index) => {
+                const priorityColor = getPriorityColor(evaluation.priority_level);
+                const effortColor = getEffortColor(evaluation.effort_estimation);
+                const complexityColor = getComplexityColor(evaluation.complexity_level);
+                
+                html += `
+                <tr>
+                    <td><span class="badge bg-secondary">#${index + 1}</span></td>
+                    <td>
+                        <strong>${evaluation.repo_name.split('/').pop()}</strong><br>
+                        <small class="text-muted">${evaluation.description.substring(0, 60)}${evaluation.description.length > 60 ? '...' : ''}</small>
+                    </td>
+                    <td><span class="badge bg-primary">${evaluation.total_score.toFixed(1)}</span></td>
+                    <td><span class="badge ${priorityColor}">${evaluation.priority_level}</span></td>
+                    <td><span class="badge ${effortColor}">${evaluation.effort_estimation}</span></td>
+                    <td><span class="badge ${complexityColor}">${evaluation.complexity_level || '未知'}</span></td>
+                    <td class="text-warning"><i class="fas fa-star"></i> ${evaluation.stars}</td>
+                    <td><span class="badge ${getLanguageColor(evaluation.language)}">${evaluation.language}</span></td>
+                    <td>
+                        <ul class="list-unstyled small mb-0">
+                            ${evaluation.recommendations.map(rec => `<li>• ${rec}</li>`).join('')}
+                        </ul>
+                    </td>
+                </tr>
+                `;
+            });
+            
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+        }
+        
+        resultsDiv.style.display = 'block';
+    }
+    
+    // 保存候选应用
+    document.getElementById('saveCandidatesBtn').addEventListener('click', async function() {
+        if (evaluationResults.length === 0) {
+            showStatus('warning', '没有可保存的候选应用');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/save_candidates', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ evaluations: evaluationResults })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showStatus('success', result.message);
+                this.disabled = true;
+                this.innerHTML = '<i class="fas fa-check me-2"></i>已保存';
+            } else {
+                showStatus('danger', result.message);
+            }
+        } catch (error) {
+            showStatus('danger', '保存失败: ' + error.message);
+        }
+    });
+    
+    // 工具函数
+    function showStatus(type, message) {
+        const statusDiv = document.getElementById('searchStatus');
+        statusDiv.className = `alert alert-${type}`;
+        statusDiv.textContent = message;
+        statusDiv.classList.remove('d-none');
+        
+        // 3秒后自动隐藏
+        setTimeout(() => {
+            statusDiv.classList.add('d-none');
+        }, 3000);
+    }
+    
+    function getLanguageColor(language) {
+        const colors = {
+            'JavaScript': 'bg-warning',
+            'TypeScript': 'bg-info',
+            'Python': 'bg-success',
+            'Go': 'bg-primary',
+            'Java': 'bg-danger',
+            'PHP': 'bg-secondary',
+            'C++': 'bg-dark',
+            'Rust': 'bg-warning',
+            'Ruby': 'bg-danger'
+        };
+        return colors[language] || 'bg-secondary';
+    }
+    
+    function getPriorityColor(priority) {
+        const colors = {
+            '极高': 'bg-danger',
+            '高': 'bg-warning',
+            '中等': 'bg-info',
+            '低': 'bg-secondary',
+            '不推荐': 'bg-dark'
+        };
+        return colors[priority] || 'bg-secondary';
+    }
+    
+    function getEffortColor(effort) {
+        const colors = {
+            '低': 'bg-success',
+            '中': 'bg-warning',
+            '高': 'bg-danger'
+        };
+        return colors[effort] || 'bg-secondary';
+    }
+    
+    function getComplexityColor(complexity) {
+        const colors = {
+            '简单': 'bg-success',
+            '中等': 'bg-warning',
+            '复杂': 'bg-danger'
+        };
+        return colors[complexity] || 'bg-secondary';
+    }
+});
+</script>
+{% endblock %}

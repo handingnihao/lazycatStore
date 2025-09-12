@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>懒猫 GitHub Stars - 设置</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            resize: vertical;
+            min-height: 150px;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .help-text {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+        .help-text a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        .btn-danger {
+            background: #ff6b6b;
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #ff5252;
+        }
+        .success-message {
+            display: none;
+            padding: 12px;
+            background: #4caf50;
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            animation: slideIn 0.3s ease;
+        }
+        .success-message.show {
+            display: block;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .stats {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        .stats h2 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .cache-info {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .cache-count {
+            font-weight: bold;
+            color: #667eea;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+        .rate-limit-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        .rate-limit-info.good {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="successMessage" class="success-message">
+            设置已保存！
+        </div>
+        
+        <h1>
+            <svg class="icon" viewBox="0 0 24 24" fill="#667eea">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            懒猫 GitHub Stars 设置
+        </h1>
+        <div class="subtitle">配置 GitHub Token 以提高 API 请求限制</div>
+        
+        <div class="form-group">
+            <label for="githubToken">GitHub Personal Access Token（可选）</label>
+            <input type="text" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+            <div class="help-text">
+                留空使用默认限制（60次/小时），或
+                <a href="https://github.com/settings/tokens/new?description=LazyCAT%20GitHub%20Stars&scopes=public_repo" target="_blank">
+                    点击这里创建一个新的 Token
+                </a>
+                （只需要 public_repo 权限）
+            </div>
+        </div>
+
+        <div id="rateLimitInfo" class="rate-limit-info" style="display: none;">
+            <strong>API 状态：</strong>
+            <span id="rateLimitText"></span>
+        </div>
+        
+        <div class="form-group" style="margin-top: 30px;">
+            <label for="copyTemplate">复制按钮模板</label>
+            <textarea id="copyTemplate" placeholder="在这里输入复制模板，使用 {github_url} 作为 GitHub 地址的占位符">GitHub地址：{github_url}
+
+给这个项目写一篇推荐文章，要着重实用性介绍，要支持markdown格式，要尽量口语化，让小白也能看懂，不要说教，要[去爹味]，你可以从网上搜索其他的文章，取长补短，你要添加一些实用的使用方法为出发点进行编写攻略，这样其他用户使用应用您的攻略也大大的帮助到其他用户了。</textarea>
+            <div class="help-text">
+                点击复制按钮时会将此模板复制到剪贴板，<code>{github_url}</code> 会被替换为实际的 GitHub 地址
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" id="saveButton">保存设置</button>
+            <button class="btn-secondary" id="testButton">测试连接</button>
+            <button class="btn-danger" id="clearCacheButton">清除缓存</button>
+        </div>
+        
+        <div class="stats">
+            <h2>缓存统计</h2>
+            <div class="cache-info">
+                <div>已缓存应用数量：<span class="cache-count" id="cacheCount">0</span> 个</div>
+                <div id="cacheSize" style="margin-top: 8px;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="options.js"></script>
+</body>
+</html>

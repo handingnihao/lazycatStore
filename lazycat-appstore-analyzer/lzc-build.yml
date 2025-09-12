@@ -1,0 +1,23 @@
+# 懒猫应用构建配置
+manifest: ./lzc-manifest.yml
+
+# 打包内容目录
+contentdir: ./
+
+# LPK包输出路径
+pkgout: ./
+
+# 应用图标
+icon: ./lzc-icon.png
+
+# Docker构建配置
+devshell:
+  routes:
+    - /=http://127.0.0.1:5000
+  image: ${package}-devshell:${version}
+  pull_policy: build
+  build: .
+  setupscript: |
+    echo "Setting up development environment..."
+    pip install -r requirements.txt
+    echo "Development environment ready!"

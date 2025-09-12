@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+        h1 {
+            font-size: 18px;
+            margin: 0 0 16px 0;
+        }
+        .quick-setup {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .token-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        .token-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .success {
+            background: #4caf50;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+            display: none;
+        }
+        .success.show {
+            display: block;
+        }
+        .help-text {
+            font-size: 12px;
+            margin: 8px 0;
+            opacity: 0.9;
+        }
+        .status {
+            font-size: 13px;
+            margin: 8px 0;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚙️ 快速设置 GitHub Token</h1>
+    
+    <div class="quick-setup">
+        <div class="help-text">
+            配置 Token 可将 API 限制从 60次/小时 提升到 5000次/小时
+        </div>
+        
+        <input type="text" 
+               id="tokenInput" 
+               class="token-input" 
+               placeholder="粘贴你的 GitHub Token (ghp_...)"
+               autocomplete="off">
+        
+        <button class="btn btn-primary" id="saveBtn">保存 Token</button>
+        
+        <div id="successMsg" class="success">
+            ✅ Token 已保存！请刷新应用页面
+        </div>
+        
+        <div id="statusMsg" class="status">
+            <!-- 状态信息 -->
+        </div>
+        
+        <a href="https://github.com/settings/tokens/new?description=LazyCAT%20GitHub%20Stars&scopes=public_repo" 
+           target="_blank" 
+           class="btn btn-link">
+            📝 创建新的 GitHub Token
+        </a>
+        
+        <a href="#" id="advancedSettings" class="btn btn-link">
+            🔧 高级设置
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tokenInput = document.getElementById('tokenInput');
+            const saveBtn = document.getElementById('saveBtn');
+            const successMsg = document.getElementById('successMsg');
+            const statusMsg = document.getElementById('statusMsg');
+            const advancedLink = document.getElementById('advancedSettings');
+            
+            // 加载已保存的token
+            chrome.storage.sync.get(['githubToken'], (result) => {
+                if (result.githubToken) {
+                    tokenInput.value = result.githubToken;
+                    statusMsg.textContent = '✅ 已配置 Token';
+                    statusMsg.style.background = 'rgba(76, 175, 80, 0.2)';
+                } else {
+                    statusMsg.textContent = '⚠️ 未配置 Token，使用默认限制';
+                    statusMsg.style.background = 'rgba(255, 193, 7, 0.2)';
+                }
+            });
+            
+            // 保存token
+            saveBtn.addEventListener('click', () => {
+                const token = tokenInput.value.trim();
+                
+                if (!token) {
+                    statusMsg.textContent = '❌ 请输入 Token';
+                    statusMsg.style.background = 'rgba(255, 107, 107, 0.2)';
+                    return;
+                }
+                
+                if (!token.startsWith('ghp_') && !token.startsWith('gho_') && !token.startsWith('github_pat_')) {
+                    statusMsg.textContent = '⚠️ Token 格式可能不正确';
+                    statusMsg.style.background = 'rgba(255, 193, 7, 0.2)';
+                }
+                
+                chrome.storage.sync.set({ githubToken: token }, () => {
+                    successMsg.classList.add('show');
+                    statusMsg.textContent = '✅ 已配置 Token';
+                    statusMsg.style.background = 'rgba(76, 175, 80, 0.2)';
+                    
+                    setTimeout(() => {
+                        successMsg.classList.remove('show');
+                    }, 3000);
+                });
+            });
+            
+            // 高级设置链接
+            advancedLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const optionsUrl = chrome.runtime.getURL('options.html');
+                window.open(optionsUrl, '_blank');
+                window.close();
+            });
+            
+            // 回车保存
+            tokenInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    saveBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}一键导入 - 懒猫应用商店管理系统{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-upload me-2"></i>
+                    一键导入文件
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>支持的文件格式：</strong> Excel (.xlsx, .xls) 和 CSV (.csv)<br>
+                    <strong>功能说明：</strong> 如果应用已存在，将更新数据；如果不存在，将插入新记录
+                </div>
+
+                <form method="POST" enctype="multipart/form-data" id="importForm">
+                    <div class="mb-4">
+                        <label for="file" class="form-label">
+                            <i class="fas fa-file me-2"></i>
+                            选择文件
+                        </label>
+                        <input type="file" 
+                               class="form-control" 
+                               id="file" 
+                               name="file" 
+                               accept=".xlsx,.xls,.csv"
+                               required>
+                        <div class="form-text">
+                            文件大小限制：16MB
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6>文件字段要求：</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>字段</th>
+                                        <th>可识别的列名</th>
+                                        <th>必需</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>应用名称</td>
+                                        <td>name, 名称, 应用名称, 应用名</td>
+                                        <td><span class="badge bg-danger">必需</span></td>
+                                        <td>应用的名称，用于识别应用</td>
+                                    </tr>
+                                    <tr>
+                                        <td>简介描述</td>
+                                        <td>brief, 简介, 描述, 说明, description</td>
+                                        <td><span class="badge bg-secondary">可选</span></td>
+                                        <td>应用的简介或描述</td>
+                                    </tr>
+                                    <tr>
+                                        <td>下载量</td>
+                                        <td>count, 下载量, 下载数, downloads</td>
+                                        <td><span class="badge bg-secondary">可选</span></td>
+                                        <td>应用的下载次数</td>
+                                    </tr>
+                                    <tr>
+                                        <td>链接地址</td>
+                                        <td>href, url, 链接, link</td>
+                                        <td><span class="badge bg-secondary">可选</span></td>
+                                        <td>应用的访问链接</td>
+                                    </tr>
+                                    <tr>
+                                        <td>图标链接</td>
+                                        <td>icon_src, icon, 图标, icon src</td>
+                                        <td><span class="badge bg-secondary">可选</span></td>
+                                        <td>应用图标的链接地址</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary me-md-2">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            返回列表
+                        </a>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <i class="fas fa-upload me-2"></i>
+                            开始导入
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 示例文件格式 -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    示例文件格式
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Excel 示例：</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>name</th>
+                                        <th>brief</th>
+                                        <th>count</th>
+                                        <th>href</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sniffnet</td>
+                                        <td>网络流量监控工具</td>
+                                        <td>26100</td>
+                                        <td>https://github.com/GyulyVGC/sniffnet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VS Code</td>
+                                        <td>代码编辑器</td>
+                                        <td>158000</td>
+                                        <td>https://code.visualstudio.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>CSV 示例：</h6>
+                        <pre class="bg-light p-3 rounded"><code>name,brief,count,href
+Sniffnet,网络流量监控工具,26100,https://github.com/GyulyVGC/sniffnet
+VS Code,代码编辑器,158000,https://code.visualstudio.com</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('importForm').addEventListener('submit', function(e) {
+    const submitBtn = document.getElementById('submitBtn');
+    const fileInput = document.getElementById('file');
+    
+    if (!fileInput.files.length) {
+        e.preventDefault();
+        alert('请选择要上传的文件！');
+        return;
+    }
+    
+    // 显示上传进度
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>正在导入...';
+    submitBtn.disabled = true;
+});
+
+// 文件选择后显示文件信息
+document.getElementById('file').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const fileSize = (file.size / 1024 / 1024).toFixed(2);
+        const fileType = file.name.split('.').pop().toLowerCase();
+        
+        // 检查文件大小
+        if (file.size > 16 * 1024 * 1024) {
+            alert('文件大小超过16MB限制！');
+            e.target.value = '';
+            return;
+        }
+        
+        // 检查文件类型
+        if (!['csv', 'xlsx', 'xls'].includes(fileType)) {
+            alert('不支持的文件格式！请上传 .xlsx, .xls 或 .csv 文件');
+            e.target.value = '';
+            return;
+        }
+        
+        console.log(`已选择文件: ${file.name} (${fileSize}MB)`);
+    }
+});
+</script>
+{% endblock %} 

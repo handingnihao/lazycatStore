@@ -1,0 +1,101 @@
+title,url,category,free,traffic,description
+ARRCON,https://github.com/radj307/ARRCON,games; administrative utilities & control panels,TRUE,1K,ARRCON - Terminal-based RCON client compatible with any game servers using the Source RCON Protocol. GPL-3.0 C++
+Ansible-NAS,https://github.com/DaveStephens/ansible-nas,self-hosting solutions,TRUE,1K,Ansible-NAS - Build a full-featured home server with this playbook and an Ubuntu box. MIT Ansible/Docker
+Bicimon,https://github.com/knrdl/bicimon,maps and gps service,TRUE,50K,Bicimon - Bike Speedometer as Progressive Web App.  MIT Javascript
+Bsimp,https://github.com/akrylysov/bsimp,media streaming service; audio streaming,TRUE,,Bsimp - Minimalistic S3-backed audio library. Apache-2.0 Go
+CyTube,https://github.com/calzoneman/sync,media streaming service;video streaming,TRUE,1K,"CyTube - CyTube is a web application providing media synchronization, chat, and more for an arbitrary number of channels.  MIT Nodejs"
+Darkwire io,https://github.com/darkwire/darkwire.io,communication system,TRUE,1K,Darkwire.io - End-to-end encrypted instant web chat. MIT Nodejs
+Dashpress,https://github.com/dashpresshq/dashpress,software development tool,TRUE,1K,"Dashpress - Generate fully functional admin apps in seconds from your database information, with a single command.  AGPL-3.0 Nodejs/Docker"
+Davis,https://github.com/tchapi/davis,calendaring and contact management system,TRUE,1K,"Davis - A simple, dockerizable and fully translatable admin interface for sabre/dav based on Symfony 5 and Bootstrap 4, largely inspired by Baïkal. MIT PHP"
+DragonFly,https://github.com/corecode/dma,mail agents,TRUE,1K,DragonFly - A small MTA for home and office use. Works on Linux and FreeBSD. BSD-3-Clause C
+Drift,https://github.com/MaxLeiter/drift,pastebins,TRUE,5K,Drift - Self-hosted Github Gist clone.  MIT Nodejs
+Easyshortener,https://github.com/easypanel-community/easyshortener,url shorteners,TRUE,56K,Easyshortener - A simple URL shortener. MIT PHP/Nodejs/Docker
+Family Accounting Tool,https://github.com/nymanjens/facto,"money, budgeting, and management tool",TRUE,1K,Family Accounting Tool - Web-based finance management tool for partners with partially shared expenses. Apache-2.0 Scala
+FileShelter,https://github.com/epoupon/fileshelter,file sharing; single-click & drag-n-drop upload,TRUE,1K,FileShelter - FileShelter is a self-hosted software that allows you to easily share files over the Internet. GPL-3.0 C++/deb
+Files Sharing,https://github.com/axeloz/filesharing,file sharing; single-click & drag-n-drop upload,TRUE,1K,Files Sharing - Open Source and self-hosted files sharing application based on unique and temporary links. GPL-3.0 PHP/Docker
+FreeScout,https://github.com/freescout-helpdesk/freescout,ticketing,TRUE,55K,"FreeScout - Open source clone of Help Scout: email-based customer support application, help desk and shared mailbox. AGPL-3.0 PHP/Docker"
+Gitit,https://github.com/jgm/gitit,wikis,TRUE,2K,"Gitit - Wiki program that stores pages and uploaded files in a git repository, which can then be modified using the VCS command line tools or the wiki's web interface. GPL-2.0 Haskell"
+Glowing Bear,https://github.com/glowing-bear/glowing-bear,irc,TRUE,1K,Glowing Bear - A web frontend for WeeChat.  GPL-3.0 Nodejs
+GoSƐ,https://github.com/stv0g/gose,file sharing; single-click & drag-n-drop upload,TRUE,1K,GoSƐ - GoSƐ is a modern file-uploader focusing on scalability and simplicity. It only depends on a S3 storage backend and hence scales horizontally without the need for additional databases or caches.  Apache-2.0 Go/Docker
+GoToSocial,https://github.com/superseriousbusiness/gotosocial,social networks and forums,TRUE,1K,GoToSocial - ActivityPub federated social network server implementing the Mastodon client API. AGPL-3.0 Docker/Go
+Goeland,https://github.com/slurdge/goeland,feed readers,TRUE,1K,Goeland - Reads RSS/Atom feeds and filter/digest them to create beautiful emails. MIT Go
+Headphones,https://github.com/rembo10/headphones,automation tool,TRUE,1K,"Headphones - Automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent, Deluge and Blackhole. GPL-3.0 Python"
+IFM,https://github.com/misterunknown/ifm,file sharing; web-based file managers,TRUE,1K,IFM - Single script file manager. MIT PHP
+Iguana,https://github.com/iguana-project/iguana,ticketing,TRUE,34K,Iguana - Iguana is an open source issue management system with a kanban board. CC-BY-SA-4.0 Python/Docker
+Infinoted,https://github.com/gobby/gobby/wiki/Dedicated%20Server,office suites,TRUE,62K,"Infinoted - Server for Gobby, a multi-platform collaborative text editor.  MIT C++"
+Invidious,https://github.com/iv-org/invidious,media streaming service;video streaming,TRUE,1K,Invidious  - Alternative YouTube front-end.  AGPL-3.0 Docker/Crystal
+Jauth,https://github.com/Jipok/Jauth,proxy,TRUE,1K,Jauth  - Lightweight SSL/TLS reverse proxy with authorization (via Telegram and SSH) for self-hosted apps. GPL-3.0 Go
+Jina,https://github.com/jina-ai/jina/,search engines,TRUE,42K,Jina - Cloud-native neural search framework for any kind of data. Apache-2.0 Python/Docker
+KChat,https://github.com/php-kchat/kchat,communication system,TRUE,1K,KChat - PHP Based Live Chat Application. Apache-2.0 PHP
+Kanbana,https://github.com/SrGMC/kanbana,task management & to-do lists,TRUE,31K,Kanbana - Create boards to track users and projects from flat markdown files (fork of Crepido). MIT Nodejs
+Klaus,https://github.com/jonashaag/klaus,software development tool; project management,TRUE,1K,"Klaus - Simple, easy-to-set-up Git web viewer that Just Works. ISC Python/Docker"
+Koblas,https://github.com/ynuwenhof/koblas,proxy,TRUE,2K,Koblas - Lightweight SOCKS5 proxy server. MIT Rust/Docker
+Kriss Feed,https://github.com/tontof/kriss_feed,feed readers,TRUE,1K,Kriss Feed - Simple and smart (or stupid) feed reader. CC0-1.0 PHP
+Laravel Simple Password Manager,https://github.com/milenmk/Laravel-Simple-Password-Manager,password management tool,TRUE,8K,Laravel Simple Password Manager - Simple Password manager. GPL-3.0 PHP
+Laravel Simple Password Manager,https://github.com/milenmk/Laravel-Simple-Password-Manager,password management tool,TRUE,8K,Laravel Simple Password Manager - Simple Password manager. GPL-3.0 PHP
+Leed,https://github.com/LeedRSS/Leed,feed readers,TRUE,1K,Leed - Leed (for Light Feed) is a Free and minimalist RSS aggregator. AGPL-3.0 PHP
+Libreddit,https://github.com/libreddit/libreddit,social networks and forums,TRUE,1K,Libreddit  - Private front-end for Reddit written in Rust. AGPL-3.0 Rust
+Lstu,https://github.com/ldidry/lstu,url shorteners,TRUE,4K,Lstu - Lightweight URL shortener. WTFPL Perl/Docker
+Magento Open Source,https://github.com/magento/magento2,e-commerce,TRUE,1K,Magento Open Source - Leading provider of open omnichannel innovation. OSL-3.0 PHP
+Manticore Search,https://github.com/manticoresoftware/manticoresearch/,search engines,TRUE,13K,"Manticore Search - Full-text search and data analytics, with fast response time for small, medium and big data (alternative to Elasticsearch). GPL-2.0 Docker/deb/C++"
+Mars Server,https://github.com/borjapazr/mars-server,self-hosting solutions,TRUE,1K,"Mars Server - Managed home server with Docker, Docker Compose, Make and Bash. MIT Docker"
+Mejiro,https://github.com/dmpop/mejiro,photo and video galleries,TRUE,1K,Mejiro - An easy-to-use PHP web application for instant photo publishing. GPL-3.0 PHP
+MyPaas,https://github.com/almarklein/mypaas,miscellaneous,TRUE,6K,"MyPaas - Run your own PaaS using Docker, Traefik, and great monitoring. BSD-2-Clause Python/Docker"
+Oblecto,https://github.com/robinp7720/Oblecto,media streaming service;video streaming,TRUE,1K,Oblecto  - Media server for Movies and TV Shows with a responsive Vue.js frontend. It has robust transcoding support as well as federation capabilities to share your library with your friends. AGPL-3.0 Nodejs
+OnTrack,https://github.com/inoda/ontrack,"money, budgeting, and management tool",TRUE,1K,OnTrack - A simple app to track spend and set goals. MIT Ruby/Nodejs
+Open Event Server,https://github.com/fossasia/open-event-server,polls and events,TRUE,2K,Open Event Server - Enables organizers to manage events from concerts to conferences and meet-ups. GPL-3.0 Python/Docker
+Open Source POS,https://github.com/opensourcepos/opensourcepos,e-commerce,TRUE,1K,Open Source POS - Open Source Point of Sale is a web based point of sale system. MIT PHP
+OpenBBTerminal,https://github.com/OpenBB-finance/OpenBBTerminal,"personal finance; money, budgeting, and management tool",TRUE,5K,"Investment Research for Everyone, Everywhere."
+PHPOffice,https://github.com/PHPOffice,office suites,TRUE,84K,PHPOffice - PHPOffice contains libraries which permits to write and read files from most office suites. LGPL-3.0 PHP
+PassWall,https://github.com/passwall/passwall-server,password management tool,TRUE,79K,PassWall - Open source password manager. AGPL-3.0 Docker
+Pastr,https://github.com/hossainalhaidari/pastr,url shorteners,TRUE,2K,Pastr - Super-minimal URL shortener and paste tool that uses a flat-file storage and has no dependencies.  MIT Go/Docker
+Plik,https://github.com/root-gg/plik,file sharing; single-click & drag-n-drop upload,TRUE,1K,Plik - Plik is a scalable and friendly temporary file upload system.  MIT Go/Docker
+Posio,https://github.com/abrenaut/posio,games; multiplayer game servers,TRUE,1K,Posio - Geography multiplayer game. MIT Python
+Psychic,https://github.com/psychic-api/psychic,api management,TRUE,1K,Psychic - Universal API to connect large language models to dynamic data sources. GPL-3.0 Python
+RSS Monster,https://github.com/pietheinstrengholt/rssmonster,feed readers,TRUE,1K,RSS Monster - An easy to use web-based RSS aggregator and reader compatible with the Fever API (alternative to Google Reader). MIT PHP
+Rapidbay,https://github.com/hauxir/rapidbay/,media streaming service;video streaming,TRUE,1K,Rapidbay - Self-hosted torrent videostreaming service/torrent client that allows searching and playing videos from torrents in the browser or from a Chromecast/AppleTV/Smart TV. MIT Python/Docker
+RconCli,https://github.com/gorcon/rcon-cli,games; administrative utilities & control panels,TRUE,1K,RconCli - CLI for executing queries on a remote Valve Source dedicated server using the RCON Protocol. MIT Go
+Retrospring,https://github.com/retrospring/retrospring,social networks and forums,TRUE,1K,"Retrospring - A free, open-source social network following the Q/A (question and answer) principle of sites like Formspring, ask.fm or CuriousCat.  AGPL-3.0 Ruby/Nodejs"
+Romm,https://github.com/zurdi15/romm,games; multiplayer game servers,TRUE,1K,Romm  - RomM (Rom Manager) is a web based retro roms manager integrated with IGDB. GPL-3.0 Docker
+SWAG (Secure Web Application Gateway),https://github.com/linuxserver/docker-swag,proxy,TRUE,47K,"SWAG (Secure Web Application Gateway) - Nginx webserver and reverse proxy with PHP support, built-in Certbot (Let's Encrypt) client and fail2ban integration. GPL-3.0 Docker"
+Shhh,https://github.com/smallwat3r/shhh,communication system,TRUE,1K,"Shhh - Keep secrets out of emails or chat logs, share them using secure links with passphrase and expiration dates. MIT Python"
+Shifter,https://github.com/TobySuch/Shifter,file sharing; single-click & drag-n-drop upload,TRUE,1K,"Shifter - A simple, self-hosted file-sharing web app, powered by Django. MIT Docker"
+Short{Paste},https://github.com/adyanth/shortpaste,url shorteners,TRUE,6K,"Short{Paste} - A Go based URL shortener, pastebin and file uploader. MIT Docker"
+Simple-URL-Shortener,https://github.com/azlux/Simple-URL-Shortener,url shorteners,TRUE,2K,"Simple-URL-Shortener - KISS URL shortener, public or private (with account). Minimalist and lightweight. No dependencies.  MIT PHP"
+Snapcast,https://github.com/badaix/snapcast,media streaming service; audio streaming,TRUE,1K,Snapcast - Synchronous multiroom audio server. GPL-3.0 C++/deb
+Streama,https://github.com/streamaserver/streama,media streaming service;video streaming,TRUE,1K,Streama - Self hosted streaming media server. MIT Java
+Stretto,https://github.com/benkaiser/stretto,media streaming service; audio streaming,TRUE,1K,"Stretto - Music player with Youtube/Soundcloud import and iTunes/Spotify discovery. (Demo, Clients) MIT Nodejs"
+Sup3rS3cretMes5age,https://github.com/algolia/sup3rS3cretMes5age,pastebins,TRUE,36K,Sup3rS3cretMes5age - Very simple (to deploy and to use) secret message service using Hashicorp Vault as a secrets storage. MIT Go
+Supysonic,https://github.com/spl0k/supysonic,media streaming service; audio streaming,TRUE,1K,Supysonic - Python implementation of the Subsonic server API. AGPL-3.0 Python/deb
+SyncTube,https://github.com/RblSb/SyncTube,media streaming service;video streaming,TRUE,1K,SyncTube - Lightweight and very simple to setup CyTube alternative to watch videos with friends and chat. MIT Nodejs/Haxe
+Temboz,https://github.com/fazalmajid/temboz,feed readers,TRUE,1K,Temboz - Two-column feed reader emphasizing filtering capabilities to manage information overload. MIT Python
+TextBelt,https://github.com/typpo/textbelt,communication system,TRUE,1K,"TextBelt  - Outgoing SMS API that uses carrier-specific gateways to deliver your text messages for free, and without ads. MIT Javascript"
+Tinode,https://github.com/tinode,communication system,TRUE,1K,"Tinode - Instant messaging platform. Backend in Go. Clients: Swift iOS, Java Android, JS webapp, scriptable command line; chatbots.  GPL-3.0 Go"
+Tracim,https://github.com/tracim/tracim,groupware,TRUE,2K,"Tracim - Collaborative Platform for team collaboration: file,threads,notes,agenda,etc. AGPL-3.0/LGPL-3.0/MIT Python"
+Trusted-CGI,https://github.com/reddec/trusted-cgi,faas & serverless,TRUE,1K,Trusted-CGI - Lightweight self-hosted lambda/applications/cgi/serverless-functions platform. MIT Go/deb/Docker
+Uguu,https://github.com/nokonoko/uguu,file sharing; single-click & drag-n-drop upload,TRUE,1K,Uguu - Stores files and deletes after X amount of time. MIT PHP
+Uploady,https://github.com/farisc0de/Uploady,file sharing; single-click & drag-n-drop upload,TRUE,1K,Uploady - Uploady is a simple file uploader script with multi file upload support. MIT PHP
+VanDAM,https://github.com/Floppy/van_dam,manufacturing,TRUE,1K,"VanDAM - Digital asset manager for 3d print files; STL, OBJ, 3MF and more. MIT Docker"
+Xandikos,https://github.com/jelmer/xandikos,calendaring and contact management system,TRUE,1K,"Xandikos - Open source CardDAV and CalDAV server with minimal administrative overhead, backed by a Git repository. GPL-3.0 Python/deb"
+betanin,https://github.com/sentriz/betanin,automation tool,TRUE,1K,"betanin - Music organization man-in-the-middle of your torrent client and music player. Based on beets.io, similar to Sonarr and Radarr. GPL-3.0 Python/Docker"
+blocky,https://github.com/0xERR0R/blocky,dns,TRUE,1K,blocky - Fast and lightweight DNS proxy (like Pi-hole) as ad-blocker for local network with many features. Apache-2.0 Go/Docker
+cmyflix,https://github.com/farfalleflickan/cmyflix,media streaming service;video streaming,TRUE,,"cmyflix  - Self-hosted, super lightweight Netflix alternative. AGPL-3.0 C"
+copyparty,https://github.com/9001/copyparty,file sharing; web-based file managers,TRUE,1K,"copyparty - Portable file server with accelerated resumable uploads, deduplication, WebDAV, FTP, zeroconf, media indexer, video thumbnails, audio transcoding, and write-only folders, in a single file with no mandatory dependencies.  MIT Python"
+django-wiki,https://github.com/django-wiki/django-wiki,wikis,TRUE,800K,django-wiki - Wiki system with complex functionality for simple integration and a superb interface. Store your knowledge with style: Use django models.  GPL-3.0 Python
+envlinks,https://github.com/maxhollmann/envlinks,personal dashboards,TRUE,2K,envlinks - A minimalist link dashboard showing links from environment variables.  MIT Docker
+feedmixer,https://github.com/cristoper/feedmixer,automation tool,TRUE,1K,"feedmixer - FeedMixer is a WSGI (Python3) micro web service which takes a list of feed URLs and returns a new feed consisting of the most recent n entries from each given feed(Returns Atom, RSS, or JSON).  WTFPL Python"
+goploader,https://github.com/Depado/goploader,file sharing; single-click & drag-n-drop upload,TRUE,1K,"goploader - Easy file sharing with server-side encryption, curl/httpie/wget compliant. MIT Go"
+httprd,https://github.com/bitrate16/httprd,remote access,TRUE,84K,httprd - Single-script remote desktop via web browser. GPL-3.0 Python
+instant io,https://github.com/webtorrent/instant.io,file sharing; peer-to-peer filesharing,TRUE,1K,instant.io - Streaming file transfer over WebTorrent.  MIT Nodejs
+miniserve,https://github.com/svenstaro/miniserve,file sharing; web-based file managers,TRUE,1K,miniserve - CLI tool to serve files and dirs over HTTP. MIT Rust
+rgit,https://github.com/w4/rgit,software development tool; project management,TRUE,1K,rgit - An ultra-fast & lightweight cgit clone.  WTFPL Rust/Docker
+sigal,https://github.com/saimn/sigal,photo and video galleries,TRUE,1K,sigal - Yet another simple static gallery generator. MIT Python
+sish,https://github.com/antoniomika/sish,proxy,TRUE,127K,sish - HTTP(S)/WS(S)/TCP tunnels to localhost using only SSH (serveo/ngrok alternative). MIT Go/Docker
+sist2,https://github.com/simon987/sist2,search engines,TRUE,2K,sist2 - Lightning-fast file system indexer and search tool. GPL-3.0 C/Docker
+socks5-proxy-server,https://github.com/nskondratev/socks5-proxy-server,proxy,TRUE,444K,socks5-proxy-server - SOCKS5 proxy server with built-in authentication and Telegram-bot for user management and user statistics on data spent (handy when you pay per GB of data). It is dockerised and simple to install. Apache-2.0 Docker
+teikei,https://github.com/teikei/teikei,community-supported agriculture (csa),TRUE,1K,teikei - A web application that maps out community-supported agriculture based on crowdsourced data.  AGPL-3.0 Nodejs
+transfer sh,https://github.com/dutchcoders/transfer.sh,file sharing; single-click & drag-n-drop upload,TRUE,1K,transfer.sh - Easy file sharing from the command line. MIT Go
+vod2pod-rss,https://github.com/madiele/vod2pod-rss,media streaming service; audio streaming,TRUE,1K,"vod2pod-rss  - Convert YouTube and Twitch channels to podcasts, no storage required. Transcodes VoDs to MP3 192k on the fly, generates an RSS feed to use in podcast clients. MIT Docker"
+µStreamer,https://github.com/pikvm/ustreamer,media streaming service,TRUE,1K,µStreamer - Lightweight and very quick server to stream MJPEG video from any V4L2 device to the net. GPL-3.0 C/deb
+µTask,https://github.com/ovh/utask,automation tool,TRUE,1K,µTask - Automation engine that models and executes business processes declared in yaml. BSD-3-Clause Go/Docker
+μlogger,https://github.com/bfabiszewski/ulogger-server,maps and gps service,TRUE,2K,μlogger - Collect geolocation from users in real-time and display their GPS tracks on a website.  GPL-3.0 PHP

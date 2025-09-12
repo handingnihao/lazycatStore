@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block title %}应用列表 - 懒猫应用商店管理系统{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-list text-primary"></i> 应用列表</h2>
+    <div class="d-flex gap-2">
+        <a href="{{ url_for('add_app') }}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> 添加应用
+        </a>
+        <a href="{{ url_for('statistics') }}" class="btn btn-outline-primary">
+            <i class="fas fa-chart-bar"></i> 统计分析
+        </a>
+    </div>
+</div>
+
+<!-- 搜索框和排序 -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <form method="GET" action="{{ url_for('index') }}" id="searchForm">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" value="{{ search }}" 
+                       placeholder="搜索应用名称或描述...">
+                <input type="hidden" name="sort" value="{{ sort_by }}">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search"></i> 搜索
+                </button>
+                {% if search %}
+                <a href="{{ url_for('index', sort=sort_by) }}" class="btn btn-outline-secondary">
+                    <i class="fas fa-times"></i> 清除
+                </a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" id="sortSelect" onchange="changeSortOrder()">
+            <option value="count" {{ 'selected' if sort_by == 'count' else '' }}>
+                <i class="fas fa-download"></i> 按下载量排序
+            </option>
+            <option value="star" {{ 'selected' if sort_by == 'star' else '' }}>
+                <i class="fas fa-star"></i> 按Star数排序
+            </option>
+            <option value="name" {{ 'selected' if sort_by == 'name' else '' }}>
+                <i class="fas fa-sort-alpha-down"></i> 按名称排序
+            </option>
+            <option value="created" {{ 'selected' if sort_by == 'created' else '' }}>
+                <i class="fas fa-clock"></i> 按创建时间排序
+            </option>
+        </select>
+    </div>
+    <div class="col-md-3 text-end">
+        <small class="text-muted">
+            显示第 {{ (page-1)*per_page + 1 }} - {{ page*per_page if page*per_page < total else total }} 条，
+            共 {{ total }} 个应用
+        </small>
+    </div>
+</div>
+
+<!-- 应用列表 -->
+{% if apps %}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th width="5%">ID</th>
+                <th width="25%">应用名称</th>
+                <th width="35%">简介</th>
+                <th width="8%">下载量</th>
+                <th width="8%">
+                    <i class="fab fa-github text-secondary"></i> Star
+                </th>
+                <th width="12%">创建时间</th>
+                <th width="7%">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in apps %}
+            <tr>
+                <td>{{ app[0] }}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        {% if app[5] %}
+                        <img src="{{ app[5] }}" alt="图标" class="me-2" style="width: 32px; height: 32px; border-radius: 8px;" 
+                             onerror="this.style.display='none'">
+                        {% endif %}
+                        <div>
+                            <strong>{{ app[1] }}</strong>
+                            {% if app[0] >= 1000000 %}
+                            <span class="badge bg-warning text-dark ms-1" style="font-size: 0.7em;">
+                                <i class="fas fa-plus-circle"></i> 自定义
+                            </span>
+                            {% endif %}
+                            {% if app|length > 9 and app[9] == 'github' %}
+                            <span class="badge bg-success ms-1" style="font-size: 0.7em;" title="开源项目">
+                                <i class="fab fa-github"></i> 开源
+                            </span>
+                            {% endif %}
+                            {% if app[4] %}
+                            <br><small class="text-muted">
+                                <a href="{{ app[4] }}" target="_blank" class="text-decoration-none">
+                                    <i class="fas fa-external-link-alt"></i> 详情
+                                </a>
+                            </small>
+                            {% endif %}
+                            {% if app|length > 8 and app[8] %}
+                            <br><small class="text-muted">
+                                <a href="{{ app[8] }}" target="_blank" class="text-decoration-none">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <small>{{ app[2][:100] + '...' if app[2] and app[2]|length > 100 else app[2] or '暂无描述' }}</small>
+                </td>
+                <td>
+                    {% if app[3] > 0 %}
+                    <span class="badge bg-primary">{{ "{:,}".format(app[3]) }}</span>
+                    {% else %}
+                    <span class="badge bg-secondary">0</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if app|length > 7 and app[7] > 0 %}
+                        {% if app[7] >= 50000 %}
+                        <span class="badge bg-warning text-dark" title="{{ '{:,}'.format(app[7]) }} stars">
+                            <i class="fas fa-star"></i> {{ "{:,.0f}k".format(app[7]/1000) }}
+                        </span>
+                        {% elif app[7] >= 10000 %}
+                        <span class="badge bg-info" title="{{ '{:,}'.format(app[7]) }} stars">
+                            <i class="fas fa-star"></i> {{ "{:,.1f}k".format(app[7]/1000) }}
+                        </span>
+                        {% elif app[7] >= 1000 %}
+                        <span class="badge bg-success" title="{{ '{:,}'.format(app[7]) }} stars">
+                            <i class="fas fa-star"></i> {{ "{:,.1f}k".format(app[7]/1000) }}
+                        </span>
+                        {% else %}
+                        <span class="badge bg-secondary" title="{{ app[7] }} stars">
+                            <i class="fas fa-star"></i> {{ app[7] }}
+                        </span>
+                        {% endif %}
+                    {% else %}
+                    <span class="text-muted">-</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <small class="text-muted">{{ app[6][:10] if app[6] else '-' }}</small>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <a href="{{ url_for('view_app', app_id=app[0]) }}" class="btn btn-outline-primary" title="查看">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a href="{{ url_for('edit_app', app_id=app[0]) }}" class="btn btn-outline-warning" title="编辑">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button type="button" class="btn btn-outline-danger" title="删除"
+                                onclick="deleteApp({{ app[0] }}, '{{ app[1] }}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- 分页 -->
+{% if total_pages > 1 %}
+<nav aria-label="分页导航">
+    <ul class="pagination justify-content-center">
+        {% if page > 1 %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('index', page=page-1, search=search, sort=sort_by) }}">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+        </li>
+        {% endif %}
+        
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+            <li class="page-item active">
+                <span class="page-link">{{ p }}</span>
+            </li>
+            {% elif p <= 3 or p >= total_pages - 2 or (p >= page - 1 and p <= page + 1) %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('index', page=p, search=search, sort=sort_by) }}">{{ p }}</a>
+            </li>
+            {% elif p == 4 and page > 6 %}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+            </li>
+            {% elif p == total_pages - 3 and page < total_pages - 5 %}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+            </li>
+            {% endif %}
+        {% endfor %}
+        
+        {% if page < total_pages %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('index', page=page+1, search=search, sort=sort_by) }}">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+{% else %}
+<div class="text-center py-5">
+    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+    <h4 class="text-muted">
+        {% if search %}
+        没有找到匹配 "{{ search }}" 的应用
+        {% else %}
+        暂无应用数据
+        {% endif %}
+    </h4>
+    <p class="text-muted">
+        {% if search %}
+        尝试使用其他关键词搜索，或者
+        <a href="{{ url_for('index') }}" class="text-decoration-none">查看所有应用</a>
+        {% else %}
+        <a href="{{ url_for('add_app') }}" class="btn btn-primary">添加第一个应用</a>
+        {% endif %}
+    </p>
+</div>
+{% endif %}
+
+<!-- 删除确认模态框 -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">确认删除</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>确定要删除应用 "<span id="deleteAppName"></span>" 吗？</p>
+                <p class="text-danger"><small>此操作不可撤销！</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <form id="deleteForm" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">确认删除</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function deleteApp(appId, appName) {
+    document.getElementById('deleteAppName').textContent = appName;
+    document.getElementById('deleteForm').action = `/delete/${appId}`;
+    new bootstrap.Modal(document.getElementById('deleteModal')).show();
+}
+
+// 排序选择器变化处理
+function changeSortOrder() {
+    const sortSelect = document.getElementById('sortSelect');
+    const searchForm = document.getElementById('searchForm');
+    const sortInput = searchForm.querySelector('input[name="sort"]');
+    
+    sortInput.value = sortSelect.value;
+    searchForm.submit();
+}
+
+// 自动隐藏成功消息
+setTimeout(function() {
+    const alerts = document.querySelectorAll('.alert-success');
+    alerts.forEach(function(alert) {
+        const bsAlert = new bootstrap.Alert(alert);
+        bsAlert.close();
+    });
+}, 3000);
+
+// 为star badge添加悬停效果
+document.addEventListener('DOMContentLoaded', function() {
+    const starBadges = document.querySelectorAll('[title*="stars"]');
+    starBadges.forEach(function(badge) {
+        badge.style.cursor = 'help';
+    });
+});
+</script>
+{% endblock %} 

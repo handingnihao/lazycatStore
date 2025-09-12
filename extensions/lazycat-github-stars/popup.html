@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+        h1 {
+            font-size: 18px;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+        .features {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+        }
+        .features h2 {
+            font-size: 14px;
+            margin: 0 0 8px 0;
+        }
+        .features ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 13px;
+        }
+        .features li {
+            margin: 4px 0;
+        }
+        .footer {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+        .status {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 8px;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+        .status.active {
+            background: rgba(76, 175, 80, 0.3);
+        }
+        .api-warning {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            border-radius: 4px;
+            padding: 8px;
+            margin: 12px 0;
+            font-size: 12px;
+            display: none;
+        }
+        .api-warning.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <svg class="icon" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        懒猫 GitHub Stars
+    </h1>
+    
+    <p>自动在懒猫应用商店显示 GitHub 项目的 star 数量。</p>
+    
+    <div class="status active" id="status">
+        插件状态：✅ 已启用
+    </div>
+    
+    <div class="api-warning" id="apiWarning">
+        ⚠️ 未配置 GitHub Token<br>
+        <span style="font-size: 11px;">右键插件图标 → 选项 进行配置</span>
+    </div>
+    
+    <div class="features">
+        <h2>功能特性：</h2>
+        <ul>
+            <li>🌟 自动显示 GitHub star 数量</li>
+            <li>🔱 显示 fork 数量</li>
+            <li>💾 智能缓存，减少 API 请求</li>
+            <li>🔄 手动刷新按钮</li>
+            <li>📅 显示最后更新时间</li>
+        </ul>
+    </div>
+    
+    <div class="features">
+        <h2>使用说明：</h2>
+        <ul>
+            <li>访问懒猫应用详情页</li>
+            <li>首次访问自动获取数据</li>
+            <li>点击刷新按钮更新数据</li>
+            <li>右键插件图标 → 选项 配置 Token</li>
+        </ul>
+    </div>
+    
+    <div class="footer">
+        版本 1.2.1 | 
+        <a href="https://lazycat.cloud" target="_blank">懒猫应用商店</a>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 检查插件状态
+            chrome.storage.local.get(null, (items) => {
+                let cacheCount = 0;
+                for (const key in items) {
+                    if (!key.startsWith('setting_') && key !== 'githubToken') {
+                        cacheCount++;
+                    }
+                }
+                
+                if (cacheCount > 0) {
+                    document.getElementById('status').innerHTML = 
+                        `插件状态：✅ 已启用<br>已缓存 ${cacheCount} 个应用`;
+                }
+            });
+            
+            // 检查是否配置了Token
+            chrome.storage.sync.get(['githubToken'], (result) => {
+                const apiWarning = document.getElementById('apiWarning');
+                if (!result.githubToken) {
+                    apiWarning.classList.add('show');
+                } else {
+                    apiWarning.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

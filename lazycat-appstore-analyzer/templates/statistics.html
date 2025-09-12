@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}统计分析 - 懒猫应用商店管理系统{% endblock %}
+
+{% block extra_css %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-chart-bar text-primary"></i> 统计分析</h2>
+    <a href="{{ url_for('index') }}" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> 返回列表
+    </a>
+</div>
+
+<!-- 统计卡片 -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h2 class="text-primary">{{ stats.total_apps }}</h2>
+                <p class="card-text">
+                    <i class="fas fa-apps"></i> 总应用数
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h2 class="text-success">{{ stats.apps_with_downloads }}</h2>
+                <p class="card-text">
+                    <i class="fas fa-download"></i> 有下载量的应用
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h2 class="text-info">{{ stats.avg_downloads }}</h2>
+                <p class="card-text">
+                    <i class="fas fa-chart-line"></i> 平均下载量
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h2 class="text-warning">{{ "{:,}".format(stats.max_downloads) }}</h2>
+                <p class="card-text">
+                    <i class="fas fa-crown"></i> 最高下载量
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 图表区域 -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-trophy"></i> 最受欢迎的应用 (Top 10)
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="topAppsChart" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-pie-chart"></i> 应用分布
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="distributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 详细列表 -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-list"></i> 热门应用排行榜
+                </h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th width="8%">排名</th>
+                                <th width="40%">应用名称</th>
+                                <th width="20%">下载量</th>
+                                <th width="20%">下载占比</th>
+                                <th width="12%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in stats.top_apps %}
+                            <tr>
+                                <td>
+                                    <span class="badge 
+                                        {% if loop.index <= 3 %}bg-warning{% else %}bg-secondary{% endif %}">
+                                        #{{ loop.index }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <strong>{{ app[0] }}</strong>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">{{ "{:,}".format(app[1]) }}</span>
+                                </td>
+                                <td>
+                                    {% set percentage = (app[1] / stats.max_downloads * 100) %}
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar bg-success" 
+                                             style="width: {{ percentage }}%">
+                                            {{ "%.1f"|format(percentage) }}%
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('index', search=app[0]) }}" 
+                                       class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-search"></i> 查看
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 统计摘要 -->
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">
+                    <i class="fas fa-info-circle text-info"></i> 数据摘要
+                </h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> 
+                                有效应用占比: {{ "%.1f"|format(stats.apps_with_downloads / stats.total_apps * 100) }}%</li>
+                            <li><i class="fas fa-chart-bar text-primary"></i> 
+                                平均下载量: {{ stats.avg_downloads }} 次</li>
+                            <li><i class="fas fa-crown text-warning"></i> 
+                                最受欢迎应用: {{ stats.top_apps[0][0] if stats.top_apps else '暂无' }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-database text-info"></i> 
+                                数据库大小: {{ stats.total_apps }} 条记录</li>
+                            <li><i class="fas fa-clock text-muted"></i> 
+                                统计更新时间: {{ moment().format('YYYY-MM-DD HH:mm:ss') if moment else '实时' }}</li>
+                            <li><i class="fas fa-refresh text-secondary"></i> 
+                                <a href="{{ url_for('statistics') }}" class="text-decoration-none">刷新统计</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 准备图表数据
+const topAppsData = {
+    labels: [
+        {% for app in stats.top_apps[:10] %}
+        '{{ app[0][:20] + "..." if app[0]|length > 20 else app[0] }}',
+        {% endfor %}
+    ],
+    datasets: [{
+        label: '下载量',
+        data: [
+            {% for app in stats.top_apps[:10] %}
+            {{ app[1] }},
+            {% endfor %}
+        ],
+        backgroundColor: [
+            '#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe',
+            '#43e97b', '#fa709a', '#fee140', '#a8edea', '#d299c2'
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+    }]
+};
+
+const distributionData = {
+    labels: ['有下载量', '无下载量'],
+    datasets: [{
+        data: [{{ stats.apps_with_downloads }}, {{ stats.total_apps - stats.apps_with_downloads }}],
+        backgroundColor: ['#667eea', '#e9ecef'],
+        borderColor: '#fff',
+        borderWidth: 2
+    }]
+};
+
+// 创建热门应用条形图
+const topAppsCtx = document.getElementById('topAppsChart').getContext('2d');
+new Chart(topAppsCtx, {
+    type: 'bar',
+    data: topAppsData,
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return '下载量: ' + context.parsed.y.toLocaleString();
+                    }
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value) {
+                        return value.toLocaleString();
+                    }
+                }
+            },
+            x: {
+                ticks: {
+                    maxRotation: 45,
+                    minRotation: 45
+                }
+            }
+        }
+    }
+});
+
+// 创建分布饼图
+const distributionCtx = document.getElementById('distributionChart').getContext('2d');
+new Chart(distributionCtx, {
+    type: 'doughnut',
+    data: distributionData,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                        const percentage = ((context.parsed / total) * 100).toFixed(1);
+                        return context.label + ': ' + context.parsed + ' (' + percentage + '%)';
+                    }
+                }
+            }
+        }
+    }
+});
+
+// 添加动画效果
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        }, index * 100);
+    });
+});
+
+// 自动刷新功能（可选）
+function autoRefresh() {
+    setTimeout(() => {
+        if (confirm('统计数据可能已更新，是否刷新页面？')) {
+            window.location.reload();
+        }
+    }, 300000); // 5分钟后提示刷新
+}
+
+// autoRefresh(); // 取消注释以启用自动刷新
+</script>
+{% endblock %}

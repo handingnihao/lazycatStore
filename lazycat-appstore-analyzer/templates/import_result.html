@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}文件导入结果 - 懒猫应用商店数据分析{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2><i class="fas fa-file-import"></i> 文件导入结果</h2>
+            
+            <div class="card mt-3">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">导入文件: {{ file_name }}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="alert alert-info">
+                                <h6>总行数</h6>
+                                <h3>{{ total_rows }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-success">
+                                <h6>成功导入</h6>
+                                <h3>{{ imported }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-warning">
+                                <h6>跳过/重复</h6>
+                                <h3>{{ skipped }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% if errors %}
+                    <div class="alert alert-danger">
+                        <h6>错误信息:</h6>
+                        <ul>
+                            {% for error in errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: {{ (imported / total_rows * 100) if total_rows > 0 else 0 }}%">
+                            成功 {{ imported }}
+                        </div>
+                        <div class="progress-bar bg-warning" role="progressbar" 
+                             style="width: {{ (skipped / total_rows * 100) if total_rows > 0 else 0 }}%">
+                            跳过 {{ skipped }}
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="/" class="btn btn-primary">
+                            <i class="fas fa-home"></i> 返回主页
+                        </a>
+                        <button class="btn btn-success" onclick="openFileSelector()">
+                            <i class="fas fa-file-upload"></i> 导入其他文件
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openFileSelector() {
+    // 在懒猫微服环境中打开文件选择器
+    if (window.lazycat && window.lazycat.openFile) {
+        window.lazycat.openFile({
+            filters: [
+                { name: 'CSV文件', extensions: ['csv'] },
+                { name: 'Excel文件', extensions: ['xlsx', 'xls'] }
+            ],
+            callback: function(filePath) {
+                window.location.href = '/import?file=' + encodeURIComponent(filePath);
+            }
+        });
+    } else {
+        alert('请从懒猫网盘右键菜单选择文件导入');
+    }
+}
+</script>
+{% endblock %}
